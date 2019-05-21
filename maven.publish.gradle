@@ -1,0 +1,61 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+task javadocJar(type: Jar) {
+    archiveClassifier.set 'javadoc'
+}
+
+kotlin {
+    jvm("jvm8") {
+        mavenPublication {
+            groupId "${project.group}"
+            artifactId "${project.name}"
+            version "${project.version}"
+
+            artifact(javadocJar)
+        }
+    }
+}
+
+publishing {
+    publications {
+        jvm8 {
+            pom.withXml {
+                asNode().children().last() + {
+                    resolveStrategy = Closure.DELEGATE_FIRST
+                    name "${project_public_name}"
+                    description "${project_public_description}"
+                    url "https://insanusmokrassar.github.io/${project.name}"
+
+                    scm {
+                        connection "scm:git:git://github.com/insanusmokrassar/${project.name}.git"
+                        developerConnection "scm:git:[fetch=]https://github.com/insanusmokrassar/${project.name}.git[push=]ssh:git@github.com:insanusmokrassar/${project.name}.git"
+                        url "https://github.com/insanusmokrassar/${project.name}"
+
+                    }
+
+                    developers {
+                        developer {
+                            id "InsanusMokrassar"
+                            name "Ovsyannikov Alexey"
+                            email "ovsyannikov.alexey95@gmail.com"
+                        }
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache Software License, Version 2.0'
+                            url 'https://github.com/InsanusMokrassar/TelegramBotAPI/blob/master/LICENSE'
+                            distribution 'repo'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign publishing.publications.jvm8
+}
