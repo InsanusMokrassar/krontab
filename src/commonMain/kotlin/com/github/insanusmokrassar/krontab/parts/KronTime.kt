@@ -68,18 +68,18 @@ internal fun KronTimes(
                 hoursParts ?.flatMap { hours ->
                     weekDaysParts ?.map { weekDay ->
                         KronTime(millis, seconds, minutes, hours, weekDay)
-                    } ?: listOf(KronTime(millis, seconds, minutes, hours, null))
-                } ?: listOf(KronTime(millis, seconds, minutes, null, null))
-            } ?: listOf(KronTime(millis, seconds, null, null, null))
-        } ?: listOf(KronTime(millis, null, null, null, null))
-    } ?: listOf(KronTime(null, null, null, null, null))
+                    } ?: listOf(KronTime(millis, seconds, minutes, hours))
+                } ?: listOf(KronTime(millis, seconds, minutes))
+            } ?: listOf(KronTime(millis, seconds))
+        } ?: listOf(KronTime(milliseconds = millis))
+    } ?: listOf(KronTime())
 }
 
 internal fun KronTime(
-    milliseconds: Milliseconds
+    fullMillis: Milliseconds
 ): KronTime {
-    val millis = (milliseconds % millisCount).toShort()
-    var currentDivided: Double = floor(milliseconds.toDouble() / millisCount)
+    val millis = (fullMillis % millisCount).toShort()
+    var currentDivided: Double = floor(fullMillis.toDouble() / millisCount)
 
     val seconds: Byte = (currentDivided % secondsCount).toByte()
     currentDivided = floor(currentDivided / secondsCount)
@@ -102,9 +102,9 @@ internal fun KronTime(
 }
 
 internal data class KronTime(
-    val milliseconds: Milliseconds?,
-    val seconds: Seconds?,
-    val minutes: Minutes?,
-    val hours: Hours?,
-    val weekDays: WeekDays?
+    val milliseconds: Milliseconds? = null,
+    val seconds: Seconds? = null,
+    val minutes: Minutes? = null,
+    val hours: Hours? = null,
+    val weekDays: WeekDays? = null
 )
