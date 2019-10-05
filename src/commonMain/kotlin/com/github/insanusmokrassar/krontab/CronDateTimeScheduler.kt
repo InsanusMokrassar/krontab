@@ -1,7 +1,6 @@
 package com.github.insanusmokrassar.krontab
 
 import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeSpan
 import kotlinx.coroutines.delay
 
 private val anyCronDateTime by lazy {

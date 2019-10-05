@@ -1,9 +1,6 @@
 package com.github.insanusmokrassar.krontab
 
 import com.github.insanusmokrassar.krontab.utils.*
-import com.github.insanusmokrassar.krontab.utils.clamp
-import com.github.insanusmokrassar.krontab.utils.minutesRange
-import com.github.insanusmokrassar.krontab.utils.secondsRange
 
 private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Array<Byte>? {
     val things = from.split(",")
