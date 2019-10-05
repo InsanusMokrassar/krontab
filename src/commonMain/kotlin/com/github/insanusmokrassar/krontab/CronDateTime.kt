@@ -1,13 +1,10 @@
 package com.github.insanusmokrassar.krontab
 
-import com.soywiz.klock.*
+import com.github.insanusmokrassar.krontab.utils.*
 import com.github.insanusmokrassar.krontab.utils.clamp
-
-private val incomeMonthRange = 0 .. 11
-private val incomeDayOfMonthRange = 0 .. 31
-private val incomeHourRange = 0 .. 23
-private val incomeMinuteRange = 0 .. 59
-private val incomeSecondRange = 0 .. 59
+import com.github.insanusmokrassar.krontab.utils.dayOfMonthRange
+import com.github.insanusmokrassar.krontab.utils.monthRange
+import com.soywiz.klock.*
 
 /**
  * [month] 0-11
@@ -24,11 +21,11 @@ data class CronDateTime(
     val seconds: Byte? = null
 ) {
     init {
-        check(month ?.let { it in incomeMonthRange } ?: true)
-        check(dayOfMonth ?.let { it in incomeDayOfMonthRange } ?: true)
-        check(hours?.let { it in incomeHourRange } ?: true)
-        check(minutes?.let { it in incomeMinuteRange } ?: true)
-        check(seconds?.let { it in incomeSecondRange } ?: true)
+        check(month ?.let { it in monthRange } ?: true)
+        check(dayOfMonth ?.let { it in dayOfMonthRange } ?: true)
+        check(hours?.let { it in hoursRange } ?: true)
+        check(minutes?.let { it in minutesRange } ?: true)
+        check(seconds?.let { it in secondsRange } ?: true)
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
@@ -41,11 +38,11 @@ data class CronDateTime(
             minutes: Int? = null,
             seconds: Int? = null
         ) = CronDateTime(
-            month ?.clamp(incomeMonthRange) ?.toByte(),
-            dayOfMonth ?.clamp(incomeDayOfMonthRange) ?.toByte(),
-            hours ?.clamp(incomeHourRange) ?.toByte(),
-            minutes ?.clamp(incomeMinuteRange) ?.toByte(),
-            seconds ?.clamp(incomeSecondRange) ?.toByte()
+            month ?.clamp(monthRange) ?.toByte(),
+            dayOfMonth ?.clamp(dayOfMonthRange) ?.toByte(),
+            hours ?.clamp(hoursRange) ?.toByte(),
+            minutes ?.clamp(minutesRange) ?.toByte(),
+            seconds ?.clamp(secondsRange) ?.toByte()
         )
     }
 }
