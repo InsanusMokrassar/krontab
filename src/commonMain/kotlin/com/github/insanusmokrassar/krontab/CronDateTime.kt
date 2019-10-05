@@ -4,7 +4,6 @@ import com.github.insanusmokrassar.krontab.utils.*
 import com.github.insanusmokrassar.krontab.utils.clamp
 import com.github.insanusmokrassar.krontab.utils.dayOfMonthRange
 import com.github.insanusmokrassar.krontab.utils.monthRange
-import com.soywiz.klock.*
 
 /**
  * [month] 0-11
@@ -13,7 +12,7 @@ import com.soywiz.klock.*
  * [minutes] 0-59
  * [seconds] 0-59
  */
-data class CronDateTime(
+internal data class CronDateTime(
     val month: Byte? = null,
     val dayOfMonth: Byte? = null,
     val hours: Byte? = null,

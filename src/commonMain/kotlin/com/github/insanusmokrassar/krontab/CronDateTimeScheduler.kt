@@ -8,7 +8,7 @@ private val anyCronDateTime by lazy {
     CronDateTime()
 }
 
-data class CronDateTimeScheduler(
+internal data class CronDateTimeScheduler(
     internal val cronDateTimes: List<CronDateTime>
 )
 
@@ -27,7 +27,7 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
 
     seconds?.let {
         val left = it - current.seconds
-        current += DateTimeSpan(minutes = if (left < 0) 1 else 0, seconds = left)
+        current += DateTimeSpan(minutes = if (left <= 0) 1 else 0, seconds = left)
     }
 
     minutes?.let {
