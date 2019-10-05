@@ -4,6 +4,8 @@ import com.github.insanusmokrassar.krontab.utils.*
 import com.github.insanusmokrassar.krontab.utils.clamp
 import com.github.insanusmokrassar.krontab.utils.dayOfMonthRange
 import com.github.insanusmokrassar.krontab.utils.monthRange
+import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeSpan
 
 /**
  * [month] 0-11
@@ -44,4 +46,35 @@ internal data class CronDateTime(
             seconds ?.clamp(secondsRange) ?.toByte()
         )
     }
+}
+
+internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime {
+    var current = relativelyTo
+
+    seconds?.let {
+        val left = it - current.seconds
+        current += DateTimeSpan(minutes = if (left <= 0) 1 else 0, seconds = left)
+    }
+
+    minutes?.let {
+        val left = it - current.minutes
+        current += DateTimeSpan(hours = if (left < 0) 1 else 0, minutes = left)
+    }
+
+    hours?.let {
+        val left = it - current.hours
+        current += DateTimeSpan(days = if (left < 0) 1 else 0, hours = left)
+    }
+
+    klockDayOfMonth ?.let {
+        val left = it - current.dayOfMonth
+        current += DateTimeSpan(months = if (left < 0) 1 else 0, days = left)
+    }
+
+    month ?.let {
+        val left = it - current.month0
+        current += DateTimeSpan(months = if (left < 0) 1 else 0, days = left)
+    }
+
+    return current
 }

@@ -5,7 +5,7 @@ import com.github.insanusmokrassar.krontab.utils.clamp
 import com.github.insanusmokrassar.krontab.utils.minutesRange
 import com.github.insanusmokrassar.krontab.utils.secondsRange
 
-private fun parse(from: String, dataRange: IntRange): Array<Byte>? {
+private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Array<Byte>? {
     val things = from.split(",")
 
     val results = things.flatMap {
@@ -28,11 +28,11 @@ private fun parse(from: String, dataRange: IntRange): Array<Byte>? {
     return results.map { it.toByte() }.toTypedArray()
 }
 
-private fun parseMonths(from: String) = parse(from, monthRange)
-private fun parseDaysOfMonth(from: String) = parse(from, dayOfMonthRange)
-private fun parseHours(from: String) = parse(from, hoursRange)
-private fun parseMinutes(from: String) = parse(from, minutesRange)
-private fun parseSeconds(from: String) = parse(from, secondsRange)
+private fun parseMonths(from: String) = createCronDateTimeScheduler(from, monthRange)
+private fun parseDaysOfMonth(from: String) = createCronDateTimeScheduler(from, dayOfMonthRange)
+private fun parseHours(from: String) = createCronDateTimeScheduler(from, hoursRange)
+private fun parseMinutes(from: String) = createCronDateTimeScheduler(from, minutesRange)
+private fun parseSeconds(from: String) = createCronDateTimeScheduler(from, secondsRange)
 
 private fun Array<Byte>.fillWith(
     whereToPut: MutableList<CronDateTime>,
@@ -49,14 +49,14 @@ private fun Array<Byte>.fillWith(
     }
 }
 
-internal fun parse(incoming: String): List<CronDateTime> {
+fun createCronDateTimeScheduler(incoming: String): CronDateTimeScheduler {
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
 
     val secondsParsed = parseSeconds(secondsSource)
-    val minutesParsed = parseSeconds(minutesSource)
-    val hoursParsed = parseSeconds(hoursSource)
-    val dayOfMonthParsed = parseSeconds(dayOfMonthSource)
-    val monthParsed = parseSeconds(monthSource)
+    val minutesParsed = parseMinutes(minutesSource)
+    val hoursParsed = parseHours(hoursSource)
+    val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
+    val monthParsed = parseMonths(monthSource)
 
     val resultCronDateTimes = mutableListOf(CronDateTime())
 
@@ -80,5 +80,5 @@ internal fun parse(incoming: String): List<CronDateTime> {
         previousCronDateTime.copy(month = currentTime)
     }
 
-    return resultCronDateTimes.toList()
+    return CronDateTimeScheduler(resultCronDateTimes.toList())
 }
