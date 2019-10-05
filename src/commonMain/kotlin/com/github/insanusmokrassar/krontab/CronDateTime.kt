@@ -9,20 +9,6 @@ private val incomeHourRange = 0 .. 23
 private val incomeMinuteRange = 0 .. 59
 private val incomeSecondRange = 0 .. 59
 
-fun CronDateTime(
-    month: Int? = null,
-    dayOfMonth: Int? = null,
-    hours: Int? = null,
-    minutes: Int? = null,
-    seconds: Int? = null
-) = CronDateTime(
-    month ?.clamp(incomeMonthRange) ?.toByte(),
-    dayOfMonth ?.clamp(incomeDayOfMonthRange) ?.toByte(),
-    hours ?.clamp(incomeHourRange) ?.toByte(),
-    minutes ?.clamp(incomeMinuteRange) ?.toByte(),
-    seconds ?.clamp(incomeSecondRange) ?.toByte()
-)
-
 /**
  * [month] 0-11
  * [dayOfMonth] 0-31
@@ -46,6 +32,22 @@ data class CronDateTime(
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
+
+    companion object {
+        fun create(
+            month: Int? = null,
+            dayOfMonth: Int? = null,
+            hours: Int? = null,
+            minutes: Int? = null,
+            seconds: Int? = null
+        ) = CronDateTime(
+            month ?.clamp(incomeMonthRange) ?.toByte(),
+            dayOfMonth ?.clamp(incomeDayOfMonthRange) ?.toByte(),
+            hours ?.clamp(incomeHourRange) ?.toByte(),
+            minutes ?.clamp(incomeMinuteRange) ?.toByte(),
+            seconds ?.clamp(incomeSecondRange) ?.toByte()
+        )
+    }
 }
 
 fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime {

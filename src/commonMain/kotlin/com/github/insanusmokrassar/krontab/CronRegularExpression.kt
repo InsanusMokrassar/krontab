@@ -10,3 +10,9 @@ internal val dayOfMonthRegex = Regex("[*]|((${dayOfMonthNumberRegex.pattern})(,(
 internal val hoursRegex = Regex("[*]|((${hoursNumberRegex.pattern})(,(${hoursNumberRegex.pattern})){0,23})")
 internal val minutesRegex = Regex("[*]|((${minutesOrSecondsNumberRegex.pattern})(,(${minutesOrSecondsNumberRegex.pattern})){0,59})")
 internal val secondsRegex = minutesRegex
+
+internal val monthRange = 0 .. 11
+internal val dayOfMonthRange = 0 .. 31
+internal val hoursRange = 0 .. 23
+internal val minutesRange = 0 .. 59
+internal val secondsRange = minutesRange
