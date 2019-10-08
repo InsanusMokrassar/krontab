@@ -19,7 +19,7 @@ bintray {
     pkg {
         repo = 'StandardRepository'
         name = "${project.name}"
-        vcsUrl = "https://github.com/InsanusMokrassar/${project.name}"
+        vcsUrl = "${project_vcs_base}/${project.name}"
         licenses = ['Apache-2.0']
         version {
             name = "${project.version}"
