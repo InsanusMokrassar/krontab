@@ -1,6 +1,8 @@
-package com.github.insanusmokrassar.krontab.builder
+package com.insanusmokrassar.krontab.builder
 
-import com.github.insanusmokrassar.krontab.*
+import com.insanusmokrassar.krontab.CronDateTimeScheduler
+import com.insanusmokrassar.krontab.internal.CronDateTime
+import com.insanusmokrassar.krontab.internal.fillWith
 
 fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): CronDateTimeScheduler {
     val builder = SchedulerBuilder()

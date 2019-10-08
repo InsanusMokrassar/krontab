@@ -1,6 +1,11 @@
-package com.github.insanusmokrassar.krontab
+package com.insanusmokrassar.krontab.internal
 
-import com.github.insanusmokrassar.krontab.utils.*
+import com.github.insanusmokrassar.krontab.dayOfMonthRange
+import com.github.insanusmokrassar.krontab.hoursRange
+import com.github.insanusmokrassar.krontab.minutesRange
+import com.github.insanusmokrassar.krontab.monthRange
+import com.github.insanusmokrassar.krontab.secondsRange
+import com.insanusmokrassar.krontab.utils.clamp
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeSpan
 

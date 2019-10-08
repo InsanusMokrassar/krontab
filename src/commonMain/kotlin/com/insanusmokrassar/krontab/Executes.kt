@@ -1,4 +1,4 @@
-package com.github.insanusmokrassar.krontab
+package com.insanusmokrassar.krontab
 
 suspend inline fun CronDateTimeScheduler.executeInfinity(noinline block: suspend () -> Unit) = doInLoop {
     block()

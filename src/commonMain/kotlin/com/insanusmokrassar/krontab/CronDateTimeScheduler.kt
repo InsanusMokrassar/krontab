@@ -1,5 +1,13 @@
-package com.github.insanusmokrassar.krontab
+package com.insanusmokrassar.krontab
 
+import com.insanusmokrassar.krontab.internal.*
+import com.insanusmokrassar.krontab.internal.CronDateTime
+import com.insanusmokrassar.krontab.internal.parseDaysOfMonth
+import com.insanusmokrassar.krontab.internal.parseHours
+import com.insanusmokrassar.krontab.internal.parseMinutes
+import com.insanusmokrassar.krontab.internal.parseMonths
+import com.insanusmokrassar.krontab.internal.parseSeconds
+import com.insanusmokrassar.krontab.internal.toNearDateTime
 import com.soywiz.klock.DateTime
 import kotlinx.coroutines.delay
 

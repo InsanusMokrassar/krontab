@@ -1,10 +1,10 @@
-package com.github.insanusmokrassar.krontab.builder
+package com.insanusmokrassar.krontab.builder
 
 import com.github.insanusmokrassar.krontab.*
 import com.github.insanusmokrassar.krontab.minutesRange
 import com.github.insanusmokrassar.krontab.monthRange
 import com.github.insanusmokrassar.krontab.secondsRange
-import com.github.insanusmokrassar.krontab.utils.clamp
+import com.insanusmokrassar.krontab.utils.clamp
 
 sealed class TimeBuilder (
     private val restrictionsRange: IntRange
