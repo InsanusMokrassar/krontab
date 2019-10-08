@@ -3,12 +3,6 @@ package com.github.insanusmokrassar.krontab
 import com.soywiz.klock.DateTime
 import kotlinx.coroutines.delay
 
-private val anyCronDateTime by lazy {
-    CronDateTime()
-}
-
-val AnyTimeScheduler = CronDateTimeScheduler(listOf(anyCronDateTime))
-
 data class CronDateTimeScheduler internal constructor(
     internal val cronDateTimes: List<CronDateTime>
 )
