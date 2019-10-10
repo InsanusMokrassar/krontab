@@ -12,14 +12,6 @@ fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): CronDateTimeSched
     return builder.build()
 }
 
-//infix fun Int.withStep(step: Int): PropertyHolder {
-//    return DivPropertyHolder(this, step)
-//}
-//
-//operator fun Int.minus(including: Int): PropertyHolder {
-//    return RangePropertyHolder(this, including)
-//}
-
 class SchedulerBuilder(
     private var seconds: Array<Byte>? = null,
     private var minutes: Array<Byte>? = null,

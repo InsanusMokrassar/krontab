@@ -21,7 +21,7 @@ sealed class TimeBuilder (
         result = (result ?: emptySet()) + value.clamp(restrictionsRange)
     }
 
-    inline infix fun from(value: Int) = value
+    inline fun from(value: Int) = value
 
     infix fun Int.every(delay: Int): Array<Int> {
         val progression = clamp(restrictionsRange) .. restrictionsRange.last step delay
@@ -31,6 +31,7 @@ sealed class TimeBuilder (
 
         return result
     }
+    infix fun every(delay: Int): Array<Int> = 0 every delay
 
     infix fun Int.upTo(endIncluding: Int): Array<Int> {
         val progression = clamp(restrictionsRange) .. endIncluding.clamp(restrictionsRange)
@@ -40,6 +41,7 @@ sealed class TimeBuilder (
 
         return result
     }
+    infix fun upTo(endIncluding: Int): Array<Int> = 0 upTo endIncluding
 
     internal fun build() = result ?.map { it.toByte() } ?.toTypedArray()
 }
