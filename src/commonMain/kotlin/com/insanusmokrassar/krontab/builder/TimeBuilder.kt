@@ -1,9 +1,12 @@
 package com.insanusmokrassar.krontab.builder
 
 import com.github.insanusmokrassar.krontab.*
-import com.github.insanusmokrassar.krontab.minutesRange
-import com.github.insanusmokrassar.krontab.monthRange
-import com.github.insanusmokrassar.krontab.secondsRange
+import com.insanusmokrassar.krontab.internal.*
+import com.insanusmokrassar.krontab.internal.dayOfMonthRange
+import com.insanusmokrassar.krontab.internal.hoursRange
+import com.insanusmokrassar.krontab.internal.minutesRange
+import com.insanusmokrassar.krontab.internal.monthRange
+import com.insanusmokrassar.krontab.internal.secondsRange
 import com.insanusmokrassar.krontab.utils.clamp
 
 sealed class TimeBuilder (
@@ -49,6 +52,6 @@ sealed class TimeBuilder (
 
 class SecondsBuilder : TimeBuilder(secondsRange)
 class MinutesBuilder : TimeBuilder(minutesRange)
-class HoursBuilder : TimeBuilder(hoursRange)
-class DaysOfMonthBuilder : TimeBuilder(dayOfMonthRange)
+class HoursBuilder : TimeBuilder(com.insanusmokrassar.krontab.internal.hoursRange)
+class DaysOfMonthBuilder : TimeBuilder(com.insanusmokrassar.krontab.internal.dayOfMonthRange)
 class MonthsBuilder : TimeBuilder(monthRange)

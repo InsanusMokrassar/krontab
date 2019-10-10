@@ -1,4 +1,4 @@
-package com.github.insanusmokrassar.krontab
+package com.insanusmokrassar.krontab.internal
 
 internal val monthRange = 0 .. 11
 internal val dayOfMonthRange = 0 .. 30

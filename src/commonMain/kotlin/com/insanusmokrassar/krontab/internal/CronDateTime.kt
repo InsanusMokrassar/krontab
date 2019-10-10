@@ -1,10 +1,10 @@
 package com.insanusmokrassar.krontab.internal
 
-import com.github.insanusmokrassar.krontab.dayOfMonthRange
-import com.github.insanusmokrassar.krontab.hoursRange
-import com.github.insanusmokrassar.krontab.minutesRange
-import com.github.insanusmokrassar.krontab.monthRange
-import com.github.insanusmokrassar.krontab.secondsRange
+import com.insanusmokrassar.krontab.internal.dayOfMonthRange
+import com.insanusmokrassar.krontab.internal.hoursRange
+import com.insanusmokrassar.krontab.internal.minutesRange
+import com.insanusmokrassar.krontab.internal.monthRange
+import com.insanusmokrassar.krontab.internal.secondsRange
 import com.insanusmokrassar.krontab.utils.clamp
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeSpan
@@ -24,11 +24,11 @@ internal data class CronDateTime(
     val seconds: Byte? = null
 ) {
     init {
-        check(month ?.let { it in monthRange } ?: true)
-        check(dayOfMonth ?.let { it in dayOfMonthRange } ?: true)
-        check(hours?.let { it in hoursRange } ?: true)
-        check(minutes?.let { it in minutesRange } ?: true)
-        check(seconds?.let { it in secondsRange } ?: true)
+        check(month ?.let { it in com.insanusmokrassar.krontab.internal.monthRange } ?: true)
+        check(dayOfMonth ?.let { it in com.insanusmokrassar.krontab.internal.dayOfMonthRange } ?: true)
+        check(hours?.let { it in com.insanusmokrassar.krontab.internal.hoursRange } ?: true)
+        check(minutes?.let { it in com.insanusmokrassar.krontab.internal.minutesRange } ?: true)
+        check(seconds?.let { it in com.insanusmokrassar.krontab.internal.secondsRange } ?: true)
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
@@ -41,11 +41,11 @@ internal data class CronDateTime(
             minutes: Int? = null,
             seconds: Int? = null
         ) = CronDateTime(
-            month ?.clamp(monthRange) ?.toByte(),
-            dayOfMonth ?.clamp(dayOfMonthRange) ?.toByte(),
-            hours ?.clamp(hoursRange) ?.toByte(),
-            minutes ?.clamp(minutesRange) ?.toByte(),
-            seconds ?.clamp(secondsRange) ?.toByte()
+            month ?.clamp(com.insanusmokrassar.krontab.internal.monthRange) ?.toByte(),
+            dayOfMonth ?.clamp(com.insanusmokrassar.krontab.internal.dayOfMonthRange) ?.toByte(),
+            hours ?.clamp(com.insanusmokrassar.krontab.internal.hoursRange) ?.toByte(),
+            minutes ?.clamp(com.insanusmokrassar.krontab.internal.minutesRange) ?.toByte(),
+            seconds ?.clamp(com.insanusmokrassar.krontab.internal.secondsRange) ?.toByte()
         )
     }
 }

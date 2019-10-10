@@ -1,10 +1,10 @@
 package com.insanusmokrassar.krontab.internal
 
-import com.github.insanusmokrassar.krontab.dayOfMonthRange
-import com.github.insanusmokrassar.krontab.hoursRange
-import com.github.insanusmokrassar.krontab.minutesRange
-import com.github.insanusmokrassar.krontab.monthRange
-import com.github.insanusmokrassar.krontab.secondsRange
+import com.insanusmokrassar.krontab.internal.dayOfMonthRange
+import com.insanusmokrassar.krontab.internal.hoursRange
+import com.insanusmokrassar.krontab.internal.minutesRange
+import com.insanusmokrassar.krontab.internal.monthRange
+import com.insanusmokrassar.krontab.internal.secondsRange
 import com.insanusmokrassar.krontab.utils.clamp
 
 private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Array<Byte>? {
@@ -30,11 +30,21 @@ private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Arra
     return results.map { it.toByte() }.toTypedArray()
 }
 
-internal fun parseMonths(from: String) = createCronDateTimeScheduler(from, monthRange)
-internal fun parseDaysOfMonth(from: String) = createCronDateTimeScheduler(from, dayOfMonthRange)
-internal fun parseHours(from: String) = createCronDateTimeScheduler(from, hoursRange)
-internal fun parseMinutes(from: String) = createCronDateTimeScheduler(from, minutesRange)
-internal fun parseSeconds(from: String) = createCronDateTimeScheduler(from, secondsRange)
+internal fun parseMonths(from: String) = createCronDateTimeScheduler(from,
+    com.insanusmokrassar.krontab.internal.monthRange
+)
+internal fun parseDaysOfMonth(from: String) = createCronDateTimeScheduler(from,
+    com.insanusmokrassar.krontab.internal.dayOfMonthRange
+)
+internal fun parseHours(from: String) = createCronDateTimeScheduler(from,
+    com.insanusmokrassar.krontab.internal.hoursRange
+)
+internal fun parseMinutes(from: String) = createCronDateTimeScheduler(from,
+    com.insanusmokrassar.krontab.internal.minutesRange
+)
+internal fun parseSeconds(from: String) = createCronDateTimeScheduler(from,
+    com.insanusmokrassar.krontab.internal.secondsRange
+)
 
 internal fun Array<Byte>.fillWith(
     whereToPut: MutableList<CronDateTime>,

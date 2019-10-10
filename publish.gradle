@@ -17,7 +17,7 @@ bintray {
         rename "(.*)jvm8-(.*)", "\$1\$2"
     }
     pkg {
-        repo = 'StandardRepository'
+        repo = 'InsanusMokrassar'
         name = "${project.name}"
         vcsUrl = "${project_vcs_base}/${project.name}"
         licenses = ['Apache-2.0']
