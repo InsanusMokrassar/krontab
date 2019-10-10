@@ -1,12 +1,6 @@
 package com.insanusmokrassar.krontab.builder
 
-import com.github.insanusmokrassar.krontab.*
 import com.insanusmokrassar.krontab.internal.*
-import com.insanusmokrassar.krontab.internal.dayOfMonthRange
-import com.insanusmokrassar.krontab.internal.hoursRange
-import com.insanusmokrassar.krontab.internal.minutesRange
-import com.insanusmokrassar.krontab.internal.monthRange
-import com.insanusmokrassar.krontab.internal.secondsRange
 import com.insanusmokrassar.krontab.utils.clamp
 
 sealed class TimeBuilder (

@@ -1,7 +1,7 @@
 package com.insanusmokrassar.krontab
 
-import com.insanusmokrassar.krontab.internal.CronDateTime
 import com.insanusmokrassar.krontab.builder.buildSchedule
+import com.insanusmokrassar.krontab.internal.CronDateTime
 
 internal val anyCronDateTime by lazy {
     CronDateTime()
