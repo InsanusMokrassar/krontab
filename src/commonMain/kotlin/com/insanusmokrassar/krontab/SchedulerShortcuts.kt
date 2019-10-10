@@ -6,24 +6,24 @@ import com.insanusmokrassar.krontab.internal.CronDateTime
 internal val anyCronDateTime by lazy {
     CronDateTime()
 }
-val AnyTimeScheduler by lazy {
+val AnyTimeScheduler: KronScheduler by lazy {
     CronDateTimeScheduler(listOf(anyCronDateTime))
 }
-val EverySecondScheduler
+val EverySecondScheduler: KronScheduler
     get() = AnyTimeScheduler
 
-val EveryMinuteScheduler by lazy {
+val EveryMinuteScheduler: KronScheduler by lazy {
     buildSchedule { minutes { 0 every 1 } }
 }
 
-val EveryHourScheduler by lazy {
+val EveryHourScheduler: KronScheduler by lazy {
     buildSchedule { hours { 0 every 1 } }
 }
 
-val EveryDayOfMonthScheduler by lazy {
+val EveryDayOfMonthScheduler: KronScheduler by lazy {
     buildSchedule { dayOfMonth { 0 every 1 } }
 }
 
-val EveryMonthScheduler by lazy {
+val EveryMonthScheduler: KronScheduler by lazy {
     buildSchedule { months { 0 every 1 } }
 }

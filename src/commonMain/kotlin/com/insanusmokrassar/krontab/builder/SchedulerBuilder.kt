@@ -1,10 +1,11 @@
 package com.insanusmokrassar.krontab.builder
 
 import com.insanusmokrassar.krontab.CronDateTimeScheduler
+import com.insanusmokrassar.krontab.KronScheduler
 import com.insanusmokrassar.krontab.internal.CronDateTime
 import com.insanusmokrassar.krontab.internal.fillWith
 
-fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): CronDateTimeScheduler {
+fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
     val builder = SchedulerBuilder()
 
     builder.settingsBlock()
@@ -75,7 +76,7 @@ class SchedulerBuilder(
         )
     }
 
-    fun build(): CronDateTimeScheduler {
+    fun build(): KronScheduler {
         val resultCronDateTimes = mutableListOf(CronDateTime())
 
         seconds ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->

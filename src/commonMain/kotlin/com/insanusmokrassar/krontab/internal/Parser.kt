@@ -2,7 +2,7 @@ package com.insanusmokrassar.krontab.internal
 
 import com.insanusmokrassar.krontab.utils.clamp
 
-private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Array<Byte>? {
+private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte>? {
     val things = from.split(",")
 
     val results = things.flatMap {
@@ -25,21 +25,11 @@ private fun createCronDateTimeScheduler(from: String, dataRange: IntRange): Arra
     return results.map { it.toByte() }.toTypedArray()
 }
 
-internal fun parseMonths(from: String) = createCronDateTimeScheduler(from,
-    com.insanusmokrassar.krontab.internal.monthRange
-)
-internal fun parseDaysOfMonth(from: String) = createCronDateTimeScheduler(from,
-    com.insanusmokrassar.krontab.internal.dayOfMonthRange
-)
-internal fun parseHours(from: String) = createCronDateTimeScheduler(from,
-    com.insanusmokrassar.krontab.internal.hoursRange
-)
-internal fun parseMinutes(from: String) = createCronDateTimeScheduler(from,
-    com.insanusmokrassar.krontab.internal.minutesRange
-)
-internal fun parseSeconds(from: String) = createCronDateTimeScheduler(from,
-    com.insanusmokrassar.krontab.internal.secondsRange
-)
+internal fun parseMonths(from: String) = createSimpleScheduler(from, monthRange)
+internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfMonthRange)
+internal fun parseHours(from: String) = createSimpleScheduler(from, hoursRange)
+internal fun parseMinutes(from: String) = createSimpleScheduler(from, minutesRange)
+internal fun parseSeconds(from: String) = createSimpleScheduler(from, secondsRange)
 
 internal fun Array<Byte>.fillWith(
     whereToPut: MutableList<CronDateTime>,

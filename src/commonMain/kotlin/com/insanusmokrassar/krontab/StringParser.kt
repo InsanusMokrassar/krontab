@@ -1,25 +1,39 @@
 package com.insanusmokrassar.krontab
 
 import com.insanusmokrassar.krontab.internal.*
-import com.soywiz.klock.DateTime
-import kotlinx.coroutines.delay
+import com.insanusmokrassar.krontab.internal.CronDateTime
+import com.insanusmokrassar.krontab.internal.parseDaysOfMonth
+import com.insanusmokrassar.krontab.internal.parseHours
+import com.insanusmokrassar.krontab.internal.parseMinutes
+import com.insanusmokrassar.krontab.internal.parseMonths
+import com.insanusmokrassar.krontab.internal.parseSeconds
 
-data class CronDateTimeScheduler internal constructor(
-    internal val cronDateTimes: List<CronDateTime>
-)
-
-fun CronDateTimeScheduler.next(relatively: DateTime = DateTime.now()): DateTime {
-    return cronDateTimes.map { it.toNearDateTime(relatively) }.min() ?: anyCronDateTime.toNearDateTime(relatively)
-}
-
-suspend fun CronDateTimeScheduler.doInLoop(block: suspend () -> Boolean) {
-    do {
-        delay(next().unixMillisLong - DateTime.now().unixMillisLong)
-    } while (block())
-}
-
-
-fun createCronDateTimeScheduler(incoming: String): CronDateTimeScheduler {
+/**
+ * Parse [incoming] string and adapt according to next format: "* * * * *" where order of things:
+ *
+ * seconds
+ * minutes
+ * hours
+ * dayOfMonth
+ * month
+ *
+ * And each one have next format:
+ *
+ * {number},{number},...
+ *
+ * and {number} here is one of {int}-{int} OR {int}/{int} OR *\/{int} OR {int}.
+ *
+ * Seconds ranges can be found in [com.insanusmokrassar.krontab.internal.secondsRange].
+ * Minutes ranges can be found in [com.insanusmokrassar.krontab.internal.minutesRange].
+ * Hours ranges can be found in [com.insanusmokrassar.krontab.internal.hoursRange].
+ * Days of month ranges can be found in [com.insanusmokrassar.krontab.internal.dayOfMonthRange].
+ * Months ranges can be found in [com.insanusmokrassar.krontab.internal.monthRange].
+ *
+ * @sample "0/5 * * * *" for every five seconds triggering
+ * @sample "0/15 30 * * *" for every 15th seconds in a half of each hour
+ * @sample "1 2 3 4 5" for triggering in near first second of second minute of third hour of fourth day of may
+ */
+fun createSimpleScheduler(incoming: String): KronScheduler {
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
 
     val secondsParsed = parseSeconds(secondsSource)

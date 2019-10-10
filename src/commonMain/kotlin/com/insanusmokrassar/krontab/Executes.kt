@@ -1,25 +1,32 @@
 package com.insanusmokrassar.krontab
 
-suspend inline fun CronDateTimeScheduler.executeInfinity(noinline block: suspend () -> Unit) = doInLoop {
+import com.soywiz.klock.DateTime
+import kotlinx.coroutines.delay
+
+suspend inline fun KronScheduler.doWhile(noinline block: suspend () -> Boolean) {
+    do {
+        delay(next().unixMillisLong - DateTime.now().unixMillisLong)
+    } while (block())
+}
+suspend inline fun doWhile(
+    scheduleConfig: String,
+    noinline block: suspend () -> Boolean
+) = createSimpleScheduler(scheduleConfig).doWhile(block)
+
+suspend inline fun KronScheduler.doInfinity(noinline block: suspend () -> Unit) = doWhile {
     block()
     true
 }
-suspend inline fun executeInfinity(
+suspend inline fun doInfinity(
     scheduleConfig: String,
     noinline block: suspend () -> Unit
-) = createCronDateTimeScheduler(scheduleConfig).executeInfinity(block)
+) = createSimpleScheduler(scheduleConfig).doInfinity(block)
 
-suspend inline fun CronDateTimeScheduler.executeWhile(noinline block: suspend () -> Boolean) = doInLoop(block)
-suspend inline fun executeWhile(
-    scheduleConfig: String,
-    noinline block: suspend () -> Boolean
-) = createCronDateTimeScheduler(scheduleConfig).executeWhile(block)
-
-suspend inline fun CronDateTimeScheduler.executeOnce(noinline block: suspend () -> Unit) = doInLoop {
+suspend inline fun KronScheduler.doOnce(noinline block: suspend () -> Unit) = doWhile {
     block()
     false
 }
-suspend inline fun executeOnce(
+suspend inline fun doOnce(
     scheduleConfig: String,
     noinline block: suspend () -> Unit
-) = createCronDateTimeScheduler(scheduleConfig).executeOnce(block)
+) = createSimpleScheduler(scheduleConfig).doOnce(block)
