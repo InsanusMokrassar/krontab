@@ -2,7 +2,15 @@
 
  [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab/_latestVersion)
  
-This library was created to simplify work with from time to time things.
+Library was created to give oppotunity to launch some things from time to time according to some schedule in
+runtime of applications.
+
+| Table of content |
+|---|
+| [ How to use ](#how-to-use) |
+| [ How to use: Including in project ](#including-in-project) |
+| [ How to use: Config from string ](#config-from-string) |
+| [ How to use: Config via builder (DSL preview) ](#config-via-builder) |
 
 ## How to use
 
@@ -21,6 +29,33 @@ kronScheuler.doWhile {
     true // true - repeat on next time
 }
 ```
+
+### Including in project
+
+Here will be presented example for including of `Krontab` as a dependency using `Gradle`. In two words,
+developers must:
+
+* Add `https://dl.bintray.com/insanusmokrassar/InsanusMokrassar/` address as source of packages
+* Add `Krontab` as a dependency
+
+In gradle script it will look like:
+
+```groovy
+repositories {
+    // ...
+    maven { url "https://dl.bintray.com/insanusmokrassar/InsanusMokrassar/" }
+}
+
+dependencies {
+    implementation "com.insanusmokrassar:krontab:$krontab_version"
+}
+```
+
+Next version is the latest currently for the library:
+
+[ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab/_latestVersion)
+
+For old version of Gradle, instead of `implementation` word developers must use `compile`.
 
 ### Config from string
 
