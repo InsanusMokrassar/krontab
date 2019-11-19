@@ -9,7 +9,7 @@ kotlin {
     jvm("jvm8") {
         mavenPublication {
             groupId "${project.group}"
-            artifactId "${project.name}"
+            artifactId "${project.name}-jvm"
             version "${project.version}"
 
             artifact(javadocJar)
@@ -23,7 +23,7 @@ publishing {
             pom.withXml {
                 asNode().children().last() + {
                     resolveStrategy = Closure.DELEGATE_FIRST
-                    name "${project_public_name}-jvm"
+                    name "${project_public_name}"
                     description "${project_public_description}"
                     url "${project_url}"
 
