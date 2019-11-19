@@ -1,6 +1,6 @@
 # krontab
 
- [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab/_latestVersion)
+ [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab/_latestVersion) 
  
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
@@ -32,23 +32,11 @@ kronScheuler.doWhile {
 
 ### Including in project
 
-Here will be presented example for including of `Krontab` as a dependency using `Gradle`. In two words,
-developers must:
-
-* Add `https://dl.bintray.com/insanusmokrassar/InsanusMokrassar/` address as source of packages
-* Add `Krontab` as a dependency
-
-In gradle script it will look like:
+If you want to include `krontab` in your project, just add next line to your
+dependencies part:
 
 ```groovy
-repositories {
-    // ...
-    maven { url "https://dl.bintray.com/insanusmokrassar/InsanusMokrassar/" }
-}
-
-dependencies {
-    implementation "com.insanusmokrassar:krontab:$krontab_version"
-}
+implementation "com.insanusmokrassar:krontab:$krontab_version"
 ```
 
 Next version is the latest currently for the library:
@@ -136,4 +124,3 @@ kronScheduler.doInfinity {
 ```
 
 All of these examples will do the same things: print `Called` message every five seconds.
-
