@@ -25,11 +25,11 @@ publishing {
                     resolveStrategy = Closure.DELEGATE_FIRST
                     name "${project_public_name}"
                     description "${project_public_description}"
+                    url "${project_url}"
 
                     scm {
-                        developerConnection "scm:git:[fetch=]${project_vcs_base}/${project.name}.git[push=]ssh:git@github.com:insanusmokrassar/${project.name}.git"
-                        url "${project_vcs_base}/${project.name}"
-
+                        developerConnection "scm:git:[fetch=]${project_vcs}[push=]${project_vcs}"
+                        url "${project_vcs}"
                     }
 
                     developers {
@@ -43,7 +43,7 @@ publishing {
                     licenses {
                         license {
                             name "The Apache Software License, Version 2.0"
-                            url "${project_vcs_base}/${project.name}/blob/master/LICENSE"
+                            url "${project_url}/src/master/LICENSE"
                             distribution "repo"
                         }
                     }
