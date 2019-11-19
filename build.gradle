@@ -1,4 +1,4 @@
-project.version = "0.1.0"
+project.version = "0.1.1"
 project.group = "com.insanusmokrassar"
 
 buildscript {
@@ -24,7 +24,7 @@ repositories {
 }
 
 kotlin {
-    jvm("jvm8")
+    jvm()
     
     sourceSets {
         commonMain {
@@ -35,9 +35,11 @@ kotlin {
                 api "com.soywiz.korlibs.klock:klock:$klockVersion"
             }
         }
-        jvm8Main {
+        jvmMain {
             dependencies {
                 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+
+                api "com.soywiz.korlibs.klock:klock:$klockVersion"
             }
         }
     }
