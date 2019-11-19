@@ -23,7 +23,7 @@ publishing {
             pom.withXml {
                 asNode().children().last() + {
                     resolveStrategy = Closure.DELEGATE_FIRST
-                    name "${project_public_name}"
+                    name "${project_public_name}-jvm"
                     description "${project_public_description}"
                     url "${project_url}"
 
