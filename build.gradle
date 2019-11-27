@@ -31,6 +31,7 @@ repositories {
 
 kotlin {
     jvm()
+    js()
 
     sourceSets {
         commonMain {
@@ -51,13 +52,17 @@ kotlin {
         jvmMain {
             dependencies {
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
-
             }
         }
         jvmTest {
             dependencies {
                 implementation kotlin('test-junit')
                 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+            }
+        }
+        jsMain {
+            dependencies {
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$kotlin_coroutines_version"
             }
         }
     }
