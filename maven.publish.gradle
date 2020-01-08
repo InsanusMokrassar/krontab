@@ -1,5 +1,4 @@
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
 
 task javadocsJar(type: Jar) {
     classifier = 'javadoc'
@@ -25,41 +24,34 @@ publishing {
             asNode().children().last() + {
                 resolveStrategy = Closure.DELEGATE_FIRST
 
-                description "${project_public_description}"
-                name "${project_public_name}"
-                url "${project_url}"
+                description "It is an analog of crontab util for Kotlin Coroutines"
+                name "Krontab"
+                url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab"
 
                 scm {
-                    developerConnection "scm:git:[fetch=]${project_vcs}[push=]${project_vcs}"
-                    url "${project_vcs}"
+                    developerConnection "scm:git:[fetch=]https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git[push=]https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git"
+                    url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git"
                 }
 
                 developers {
-                    developer {
-                        id "InsanusMokrassar"
-                        name "Ovsyannikov Alexey"
-                        email "ovsyannikov.alexey95@gmail.com"
-                    }
-                    developer {
-                        id "mi-ast"
-                        name "Michail Astafiev"
-                        email "astaf65@gmail.com"
-                    }
+                    
+                        developer {
+                            id "InsanusMokrassar"
+                            name "Ovsiannikov Aleksei"
+                            email "ovsyannikov.alexey95@gmail.com"
+                        }
+                    
                 }
 
                 licenses {
-                    license {
-                        name "The Apache Software License, Version 2.0"
-                        url "${project_url}/src/master/LICENSE"
-                        distribution "repo"
-                    }
+                    
+                        license {
+                            name "Apache Software License 2.0"
+                            url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab/src/master/LICENSE"
+                        }
+                    
                 }
             }
         }
     }
-}
-
-signing {
-    useGpgCmd()
-    sign(publishing.publications)
 }

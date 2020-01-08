@@ -6,14 +6,18 @@ bintray {
     user = project.hasProperty('BINTRAY_USER') ? project.property('BINTRAY_USER') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('BINTRAY_KEY') ? project.property('BINTRAY_KEY') : System.getenv('BINTRAY_KEY')
     pkg {
-        repo = "$project_bintray_repo"
+        repo = "InsanusMokrassar"
         name = "${project.name}"
-        vcsUrl = "${project_url}"
-        licenses = ['Apache-2.0']
+        vcsUrl = "https://git.insanusmokrassar.com/InsanusMokrassar/krontab"
+        licenses = ["Apache-2.0"]
         version {
             name = "${project.version}"
             released = new Date()
             vcsTag = "${project.version}"
+            gpg {
+                sign = true
+                passphrase = project.hasProperty('signing.gnupg.passphrase') ? project.property('signing.gnupg.passphrase') : System.getenv('signing.gnupg.passphrase')
+            }
         }
     }
 }
