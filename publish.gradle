@@ -45,8 +45,12 @@ bintray {
 
 bintrayUpload.doFirst {
     publications = publishing.publications.collect {
-        it.name
-    }
+        if (it.name.contains('kotlinMultiplatform')) {
+            null
+        } else {
+            it.name
+        }
+    } - null
 }
 
 bintrayUpload.dependsOn publishToMavenLocal
