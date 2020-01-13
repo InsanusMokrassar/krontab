@@ -11,6 +11,7 @@ runtime of applications.
 | [ How to use: Including in project ](#including-in-project) |
 | [ How to use: Config from string ](#config-from-string) |
 | [ How to use: Config via builder (DSL preview) ](#config-via-builder) |
+| [ How to use: KronScheduler as a Flow ](#KronScheduler-as-a-Flow) |
 
 ## How to use
 
@@ -124,3 +125,28 @@ kronScheduler.doInfinity {
 ```
 
 All of these examples will do the same things: print `Called` message every five seconds.
+
+### KronScheduler as a Flow
+
+Any `KronScheduler`can e converted to a `Flow<DateTime` using extension `asFlow`:
+
+```kotlin
+val kronScheduler = buildSchedule {
+    seconds {
+        0 every 1
+    }
+}
+
+val flow = kronScheduler.asFlow()
+```
+
+So, in this case any operations related to flow are available and it is expected tt th will work correctly. For example,
+it is possible to use this flow with `takeWhile`:
+
+```kotlin
+flow.takeWhile {
+    condition()
+}.collect {
+    action()
+}
+```
