@@ -140,8 +140,8 @@ val kronScheduler = buildSchedule {
 val flow = kronScheduler.asFlow()
 ```
 
-So, in this case any operations related to flow are available and it is expected tt th will work correctly. For example,
-it is possible to use this flow with `takeWhile`:
+So, in this case any operations related to flow are available and it is expected that they will work correctly. For
+example, it is possible to use this flow with `takeWhile`:
 
 ```kotlin
 flow.takeWhile {
