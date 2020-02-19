@@ -2,6 +2,7 @@
 
  [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab/_latestVersion)
  [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.insanusmokrassar/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.insanusmokrassar/krontab)
+ [![Build Status](https://travis-ci.com/InsanusMokrassar/krontab.svg?branch=master)](https://travis-ci.com/InsanusMokrassar/krontab)
  
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
