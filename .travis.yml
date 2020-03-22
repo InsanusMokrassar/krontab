@@ -6,5 +6,5 @@ dist: trusty
 jdk: oraclejdk8
 
 script:
-  - ./gradlew build -s
+  - ./gradlew build allTests -s
 

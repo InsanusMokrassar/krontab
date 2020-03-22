@@ -21,6 +21,7 @@ sealed class TimeBuilder (
         result = (result ?: emptySet()) + value.clamp(restrictionsRange)
     }
 
+    @Suppress("NOTHING_TO_INLINE")
     inline fun from(value: Int) = value
 
     infix fun Int.every(delay: Int): Array<Int> {
