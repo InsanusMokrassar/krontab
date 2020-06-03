@@ -13,6 +13,7 @@
     * Kotlin `1.3.70` -> `1.3.72`
     * Coroutines `1.3.5` -> `1.3.7`
     * Klock `1.10.0` -> `1.11.3`
+* `EverySecondScheduler` changed its building logic - now it is lazy with builder using
 
 ### 0.2.2
 

@@ -18,8 +18,9 @@ val AnyTimeScheduler: KronScheduler by lazy {
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one second
  */
-val EverySecondScheduler: KronScheduler
-    get() = AnyTimeScheduler
+val EverySecondScheduler: KronScheduler by lazy {
+    buildSchedule { seconds { 0 every 1 } }
+}
 
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one minute
