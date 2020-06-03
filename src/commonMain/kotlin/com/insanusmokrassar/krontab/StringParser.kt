@@ -35,6 +35,8 @@ import com.insanusmokrassar.krontab.internal.*
  * * "0/5 * * * *" for every five seconds triggering
  * * "0/15 30 * * *" for every 15th seconds in a half of each hour
  * * "1 2 3 4 5" for triggering in near first second of second minute of third hour of fourth day of may
+ *
+ * @see com.insanusmokrassar.krontab.internal.createKronScheduler
  */
 fun createSimpleScheduler(incoming: String): KronScheduler {
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
@@ -45,27 +47,7 @@ fun createSimpleScheduler(incoming: String): KronScheduler {
     val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
     val monthParsed = parseMonths(monthSource)
 
-    val resultCronDateTimes = mutableListOf(CronDateTime())
-
-    secondsParsed ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-        previousCronDateTime.copy(seconds = currentTime)
-    }
-
-    minutesParsed ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-        previousCronDateTime.copy(minutes = currentTime)
-    }
-
-    hoursParsed ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-        previousCronDateTime.copy(hours = currentTime)
-    }
-
-    dayOfMonthParsed ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-        previousCronDateTime.copy(dayOfMonth = currentTime)
-    }
-
-    monthParsed ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-        previousCronDateTime.copy(month = currentTime)
-    }
-
-    return CronDateTimeScheduler(resultCronDateTimes.toList())
+    return createKronScheduler(
+        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed
+    )
 }

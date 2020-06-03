@@ -1,5 +1,6 @@
 package com.insanusmokrassar.krontab.internal
 
+import com.insanusmokrassar.krontab.KronScheduler
 import com.insanusmokrassar.krontab.utils.clamp
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeSpan
@@ -85,4 +86,39 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
     }
 
     return current
+}
+
+/**
+ * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
+ */
+internal fun createKronScheduler(
+    seconds: Array<Byte>? = null,
+    minutes: Array<Byte>? = null,
+    hours: Array<Byte>? = null,
+    dayOfMonth: Array<Byte>? = null,
+    month: Array<Byte>? = null
+): KronScheduler {
+    val resultCronDateTimes = mutableListOf(CronDateTime())
+
+    seconds ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(seconds = currentTime)
+    }
+
+    minutes ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(minutes = currentTime)
+    }
+
+    hours ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(hours = currentTime)
+    }
+
+    dayOfMonth ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(dayOfMonth = currentTime)
+    }
+
+    month ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(month = currentTime)
+    }
+
+    return CronDateTimeScheduler(resultCronDateTimes.toList())
 }
