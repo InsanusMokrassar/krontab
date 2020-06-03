@@ -19,11 +19,11 @@ internal data class CronDateTime(
     val seconds: Byte? = null
 ) {
     init {
-        check(month ?.let { it in com.insanusmokrassar.krontab.internal.monthRange } ?: true)
-        check(dayOfMonth ?.let { it in com.insanusmokrassar.krontab.internal.dayOfMonthRange } ?: true)
-        check(hours?.let { it in com.insanusmokrassar.krontab.internal.hoursRange } ?: true)
-        check(minutes?.let { it in com.insanusmokrassar.krontab.internal.minutesRange } ?: true)
-        check(seconds?.let { it in com.insanusmokrassar.krontab.internal.secondsRange } ?: true)
+        check(month ?.let { it in monthRange } ?: true)
+        check(dayOfMonth ?.let { it in dayOfMonthRange } ?: true)
+        check(hours?.let { it in hoursRange } ?: true)
+        check(minutes?.let { it in minutesRange } ?: true)
+        check(seconds?.let { it in secondsRange } ?: true)
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
@@ -36,11 +36,11 @@ internal data class CronDateTime(
             minutes: Int? = null,
             seconds: Int? = null
         ) = CronDateTime(
-            month ?.clamp(com.insanusmokrassar.krontab.internal.monthRange) ?.toByte(),
-            dayOfMonth ?.clamp(com.insanusmokrassar.krontab.internal.dayOfMonthRange) ?.toByte(),
-            hours ?.clamp(com.insanusmokrassar.krontab.internal.hoursRange) ?.toByte(),
-            minutes ?.clamp(com.insanusmokrassar.krontab.internal.minutesRange) ?.toByte(),
-            seconds ?.clamp(com.insanusmokrassar.krontab.internal.secondsRange) ?.toByte()
+            month ?.clamp(monthRange) ?.toByte(),
+            dayOfMonth ?.clamp(dayOfMonthRange) ?.toByte(),
+            hours ?.clamp(hoursRange) ?.toByte(),
+            minutes ?.clamp(minutesRange) ?.toByte(),
+            seconds ?.clamp(secondsRange) ?.toByte()
         )
     }
 }
