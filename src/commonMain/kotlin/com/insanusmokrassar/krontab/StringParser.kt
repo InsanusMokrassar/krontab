@@ -5,27 +5,36 @@ import com.insanusmokrassar.krontab.internal.*
 /**
  * Parse [incoming] string and adapt according to next format: "* * * * *" where order of things:
  *
- * seconds
- * minutes
- * hours
- * dayOfMonth
- * month
+ * * seconds
+ * * minutes
+ * * hours
+ * * dayOfMonth
+ * * month
  *
  * And each one have next format:
  *
- * {number},{number},...
+ * `{number},{number},...`
  *
- * and {number} here is one of {int}-{int} OR {int}/{int} OR *\/{int} OR {int}.
+ * and {number} here is one of
  *
- * Seconds ranges can be found in [com.insanusmokrassar.krontab.internal.secondsRange].
- * Minutes ranges can be found in [com.insanusmokrassar.krontab.internal.minutesRange].
- * Hours ranges can be found in [com.insanusmokrassar.krontab.internal.hoursRange].
- * Days of month ranges can be found in [com.insanusmokrassar.krontab.internal.dayOfMonthRange].
- * Months ranges can be found in [com.insanusmokrassar.krontab.internal.monthRange].
+ * * {int}-{int}
+ * * {int}/{int}
+ * * *&#47;{int}
+ * * {int}
  *
- * @sample "0/5 * * * *" for every five seconds triggering
- * @sample "0/15 30 * * *" for every 15th seconds in a half of each hour
- * @sample "1 2 3 4 5" for triggering in near first second of second minute of third hour of fourth day of may
+ * Additional info about ranges can be found in follow accordance:
+ *
+ * * Seconds ranges can be found in [secondsRange]
+ * * Minutes ranges can be found in [minutesRange]
+ * * Hours ranges can be found in [hoursRange]
+ * * Days of month ranges can be found in [dayOfMonthRange]
+ * * Months ranges can be found in [monthRange]
+ *
+ * Examples:
+ *
+ * * "0/5 * * * *" for every five seconds triggering
+ * * "0/15 30 * * *" for every 15th seconds in a half of each hour
+ * * "1 2 3 4 5" for triggering in near first second of second minute of third hour of fourth day of may
  */
 fun createSimpleScheduler(incoming: String): KronScheduler {
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
