@@ -5,11 +5,11 @@ import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeSpan
 
 /**
- * [month] 0-11
- * [dayOfMonth] 0-31
- * [hours] 0-23
- * [minutes] 0-59
- * [seconds] 0-59
+ * @param month 0-11
+ * @param dayOfMonth 0-31
+ * @param hours 0-23
+ * @param minutes 0-59
+ * @param seconds 0-59
  */
 internal data class CronDateTime(
     val month: Byte? = null,
@@ -29,6 +29,14 @@ internal data class CronDateTime(
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
 
     companion object {
+        /**
+         * Using [clamp] extension for checking every parameter to be ensure that they are all correct
+         * @param month 0-11
+         * @param dayOfMonth 0-31
+         * @param hours 0-23
+         * @param minutes 0-59
+         * @param seconds 0-59
+         */
         fun create(
             month: Int? = null,
             dayOfMonth: Int? = null,
