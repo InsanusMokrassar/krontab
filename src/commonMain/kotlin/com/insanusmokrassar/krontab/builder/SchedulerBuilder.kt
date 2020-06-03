@@ -1,6 +1,6 @@
 package com.insanusmokrassar.krontab.builder
 
-import com.insanusmokrassar.krontab.CronDateTimeScheduler
+import com.insanusmokrassar.krontab.internal.CronDateTimeScheduler
 import com.insanusmokrassar.krontab.KronScheduler
 import com.insanusmokrassar.krontab.internal.CronDateTime
 import com.insanusmokrassar.krontab.internal.fillWith

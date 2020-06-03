@@ -53,6 +53,9 @@ internal data class CronDateTime(
     }
 }
 
+/**
+ * @return The near [DateTime] which happens after [relativelyTo] or will be equal to [relativelyTo]
+ */
 internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime {
     var current = relativelyTo
 

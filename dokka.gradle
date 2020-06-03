@@ -12,7 +12,12 @@ dokka {
 
     multiplatform {
         global {
-            skipDeprecated = true
+            perPackageOption {
+                prefix = "com.insanusmokrassar"
+                skipDeprecated = true
+                includeNonPublic = true
+                reportUndocumented = true
+            }
 
             sourceLink {
                 path = "./"
@@ -21,8 +26,17 @@ dokka {
             }
         }
 
-        common { sourceRoot { path = "src/commonMain" } }
-        js { sourceRoot { path = "src/jsMain" } }
-        jvm { sourceRoot { path = "src/jvmMain" } }
+        common {
+            targets = ["JVM", "JS"]
+            sourceRoot { path = "src/commonMain" }
+        }
+        js {
+            targets = ["JS"]
+            sourceRoot { path = "src/jsMain" }
+        }
+        jvm {
+            targets = ["JVM"]
+            sourceRoot { path = "src/jvmMain" }
+        }
     }
 }
