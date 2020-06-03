@@ -5,7 +5,7 @@ import kotlinx.coroutines.delay
 
 suspend inline fun KronScheduler.doWhile(noinline block: suspend () -> Boolean) {
     do {
-        delay(next().unixMillisLong - DateTime.now().unixMillisLong)
+        delay((next() - DateTime.now()).millisecondsLong)
     } while (block())
 }
 suspend inline fun doWhile(
