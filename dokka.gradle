@@ -1,0 +1,42 @@
+dokka {
+    outputFormat = 'html'
+
+    switch (true) {
+        case project.hasProperty("DOKKA_PATH"):
+            outputDirectory = project.property("DOKKA_PATH").toString()
+            break
+        case System.getenv("DOKKA_PATH") != null:
+            outputDirectory = System.getenv("DOKKA_PATH")
+            break
+    }
+
+    multiplatform {
+        global {
+            perPackageOption {
+                prefix = "com.insanusmokrassar"
+                skipDeprecated = true
+                includeNonPublic = true
+                reportUndocumented = true
+            }
+
+            sourceLink {
+                path = "./"
+                url = "https://github.com/InsanusMokrassar/krontab/blob/master/"
+                lineSuffix = "#L"
+            }
+        }
+
+        common {
+            targets = ["JVM", "JS"]
+            sourceRoot { path = "src/commonMain" }
+        }
+        js {
+            targets = ["JS"]
+            sourceRoot { path = "src/jsMain" }
+        }
+        jvm {
+            targets = ["JVM"]
+            sourceRoot { path = "src/jvmMain" }
+        }
+    }
+}

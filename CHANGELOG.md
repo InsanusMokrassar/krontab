@@ -7,6 +7,18 @@
     * Coroutines `1.3.2` -> `1.3.3`
     * Klock `1.7.3` -> `1.8.6`
 
+### 0.2.3
+
+* Updates in libraries:
+    * Kotlin `1.3.70` -> `1.3.72`
+    * Coroutines `1.3.5` -> `1.3.7`
+    * Klock `1.10.0` -> `1.11.3`
+* A lot of KDocs added and fixed
+* `EverySecondScheduler` changed its building logic - now it is lazy with builder using
+* `KronScheduler#doOnce` was optimized: now it will be explicitly called once and return result of its calculations
+    * `KronScheduler#doWhile` was rewritten to use `KronScheduler#doOnce` for calculations of `block` result
+* New `buildSchedule(String)` function as a shortcut for `createSimpleScheduler(String)`
+
 ### 0.2.2
 
 * Updates in libraries:

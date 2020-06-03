@@ -1,0 +1,3 @@
+code: "**/*.kt"
+gradle: "**/*.gradle"
+markdown: "**/*.md"

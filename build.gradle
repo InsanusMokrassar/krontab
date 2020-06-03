@@ -15,9 +15,10 @@ buildscript {
 plugins {
     id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
     id "org.jetbrains.kotlin.plugin.serialization" version "$kotlin_version"
+    id "org.jetbrains.dokka" version "$dokka_version"
 }
 
-project.version = "0.2.2"
+project.version = "0.2.3"
 project.group = "com.insanusmokrassar"
 
 apply from: "publish.gradle"
@@ -28,6 +29,8 @@ repositories {
     mavenCentral()
     maven { url "https://kotlin.bintray.com/kotlinx" }
 }
+
+apply from: './dokka.gradle'
 
 kotlin {
     jvm()

@@ -1,15 +1,16 @@
 package com.insanusmokrassar.krontab.internal
 
+import com.insanusmokrassar.krontab.KronScheduler
 import com.insanusmokrassar.krontab.utils.clamp
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeSpan
 
 /**
- * [month] 0-11
- * [dayOfMonth] 0-31
- * [hours] 0-23
- * [minutes] 0-59
- * [seconds] 0-59
+ * @param month 0-11
+ * @param dayOfMonth 0-31
+ * @param hours 0-23
+ * @param minutes 0-59
+ * @param seconds 0-59
  */
 internal data class CronDateTime(
     val month: Byte? = null,
@@ -19,16 +20,24 @@ internal data class CronDateTime(
     val seconds: Byte? = null
 ) {
     init {
-        check(month ?.let { it in com.insanusmokrassar.krontab.internal.monthRange } ?: true)
-        check(dayOfMonth ?.let { it in com.insanusmokrassar.krontab.internal.dayOfMonthRange } ?: true)
-        check(hours?.let { it in com.insanusmokrassar.krontab.internal.hoursRange } ?: true)
-        check(minutes?.let { it in com.insanusmokrassar.krontab.internal.minutesRange } ?: true)
-        check(seconds?.let { it in com.insanusmokrassar.krontab.internal.secondsRange } ?: true)
+        check(month ?.let { it in monthRange } ?: true)
+        check(dayOfMonth ?.let { it in dayOfMonthRange } ?: true)
+        check(hours?.let { it in hoursRange } ?: true)
+        check(minutes?.let { it in minutesRange } ?: true)
+        check(seconds?.let { it in secondsRange } ?: true)
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
 
     companion object {
+        /**
+         * Using [clamp] extension for checking every parameter to be ensure that they are all correct
+         * @param month 0-11
+         * @param dayOfMonth 0-31
+         * @param hours 0-23
+         * @param minutes 0-59
+         * @param seconds 0-59
+         */
         fun create(
             month: Int? = null,
             dayOfMonth: Int? = null,
@@ -36,15 +45,18 @@ internal data class CronDateTime(
             minutes: Int? = null,
             seconds: Int? = null
         ) = CronDateTime(
-            month ?.clamp(com.insanusmokrassar.krontab.internal.monthRange) ?.toByte(),
-            dayOfMonth ?.clamp(com.insanusmokrassar.krontab.internal.dayOfMonthRange) ?.toByte(),
-            hours ?.clamp(com.insanusmokrassar.krontab.internal.hoursRange) ?.toByte(),
-            minutes ?.clamp(com.insanusmokrassar.krontab.internal.minutesRange) ?.toByte(),
-            seconds ?.clamp(com.insanusmokrassar.krontab.internal.secondsRange) ?.toByte()
+            month ?.clamp(monthRange) ?.toByte(),
+            dayOfMonth ?.clamp(dayOfMonthRange) ?.toByte(),
+            hours ?.clamp(hoursRange) ?.toByte(),
+            minutes ?.clamp(minutesRange) ?.toByte(),
+            seconds ?.clamp(secondsRange) ?.toByte()
         )
     }
 }
 
+/**
+ * @return The near [DateTime] which happens after [relativelyTo] or will be equal to [relativelyTo]
+ */
 internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime {
     var current = relativelyTo
 
@@ -74,4 +86,39 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
     }
 
     return current
+}
+
+/**
+ * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
+ */
+internal fun createKronScheduler(
+    seconds: Array<Byte>? = null,
+    minutes: Array<Byte>? = null,
+    hours: Array<Byte>? = null,
+    dayOfMonth: Array<Byte>? = null,
+    month: Array<Byte>? = null
+): KronScheduler {
+    val resultCronDateTimes = mutableListOf(CronDateTime())
+
+    seconds ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(seconds = currentTime)
+    }
+
+    minutes ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(minutes = currentTime)
+    }
+
+    hours ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(hours = currentTime)
+    }
+
+    dayOfMonth ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(dayOfMonth = currentTime)
+    }
+
+    month ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
+        previousCronDateTime.copy(month = currentTime)
+    }
+
+    return CronDateTimeScheduler(resultCronDateTimes.toList())
 }

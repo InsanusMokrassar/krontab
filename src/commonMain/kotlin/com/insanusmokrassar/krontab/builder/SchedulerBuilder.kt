@@ -1,10 +1,16 @@
 package com.insanusmokrassar.krontab.builder
 
-import com.insanusmokrassar.krontab.CronDateTimeScheduler
 import com.insanusmokrassar.krontab.KronScheduler
+import com.insanusmokrassar.krontab.internal.*
 import com.insanusmokrassar.krontab.internal.CronDateTime
+import com.insanusmokrassar.krontab.internal.CronDateTimeScheduler
 import com.insanusmokrassar.krontab.internal.fillWith
 
+/**
+ * Will help to create an instance of [KronScheduler]
+ *
+ * @see com.insanusmokrassar.krontab.createSimpleScheduler
+ */
 fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
     val builder = SchedulerBuilder()
 
@@ -36,6 +42,9 @@ class SchedulerBuilder(
         } ?: builderValue
     }
 
+    /**
+     * Starts an seconds block
+     */
     fun seconds(block: SecondsBuilder.() -> Unit) {
         seconds = callAndReturn(
             seconds,
@@ -44,6 +53,9 @@ class SchedulerBuilder(
         )
     }
 
+    /**
+     * Starts an minutes block
+     */
     fun minutes(block: MinutesBuilder.() -> Unit) {
         minutes = callAndReturn(
             minutes,
@@ -52,6 +64,9 @@ class SchedulerBuilder(
         )
     }
 
+    /**
+     * Starts an hours block
+     */
     fun hours(block: HoursBuilder.() -> Unit) {
         hours = callAndReturn(
             hours,
@@ -60,6 +75,9 @@ class SchedulerBuilder(
         )
     }
 
+    /**
+     * Starts an days of month block
+     */
     fun dayOfMonth(block: DaysOfMonthBuilder.() -> Unit) {
         dayOfMonth = callAndReturn(
             dayOfMonth,
@@ -68,6 +86,9 @@ class SchedulerBuilder(
         )
     }
 
+    /**
+     * Starts an months block
+     */
     fun months(block: MonthsBuilder.() -> Unit) {
         month = callAndReturn(
             month,
@@ -76,29 +97,11 @@ class SchedulerBuilder(
         )
     }
 
-    fun build(): KronScheduler {
-        val resultCronDateTimes = mutableListOf(CronDateTime())
-
-        seconds ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-            previousCronDateTime.copy(seconds = currentTime)
-        }
-
-        minutes ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-            previousCronDateTime.copy(minutes = currentTime)
-        }
-
-        hours ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-            previousCronDateTime.copy(hours = currentTime)
-        }
-
-        dayOfMonth ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-            previousCronDateTime.copy(dayOfMonth = currentTime)
-        }
-
-        month ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
-            previousCronDateTime.copy(month = currentTime)
-        }
-
-        return CronDateTimeScheduler(resultCronDateTimes.toList())
-    }
+    /**
+     * @return Completely built and independent [KronScheduler]
+     *
+     * @see com.insanusmokrassar.krontab.createSimpleScheduler
+     * @see com.insanusmokrassar.krontab.internal.createKronScheduler
+     */
+    fun build(): KronScheduler = createKronScheduler(seconds, minutes, hours, dayOfMonth, month)
 }
