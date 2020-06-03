@@ -7,6 +7,13 @@
     * Coroutines `1.3.2` -> `1.3.3`
     * Klock `1.7.3` -> `1.8.6`
 
+### 0.2.3
+
+* Updates in libraries:
+    * Kotlin `1.3.70` -> `1.3.72`
+    * Coroutines `1.3.5` -> `1.3.7`
+    * Klock `1.10.0` -> `1.11.3`
+
 ### 0.2.2
 
 * Updates in libraries:
