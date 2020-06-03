@@ -51,3 +51,8 @@ fun createSimpleScheduler(incoming: String): KronScheduler {
         secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed
     )
 }
+
+/**
+ *
+ */
+fun buildSchedule(incoming: String): KronScheduler = createSimpleScheduler(incoming)
