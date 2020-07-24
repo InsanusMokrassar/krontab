@@ -9,6 +9,10 @@
 
 ### 0.2.4
 
+* Updates in libraries:
+    * Klock `1.11.3` -> `1.11.14`
+    * Coroutines `1.3.7` -> `1.3.8`
+
 ### 0.2.3
 
 * Updates in libraries:
