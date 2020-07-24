@@ -7,6 +7,8 @@
     * Coroutines `1.3.2` -> `1.3.3`
     * Klock `1.7.3` -> `1.8.6`
 
+### 0.2.4
+
 ### 0.2.3
 
 * Updates in libraries:
