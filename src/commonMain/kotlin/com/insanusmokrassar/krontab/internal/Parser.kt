@@ -7,6 +7,10 @@ private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte
 
     val results = things.flatMap {
         when {
+            it.contains("-") -> {
+                val splitted = it.split("-")
+                (splitted.first().toInt().clamp(dataRange) .. splitted[1].toInt().clamp(dataRange)).toList()
+            }
             it.contains("/") -> {
                 val (start, step) = it.split("/")
                 val startNum = (if (start.isEmpty() || start == "*") {

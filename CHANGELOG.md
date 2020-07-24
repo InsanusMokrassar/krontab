@@ -12,6 +12,7 @@
 * Updates in libraries:
     * Klock `1.11.3` -> `1.11.14`
     * Coroutines `1.3.7` -> `1.3.8`
+* Ranges support was included. Now it is possible to correctly use syntax `0-5` in strings schedules
 
 ### 0.2.3
 
