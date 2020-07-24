@@ -13,7 +13,7 @@ import com.insanusmokrassar.krontab.internal.*
  *
  * And each one have next format:
  *
- * `{number},{number},...`
+ * `{number}[,{number},...]` or `*`
  *
  * and {number} here is one of
  *
@@ -53,6 +53,6 @@ fun createSimpleScheduler(incoming: String): KronScheduler {
 }
 
 /**
- *
+ * Shortcut for [createSimpleScheduler]
  */
 fun buildSchedule(incoming: String): KronScheduler = createSimpleScheduler(incoming)
