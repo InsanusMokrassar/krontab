@@ -81,6 +81,16 @@ sealed class TimeBuilder (
      */
     @Suppress("unused")
     infix fun upTo(endIncluding: Int): Array<Int> = this from 0 upTo endIncluding
+    /**
+     * Will fill up this timeline from [this] up to [endIncluding]
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    infix operator fun Int.rangeTo(endIncluding: Int) = upTo(endIncluding)
+    /**
+     * Shortcut for "[from] 0 [rangeTo] [endIncluding]"
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    infix operator fun rangeTo(endIncluding: Int) = (this from 0) rangeTo endIncluding
 
     internal fun build() = result ?.map { it.toByte() } ?.toTypedArray()
 }

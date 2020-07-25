@@ -28,30 +28,6 @@ internal data class CronDateTime(
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
-
-    companion object {
-        /**
-         * Using [clamp] extension for checking every parameter to be ensure that they are all correct
-         * @param month 0-11
-         * @param dayOfMonth 0-31
-         * @param hours 0-23
-         * @param minutes 0-59
-         * @param seconds 0-59
-         */
-        fun create(
-            month: Int? = null,
-            dayOfMonth: Int? = null,
-            hours: Int? = null,
-            minutes: Int? = null,
-            seconds: Int? = null
-        ) = CronDateTime(
-            month ?.clamp(monthRange) ?.toByte(),
-            dayOfMonth ?.clamp(dayOfMonthRange) ?.toByte(),
-            hours ?.clamp(hoursRange) ?.toByte(),
-            minutes ?.clamp(minutesRange) ?.toByte(),
-            seconds ?.clamp(secondsRange) ?.toByte()
-        )
-    }
 }
 
 /**
