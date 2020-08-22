@@ -6,6 +6,8 @@
     * `Kotlin`: `1.3.72` -> `1.4.0`
     * `Coroutines`: `1.3.8` -> `1.3.9`
     * `Klock`: `1.11.14` -> `1.12.0`
+* Typealias `KrontabTemplate` was added
+* Extension `KrontabTemplate#toSchedule` was added
 
 ## 0.2.0
 

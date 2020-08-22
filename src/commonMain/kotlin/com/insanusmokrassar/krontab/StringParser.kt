@@ -3,6 +3,12 @@ package com.insanusmokrassar.krontab
 import com.insanusmokrassar.krontab.internal.*
 
 /**
+ * @see createSimpleScheduler
+ * @see buildSchedule
+ */
+typealias KrontabTemplate = String
+
+/**
  * Parse [incoming] string and adapt according to next format: "* * * * *" where order of things:
  *
  * * seconds
@@ -38,7 +44,7 @@ import com.insanusmokrassar.krontab.internal.*
  *
  * @see com.insanusmokrassar.krontab.internal.createKronScheduler
  */
-fun createSimpleScheduler(incoming: String): KronScheduler {
+fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
 
     val secondsParsed = parseSeconds(secondsSource)
@@ -55,4 +61,9 @@ fun createSimpleScheduler(incoming: String): KronScheduler {
 /**
  * Shortcut for [createSimpleScheduler]
  */
-fun buildSchedule(incoming: String): KronScheduler = createSimpleScheduler(incoming)
+fun buildSchedule(incoming: KrontabTemplate): KronScheduler = createSimpleScheduler(incoming)
+
+/**
+ * Shortcut for [buildSchedule]
+ */
+fun KrontabTemplate.toSchedule(): KronScheduler = buildSchedule(this)
