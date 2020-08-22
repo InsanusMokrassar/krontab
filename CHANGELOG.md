@@ -2,6 +2,11 @@
 
 ## 0.3.0
 
+* Versions:
+    * `Kotlin`: `1.3.72` -> `1.4.0`
+    * `Coroutines`: `1.3.8` -> `1.3.9`
+    * `Klock`: `1.11.14` -> `1.12.0`
+
 ## 0.2.0
 
 * Updated way of publishing (for more info look at the [git](https://git.insanusmokrassar.com/InsanusMokrassar/krontab))
