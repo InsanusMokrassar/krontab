@@ -20,37 +20,33 @@ publishing {
     publications.all {
         artifact javadocsJar
 
-        pom.withXml {
-            asNode().children().last() + {
-                resolveStrategy = Closure.DELEGATE_FIRST
+        pom {
+            description = "It is an analog of crontab util for Kotlin Coroutines"
+            name = "Krontab"
+            url = "https://git.insanusmokrassar.com/InsanusMokrassar/krontab"
 
-                description "It is an analog of crontab util for Kotlin Coroutines"
-                name "Krontab"
-                url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab"
+            scm {
+                developerConnection = "scm:git:[fetch=]https://git.insanusmokrassar.com:8322/InsanusMokrassar/krontab.git[push=]https://git.insanusmokrassar.com:8322/InsanusMokrassar/krontab.git"
+                url = "https://git.insanusmokrassar.com:8322/InsanusMokrassar/krontab.git"
+            }
 
-                scm {
-                    developerConnection "scm:git:[fetch=]https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git[push=]https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git"
-                    url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab.git"
-                }
+            developers {
+                
+                    developer {
+                        id = "InsanusMokrassar"
+                        name = "Ovsiannikov Aleksei"
+                        email = "ovsyannikov.alexey95@gmail.com"
+                    }
+                
+            }
 
-                developers {
-                    
-                        developer {
-                            id "InsanusMokrassar"
-                            name "Ovsiannikov Aleksei"
-                            email "ovsyannikov.alexey95@gmail.com"
-                        }
-                    
-                }
-
-                licenses {
-                    
-                        license {
-                            name "Apache Software License 2.0"
-                            url "https://git.insanusmokrassar.com/InsanusMokrassar/krontab/src/master/LICENSE"
-                        }
-                    
-                }
+            licenses {
+                
+                    license {
+                        name = "Apache Software License 2.0"
+                        url = "https://git.insanusmokrassar.com/InsanusMokrassar/krontab/src/master/LICENSE"
+                    }
+                
             }
         }
     }

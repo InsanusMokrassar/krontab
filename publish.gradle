@@ -27,10 +27,9 @@ bintray {
     }
     pkg {
         repo = "InsanusMokrassar"
-        name = "${project.name}"
+        name = "${project.name}-mpp"
         vcsUrl = "https://git.insanusmokrassar.com/InsanusMokrassar/krontab"
         licenses = ["Apache-2.0"]
-        override=true
         version {
             name = "${project.version}"
             released = new Date()
