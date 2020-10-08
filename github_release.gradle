@@ -3,7 +3,7 @@ private String getCurrentVersionChangelog() {
     exec {
         standardOutput = changelogDataOS
         commandLine 'chmod', "+x", './changelog_parser.sh'
-        commandLine './changelog_parser.sh', "$library_version", 'CHANGELOG.md'
+        commandLine './changelog_parser.sh', "${project.version}", 'CHANGELOG.md'
     }
 
     return changelogDataOS.toString().trim()
