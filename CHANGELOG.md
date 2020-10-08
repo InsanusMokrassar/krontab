@@ -9,6 +9,12 @@
 * Typealias `KrontabTemplate` was added
 * Extension `KrontabTemplate#toSchedule` was added
 
+### 0.3.1
+
+* Versions:
+    * `Kotlin`: `1.4.0` -> `1.4.10`
+    * `Klock`: `1.12.0` -> `1.12.1`
+
 ## 0.2.0
 
 * Updated way of publishing (for more info look at the [git](https://git.insanusmokrassar.com/InsanusMokrassar/krontab))
