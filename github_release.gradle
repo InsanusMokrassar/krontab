@@ -1,0 +1,28 @@
+private String getCurrentVersionChangelog() {
+    OutputStream changelogDataOS = new ByteArrayOutputStream()
+    exec {
+        standardOutput = changelogDataOS
+        commandLine 'chmod', "+x", './changelog_parser.sh'
+        commandLine './changelog_parser.sh', "$library_version", 'CHANGELOG.md'
+    }
+
+    return changelogDataOS.toString().trim()
+}
+
+if (new File(projectDir, "secret.gradle").exists()) {
+    apply from: './secret.gradle'
+    apply plugin: "com.github.breadmoirai.github-release"
+
+    githubRelease {
+        token "${project.property('GITHUB_RELEASE_TOKEN')}"
+
+        owner "InsanusMokrassar"
+        repo "${rootProject.name}"
+
+        tagName "${project.version}"
+        releaseName "${project.version}"
+        targetCommitish "${project.version}"
+
+        body getCurrentVersionChangelog()
+    }
+}

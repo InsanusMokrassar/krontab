@@ -25,6 +25,10 @@ bintray {
         }
         into "${project.group}".replace(".", "/")
     }
+    
+    publish = true
+    override = true
+    
     pkg {
         repo = "InsanusMokrassar"
         name = "${project.name}-mpp"
