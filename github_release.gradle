@@ -1,9 +1,9 @@
-private String getCurrentVersionChangelog() {
+private String getCurrentVersionChangelog(String version) {
     OutputStream changelogDataOS = new ByteArrayOutputStream()
     exec {
         standardOutput = changelogDataOS
         commandLine 'chmod', "+x", './changelog_parser.sh'
-        commandLine './changelog_parser.sh', "${project.version}", 'CHANGELOG.md'
+        commandLine './changelog_parser.sh', "$version", 'CHANGELOG.md'
     }
 
     return changelogDataOS.toString().trim()
@@ -23,6 +23,6 @@ if (new File(projectDir, "secret.gradle").exists()) {
         releaseName "${project.version}"
         targetCommitish "${project.version}"
 
-        body getCurrentVersionChangelog()
+        body getCurrentVersionChangelog("${project.version}")
     }
 }
