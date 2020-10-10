@@ -26,8 +26,8 @@ private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte
                 val stepNum = step.toInt().clamp(dataRange)
                 (startNum .. dataRange.last step stepNum).map { it }
             }
-            it == "*" -> return null
-            else -> listOf(it.toInt().clamp(dataRange))
+            currentToken == "*" -> return null
+            else -> listOf(currentToken.toInt().clamp(dataRange))
         }
     }
 
