@@ -9,6 +9,8 @@
 * Typealias `KrontabTemplate` was added
 * Extension `KrontabTemplate#toSchedule` was added
 
+### 0.3.3
+
 ### 0.3.2
 
 * Function `TimeBuilder#each` was added (works as `at`)
