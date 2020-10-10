@@ -9,6 +9,16 @@
 * Typealias `KrontabTemplate` was added
 * Extension `KrontabTemplate#toSchedule` was added
 
+### 0.3.2
+
+* Function `TimeBuilder#each` was added (works as `at`)
+* Add opportunity to use `first` shortcuts:
+    * Value property `TimeBuilder#first` for including via functions like `TimeBuilder#at`
+    * Shortcut for kron string format `f` or `F`
+* Add opportunity to use `last` shortcuts:
+    * Value property `TimeBuilder#last` for including via functions like `TimeBuilder#at`
+    * Shortcut for kron string format `l` or `L`
+
 ### 0.3.1
 
 * Versions:

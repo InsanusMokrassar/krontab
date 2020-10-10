@@ -13,6 +13,17 @@ sealed class TimeBuilder (
     private var result: Set<Int>? = null
 
     /**
+     * The first possible value of builder
+     */
+    val first
+        get() = restrictionsRange.first
+    /**
+     * The last possible value of builder. Using of this variable equal to using "L" in strings
+     */
+    val last
+        get() = restrictionsRange.last
+
+    /**
      * After calling of this function this builder will allow any value of current time
      */
     @Suppress("unused")
@@ -36,6 +47,13 @@ sealed class TimeBuilder (
     infix fun at(value: Int) {
         result = (result ?: emptySet()) + value.clamp(restrictionsRange)
     }
+
+
+    /**
+     * Shortcut for [at]. In fact will
+     */
+    @Suppress("unused", "NOTHING_TO_INLINE")
+    inline infix fun each(value: Int) = at(value)
 
     /**
      * Just wrapper for more obvious writing something like "[from] 2 [every] 5". For example, for [SecondsBuilder] it
@@ -91,6 +109,15 @@ sealed class TimeBuilder (
      */
     @Suppress("MemberVisibilityCanBePrivate")
     infix operator fun rangeTo(endIncluding: Int) = (this from 0) rangeTo endIncluding
+
+    /**
+     * Will include the last possible value
+     */
+    fun includeLast() = at(restrictionsRange.last)
+    /**
+     * Will include the first possible value
+     */
+    fun includeFirst() = at(restrictionsRange.first)
 
     internal fun build() = result ?.map { it.toByte() } ?.toTypedArray()
 }

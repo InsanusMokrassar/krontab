@@ -6,13 +6,18 @@ private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte
     val things = from.split(",")
 
     val results = things.flatMap {
+        val currentToken = it.toLowerCase().replace(
+            "f", dataRange.first.toString()
+        ).replace(
+            "l", dataRange.last.toString()
+        )
         when {
-            it.contains("-") -> {
-                val splitted = it.split("-")
+            currentToken.contains("-") -> {
+                val splitted = currentToken.split("-")
                 (splitted.first().toInt().clamp(dataRange) .. splitted[1].toInt().clamp(dataRange)).toList()
             }
-            it.contains("/") -> {
-                val (start, step) = it.split("/")
+            currentToken.contains("/") -> {
+                val (start, step) = currentToken.split("/")
                 val startNum = (if (start.isEmpty() || start == "*") {
                     0
                 } else {
@@ -21,8 +26,8 @@ private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte
                 val stepNum = step.toInt().clamp(dataRange)
                 (startNum .. dataRange.last step stepNum).map { it }
             }
-            it == "*" -> return null
-            else -> listOf(it.toInt().clamp(dataRange))
+            currentToken == "*" -> return null
+            else -> listOf(currentToken.toInt().clamp(dataRange))
         }
     }
 
