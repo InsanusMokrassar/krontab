@@ -52,7 +52,13 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
     }
 
     klockDayOfMonth ?.let {
-        val left = it - current.dayOfMonth
+        val left = (it - current.dayOfMonth).let { diff ->
+            if (diff > 0 && current.endOfMonth.run { it > dayOfMonth && current.dayOfMonth == dayOfMonth }) {
+                0
+            } else {
+                diff
+            }
+        }
         current += DateTimeSpan(months = if (left < 0) 1 else 0, days = left)
     }
 

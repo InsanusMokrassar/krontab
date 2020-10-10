@@ -11,6 +11,13 @@
 
 ### 0.3.2
 
+* Add opportunity to use `first` shortcuts:
+    * Value property `TimeBuilder#first` for including via functions like `TimeBuilder#at`
+    * Shortcut for kron string format `f` or `F`
+* Add opportunity to use `last` shortcuts:
+    * Value property `TimeBuilder#last` for including via functions like `TimeBuilder#at`
+    * Shortcut for kron string format `l` or `L`
+
 ### 0.3.1
 
 * Versions:

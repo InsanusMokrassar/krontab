@@ -27,6 +27,8 @@ typealias KrontabTemplate = String
  * * {int}/{int}
  * * *&#47;{int}
  * * {int}
+ * * F
+ * * L
  *
  * Additional info about ranges can be found in follow accordance:
  *
@@ -39,8 +41,9 @@ typealias KrontabTemplate = String
  * Examples:
  *
  * * "0/5 * * * *" for every five seconds triggering
+ * * "0/5,L * * * *" for every five seconds triggering and on 59 second
  * * "0/15 30 * * *" for every 15th seconds in a half of each hour
- * * "1 2 3 4 5" for triggering in near first second of second minute of third hour of fourth day of may
+ * * "1 2 3 F,4,L 5" for triggering in near first second of second minute of third hour of fourth day of may
  *
  * @see com.insanusmokrassar.krontab.internal.createKronScheduler
  */
