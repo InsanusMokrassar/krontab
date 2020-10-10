@@ -48,6 +48,13 @@ sealed class TimeBuilder (
         result = (result ?: emptySet()) + value.clamp(restrictionsRange)
     }
 
+
+    /**
+     * Shortcut for [at]. In fact will
+     */
+    @Suppress("unused", "NOTHING_TO_INLINE")
+    inline infix fun each(value: Int) = at(value)
+
     /**
      * Just wrapper for more obvious writing something like "[from] 2 [every] 5". For example, for [SecondsBuilder] it
      * will mean "[from] second second [every] 5 seconds", or "2, 7, 13, ..."

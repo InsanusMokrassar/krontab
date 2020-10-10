@@ -11,6 +11,7 @@
 
 ### 0.3.2
 
+* Function `TimeBuilder#each` was added (works as `at`)
 * Add opportunity to use `first` shortcuts:
     * Value property `TimeBuilder#first` for including via functions like `TimeBuilder#at`
     * Shortcut for kron string format `f` or `F`
