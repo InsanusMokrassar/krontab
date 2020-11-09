@@ -1,13 +1,9 @@
 # Changelog
 
-## 0.3.0
+### 0.3.3
 
 * Versions:
-    * `Kotlin`: `1.3.72` -> `1.4.0`
-    * `Coroutines`: `1.3.8` -> `1.3.9`
-    * `Klock`: `1.11.14` -> `1.12.0`
-* Typealias `KrontabTemplate` was added
-* Extension `KrontabTemplate#toSchedule` was added
+    * `Coroutines`: `1.3.9` -> `1.4.1`
 
 ### 0.3.2
 
@@ -25,12 +21,14 @@
     * `Kotlin`: `1.4.0` -> `1.4.10`
     * `Klock`: `1.12.0` -> `1.12.1`
 
-## 0.2.0
+## 0.3.0
 
-* Updated way of publishing (for more info look at the [git](https://git.insanusmokrassar.com/InsanusMokrassar/krontab))
-* Updates in libraries:
-    * Coroutines `1.3.2` -> `1.3.3`
-    * Klock `1.7.3` -> `1.8.6`
+* Versions:
+    * `Kotlin`: `1.3.72` -> `1.4.0`
+    * `Coroutines`: `1.3.8` -> `1.3.9`
+    * `Klock`: `1.11.14` -> `1.12.0`
+* Typealias `KrontabTemplate` was added
+* Extension `KrontabTemplate#toSchedule` was added
 
 ### 0.2.4
 
@@ -61,3 +59,10 @@
 ### 0.2.1
 
 * Added support of flows: now any `KronScheduler` can be convert to `Flow<DateTime>` using `asFlow` extension
+
+## 0.2.0
+
+* Updated way of publishing (for more info look at the [git](https://git.insanusmokrassar.com/InsanusMokrassar/krontab))
+* Updates in libraries:
+    * Coroutines `1.3.2` -> `1.3.3`
+    * Klock `1.7.3` -> `1.8.6`
