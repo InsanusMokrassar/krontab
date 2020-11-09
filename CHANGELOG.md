@@ -2,6 +2,9 @@
 
 ### 0.3.3
 
+* Versions:
+    * `Coroutines`: `1.3.9` -> `1.4.1`
+
 ### 0.3.2
 
 * Function `TimeBuilder#each` was added (works as `at`)
