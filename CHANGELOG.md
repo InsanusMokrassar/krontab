@@ -2,6 +2,12 @@
 
 ## 0.4.0
 
+**BREAKING CHANGES**
+Package of project has been changed. Migration:
+
+* Replace in your dependencies `com.insanusmokrassar:krontab` by `dev.inmo:krontab`
+* Replace in your project all imports `com.insanusmokrassar.krontab` by `dev.inmo.krontab`
+
 ## 0.3.3
 
 * Versions:
