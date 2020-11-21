@@ -8,6 +8,10 @@ Package of project has been changed. Migration:
 * Replace in your dependencies `com.insanusmokrassar:krontab` by `dev.inmo:krontab`
 * Replace in your project all imports `com.insanusmokrassar.krontab` by `dev.inmo.krontab`
 
+* Versions:
+    * `Kotlin`: `1.4.10` -> `1.4.20`
+    * `Klock`: `1.12.1` -> `2.0.0`
+
 ## 0.3.3
 
 * Versions:
