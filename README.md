@@ -1,7 +1,7 @@
 # krontab
 
  [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab-mpp/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab-mpp/_latestVersion)
- [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.insanusmokrassar/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.insanusmokrassar/krontab)
+ [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab)
  [![Build Status](https://travis-ci.com/InsanusMokrassar/krontab.svg?branch=master)](https://travis-ci.com/InsanusMokrassar/krontab)
  
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
@@ -39,7 +39,7 @@ If you want to include `krontab` in your project, just add next line to your
 dependencies part:
 
 ```groovy
-implementation "com.insanusmokrassar:krontab:$krontab_version"
+implementation "dev.inmo:krontab:$krontab_version"
 ```
 
 Next version is the latest currently for the library:

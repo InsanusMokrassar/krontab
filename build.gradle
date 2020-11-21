@@ -7,7 +7,6 @@ buildscript {
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$gradle_bintray_plugin_version"
         classpath "com.github.breadmoirai:github-release:$github_release_plugin_version"
     }
 }
@@ -17,8 +16,8 @@ plugins {
     id "org.jetbrains.dokka" version "$dokka_version"
 }
 
-project.version = "0.3.3"
-project.group = "com.insanusmokrassar"
+project.version = "0.4.0"
+project.group = "dev.inmo"
 
 apply from: "publish.gradle"
 apply from: "github_release.gradle"
@@ -55,16 +54,12 @@ kotlin {
                 implementation kotlin('test-annotations-common')
             }
         }
-        jvmMain {
-            dependencies {
-            }
-        }
         jvmTest {
             dependencies {
                 implementation kotlin('test-junit')
             }
         }
-        jsMain {
+        jsTest {
             dependencies {
                 implementation kotlin('test-js')
             }

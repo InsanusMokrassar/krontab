@@ -13,7 +13,7 @@ dokka {
     multiplatform {
         global {
             perPackageOption {
-                prefix = "com.insanusmokrassar"
+                prefix = "dev.inmo"
                 skipDeprecated = true
                 includeNonPublic = true
                 reportUndocumented = true
