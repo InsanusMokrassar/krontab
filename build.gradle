@@ -7,7 +7,6 @@ buildscript {
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$gradle_bintray_plugin_version"
         classpath "com.github.breadmoirai:github-release:$github_release_plugin_version"
     }
 }
@@ -55,16 +54,12 @@ kotlin {
                 implementation kotlin('test-annotations-common')
             }
         }
-        jvmMain {
-            dependencies {
-            }
-        }
         jvmTest {
             dependencies {
                 implementation kotlin('test-junit')
             }
         }
-        jsMain {
+        jsTest {
             dependencies {
                 implementation kotlin('test-js')
             }
