@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1
+
+* Versions:
+  * `Coroutines`: `1.4.1` -> `1.4.2`
+  * `Klock`: `2.0.0` -> `2.0.1`
+* `CronDateTimeScheduler` now is public
+* New functions for `CronDateTimeScheduler`
+* Add `CollectionKronScheduler`. It will give opportunity to unite several schedulers in one
+
 ## 0.4.0
 
 **BREAKING CHANGES**

@@ -17,7 +17,7 @@ import dev.inmo.krontab.anyCronDateTime
  * @see dev.inmo.krontab.builder.buildSchedule
  * @see dev.inmo.krontab.builder.SchedulerBuilder
  */
-internal data class CronDateTimeScheduler internal constructor(
+data class CronDateTimeScheduler internal constructor(
     internal val cronDateTimes: List<CronDateTime>
 ) : KronScheduler {
     /**
@@ -30,3 +30,22 @@ internal data class CronDateTimeScheduler internal constructor(
     }
 }
 
+/**
+ * @return New instance of [CronDateTimeScheduler] with all unique [CronDateTimeScheduler.cronDateTimes] of
+ * [kronDateTimeSchedulers] included
+ */
+@Suppress("NOTHING_TO_INLINE")
+fun merge(kronDateTimeSchedulers: List<CronDateTimeScheduler>) = CronDateTimeScheduler(
+    kronDateTimeSchedulers.flatMap { it.cronDateTimes }.distinct()
+)
+
+/**
+ * @return Vararg shortcyut for [merge]
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun merge(vararg kronDateTimeSchedulers: CronDateTimeScheduler) = merge(kronDateTimeSchedulers.toList())
+/**
+ * Use [merge] operation to internalcreate new [CronDateTimeScheduler] with all [CronDateTimeScheduler.cronDateTimes]
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun CronDateTimeScheduler.plus(other: CronDateTimeScheduler) = merge(this, other)
