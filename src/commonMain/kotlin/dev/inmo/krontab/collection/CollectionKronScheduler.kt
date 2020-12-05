@@ -3,29 +3,42 @@ package dev.inmo.krontab.collection
 import com.soywiz.klock.DateTime
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.anyCronDateTime
+import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTimeScheduler
+import dev.inmo.krontab.internal.merge
 import dev.inmo.krontab.internal.toNearDateTime
 
+/**
+ * This scheduler will be useful in case you want to unite several different [KronScheduler]s
+ */
 data class CollectionKronScheduler private constructor(
     internal val schedulers: MutableList<KronScheduler>
 ) : KronScheduler {
     internal constructor(schedulers: List<KronScheduler>) : this(schedulers.toMutableList())
     internal constructor() : this(mutableListOf())
 
+    /**
+     * Add [kronScheduler] into its [schedulers] list
+     *
+     * * When [kronScheduler] is [CronDateTimeScheduler] it will merge all [CronDateTimeScheduler]s from [schedulers] list
+     * and this [kronScheduler] using [merge] function
+     * * When [kronScheduler] is [CollectionKronScheduler] it this instance will include all [kronScheduler]
+     * [schedulers]
+     * * Otherwise [kronScheduler] will be added to [schedulers] list
+     */
     fun include(kronScheduler: KronScheduler) {
         when (kronScheduler) {
             is CronDateTimeScheduler -> {
-                val resultCronDateTimes = kronScheduler.cronDateTimes.toMutableList()
+                val resultCronDateTimes = mutableListOf(kronScheduler)
                 schedulers.removeAll {
                     if (it is CronDateTimeScheduler) {
-                        resultCronDateTimes.addAll(it.cronDateTimes)
-                        true
+                        resultCronDateTimes.add(it)
                     } else {
                         false
                     }
                 }
                 schedulers.add(
-                    CronDateTimeScheduler(resultCronDateTimes.distinct())
+                    merge(resultCronDateTimes)
                 )
             }
             is CollectionKronScheduler -> kronScheduler.schedulers.forEach {

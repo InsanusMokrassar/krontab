@@ -1,6 +1,4 @@
-dokka {
-    outputFormat = 'html'
-
+dokkaHtml {
     switch (true) {
         case project.hasProperty("DOKKA_PATH"):
             outputDirectory = project.property("DOKKA_PATH").toString()
@@ -10,33 +8,30 @@ dokka {
             break
     }
 
-    multiplatform {
-        global {
-            perPackageOption {
-                prefix = "dev.inmo"
-                skipDeprecated = true
-                includeNonPublic = true
-                reportUndocumented = true
-            }
+    dokkaSourceSets {
+        configureEach {
+            skipDeprecated.set(true)
+            includeNonPublic.set(true)
+            reportUndocumented.set(true)
 
             sourceLink {
-                path = "./"
-                url = "https://github.com/InsanusMokrassar/krontab/blob/master/"
-                lineSuffix = "#L"
+                localDirectory.set(file("./"))
+                remoteUrl.set(new URL("https://github.com/InsanusMokrassar/krontab/blob/master/"))
+                remoteLineSuffix.set("#L")
             }
         }
 
-        common {
-            targets = ["JVM", "JS"]
+        named("commonMain") {
             sourceRoot { path = "src/commonMain" }
         }
-        js {
-            targets = ["JS"]
-            sourceRoot { path = "src/jsMain" }
-        }
-        jvm {
-            targets = ["JVM"]
-            sourceRoot { path = "src/jvmMain" }
-        }
+
+//
+//        named("jsMain") {
+//            sourceRoot { path = "src/jsMain" }
+//        }
+//
+//        named("jvmMain") {
+//            sourceRoot { path = "src/jvmMain" }
+//        }
     }
 }

@@ -30,3 +30,11 @@ internal data class CronDateTimeScheduler internal constructor(
     }
 }
 
+/**
+ * @return New instance of [CronDateTimeScheduler] with all unique [CronDateTimeScheduler.cronDateTimes] of
+ * [kronDateTimeSchedulers] included
+ */
+@Suppress("NOTHING_TO_INLINE")
+internal inline fun merge(kronDateTimeSchedulers: List<CronDateTimeScheduler>) = CronDateTimeScheduler(
+    kronDateTimeSchedulers.flatMap { it.cronDateTimes }.distinct()
+)
