@@ -2,6 +2,8 @@
 
 ## 0.4.1
 
+* Add `CollectionKronScheduler`. It will give opportunity to unite several schedulers in one
+
 ## 0.4.0
 
 **BREAKING CHANGES**
