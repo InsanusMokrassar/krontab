@@ -11,10 +11,9 @@ import dev.inmo.krontab.internal.toNearDateTime
 /**
  * This scheduler will be useful in case you want to unite several different [KronScheduler]s
  */
-data class CollectionKronScheduler private constructor(
+data class CollectionKronScheduler internal constructor(
     internal val schedulers: MutableList<KronScheduler>
 ) : KronScheduler {
-    internal constructor(schedulers: List<KronScheduler>) : this(schedulers.toMutableList())
     internal constructor() : this(mutableListOf())
 
     /**
