@@ -1,11 +1,17 @@
 dokkaHtml {
+    String dokkaOutputDirectoryPath = null
     switch (true) {
         case project.hasProperty("DOKKA_PATH"):
-            outputDirectory = project.property("DOKKA_PATH").toString()
+            dokkaOutputDirectoryPath = project.property("DOKKA_PATH").toString()
             break
         case System.getenv("DOKKA_PATH") != null:
-            outputDirectory = System.getenv("DOKKA_PATH")
+            dokkaOutputDirectoryPath = System.getenv("DOKKA_PATH")
             break
+    }
+    if (dokkaOutputDirectoryPath != null) {
+        File outputDirectoryFile = new File(dokkaOutputDirectoryPath)
+        outputDirectoryFile.mkdirs()
+        outputDirectory = outputDirectoryFile
     }
 
     dokkaSourceSets {
