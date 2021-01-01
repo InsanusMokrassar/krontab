@@ -1,6 +1,6 @@
 # krontab
 
- [ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab-mpp/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab-mpp/_latestVersion)
+ [![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab-mpp/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab-mpp/_latestVersion)
  [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab)
  [![Build Status](https://travis-ci.com/InsanusMokrassar/krontab.svg?branch=master)](https://travis-ci.com/InsanusMokrassar/krontab)
  

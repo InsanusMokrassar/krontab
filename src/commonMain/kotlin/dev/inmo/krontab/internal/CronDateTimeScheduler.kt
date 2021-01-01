@@ -17,6 +17,7 @@ import dev.inmo.krontab.anyCronDateTime
  * @see dev.inmo.krontab.builder.buildSchedule
  * @see dev.inmo.krontab.builder.SchedulerBuilder
  */
+@Deprecated("This class will get internal status in future")
 data class CronDateTimeScheduler internal constructor(
     internal val cronDateTimes: List<CronDateTime>
 ) : KronScheduler {
