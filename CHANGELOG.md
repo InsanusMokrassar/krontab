@@ -2,6 +2,9 @@
 
 ## 0.4.2
 
+* Versions
+  * `Kotlin`: `1.4.20` -> `1.4.21`
+  * `Klock`: `2.0.1` -> `2.0.3`
 * `CronDateTimeScheduler` now is deprecated and will be set up as `internal` in future
 
 ## 0.4.1
