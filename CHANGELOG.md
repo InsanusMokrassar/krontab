@@ -2,6 +2,8 @@
 
 ## 0.4.2
 
+* `CronDateTimeScheduler` now is deprecated and will be set up as `internal` in future
+
 ## 0.4.1
 
 * Versions:
