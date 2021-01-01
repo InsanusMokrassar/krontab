@@ -16,7 +16,7 @@ plugins {
     id "org.jetbrains.dokka" version "$dokka_version"
 }
 
-project.version = "0.4.1"
+project.version = "0.4.2"
 project.group = "dev.inmo"
 
 apply from: "publish.gradle"
