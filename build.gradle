@@ -3,11 +3,14 @@ buildscript {
         mavenLocal()
         jcenter()
         mavenCentral()
+        google()
     }
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.github.breadmoirai:github-release:$github_release_plugin_version"
+        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$dexcount_version"
+        classpath 'com.android.tools.build:gradle:4.0.2'
     }
 }
 
@@ -15,8 +18,9 @@ plugins {
     id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
     id "org.jetbrains.dokka" version "$dokka_version"
 }
+apply plugin: "com.android.library"
 
-project.version = "0.5.0"
+project.version = "$version"
 project.group = "dev.inmo"
 
 apply from: "publish.gradle"
@@ -27,6 +31,7 @@ repositories {
     jcenter()
     mavenCentral()
     maven { url "https://kotlin.bintray.com/kotlinx" }
+    google()
 }
 
 apply from: './dokka.gradle'
@@ -36,6 +41,9 @@ kotlin {
     js(BOTH) {
         browser()
         nodejs()
+    }
+    android {
+        publishAllLibraryVariants()
     }
 
 
@@ -48,6 +56,13 @@ kotlin {
                 api "com.soywiz.korlibs.klock:klock:$klockVersion"
             }
         }
+
+        androidMain {
+            dependencies {
+                api "androidx.work:work-runtime-ktx:$androidx_work_version"
+            }
+        }
+
         commonTest {
             dependencies {
                 implementation kotlin('test-common')
@@ -64,5 +79,45 @@ kotlin {
                 implementation kotlin('test-js')
             }
         }
+        androidTest {
+            dependencies {
+                implementation kotlin('test-junit')
+            }
+        }
+    }
+}
+
+apply plugin: 'com.getkeepsafe.dexcount'
+
+android {
+    compileSdkVersion "$android_compileSdkVersion".toInteger()
+    buildToolsVersion "$android_buildToolsVersion"
+
+    defaultConfig {
+        minSdkVersion "$android_minSdkVersion".toInteger()
+        targetSdkVersion "$android_compileSdkVersion".toInteger()
+        versionCode "${android_code_version}".toInteger()
+        versionName "$version"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
