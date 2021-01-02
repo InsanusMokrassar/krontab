@@ -1,6 +1,7 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
+import dev.inmo.krontab.internal.toNearDateTime
 
 /**
  * This interface was created for abstraction of [next] operation. Currently, there is only
@@ -17,5 +18,7 @@ interface KronScheduler {
      *
      * @see dev.inmo.krontab.internal.CronDateTimeScheduler.next
      */
-    suspend fun next(relatively: DateTime = DateTime.now()): DateTime
+    suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
 }
+
+suspend fun KronScheduler.forceNext(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)

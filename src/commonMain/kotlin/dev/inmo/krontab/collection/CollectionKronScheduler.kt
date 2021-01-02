@@ -1,8 +1,7 @@
 package dev.inmo.krontab.collection
 
 import com.soywiz.klock.DateTime
-import dev.inmo.krontab.KronScheduler
-import dev.inmo.krontab.anyCronDateTime
+import dev.inmo.krontab.*
 import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTimeScheduler
 import dev.inmo.krontab.internal.toNearDateTime
@@ -47,6 +46,6 @@ data class CollectionKronScheduler internal constructor(
     }
 
     override suspend fun next(relatively: DateTime): DateTime {
-        return schedulers.minOfOrNull { it.next(relatively) } ?: anyCronDateTime.toNearDateTime(relatively)
+        return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively)
     }
 }

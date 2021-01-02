@@ -12,6 +12,7 @@ import dev.inmo.krontab.KronScheduler
  * @param seconds 0-59
  */
 internal data class CronDateTime(
+    val year: Int? = null,
     val month: Byte? = null,
     val dayOfMonth: Byte? = null,
     val hours: Byte? = null,
@@ -19,6 +20,7 @@ internal data class CronDateTime(
     val seconds: Byte? = null
 ) {
     init {
+        check(year ?.let { it in yearRange } ?: true)
         check(month ?.let { it in monthRange } ?: true)
         check(dayOfMonth ?.let { it in dayOfMonthRange } ?: true)
         check(hours?.let { it in hoursRange } ?: true)
@@ -32,7 +34,7 @@ internal data class CronDateTime(
 /**
  * @return The near [DateTime] which happens after [relativelyTo] or will be equal to [relativelyTo]
  */
-internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime {
+internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime? {
     var current = relativelyTo
 
     seconds?.let {
@@ -63,7 +65,13 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
 
     month ?.let {
         val left = it - current.month0
-        current += DateTimeSpan(months = if (left < 0) 1 else 0, days = left)
+        current += DateTimeSpan(years = if (left < 0) 1 else 0, months = left)
+    }
+
+    year ?.let {
+        if (current.yearInt != it) {
+            return null
+        }
     }
 
     return current
@@ -77,7 +85,8 @@ internal fun createKronScheduler(
     minutes: Array<Byte>? = null,
     hours: Array<Byte>? = null,
     dayOfMonth: Array<Byte>? = null,
-    month: Array<Byte>? = null
+    month: Array<Byte>? = null,
+    years: Array<Int>? = null
 ): KronScheduler {
     val resultCronDateTimes = mutableListOf(CronDateTime())
 
@@ -99,6 +108,10 @@ internal fun createKronScheduler(
 
     month ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
         previousCronDateTime.copy(month = currentTime)
+    }
+
+    years ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Int ->
+        previousCronDateTime.copy(year = currentTime)
     }
 
     return CronDateTimeScheduler(resultCronDateTimes.toList())

@@ -7,8 +7,9 @@ import dev.inmo.krontab.utils.clamp
  * This class was created for incapsulation of builder work with specified [restrictionsRange]. For example,
  * [include] function of [TimeBuilder] will always [clamp] incoming data using its [restrictionsRange]
  */
-sealed class TimeBuilder (
-    private val restrictionsRange: IntRange
+sealed class TimeBuilder<T : Number> (
+    private val restrictionsRange: IntRange,
+    private val converter: Converter<T>
 ) {
     private var result: Set<Int>? = null
 
@@ -119,11 +120,12 @@ sealed class TimeBuilder (
      */
     fun includeFirst() = at(restrictionsRange.first)
 
-    internal fun build() = result ?.map { it.toByte() } ?.toTypedArray()
+    internal fun build() = result ?.map(converter)
 }
 
-class SecondsBuilder : TimeBuilder(secondsRange)
-class MinutesBuilder : TimeBuilder(minutesRange)
-class HoursBuilder : TimeBuilder(hoursRange)
-class DaysOfMonthBuilder : TimeBuilder(dayOfMonthRange)
-class MonthsBuilder : TimeBuilder(monthRange)
+class SecondsBuilder : TimeBuilder<Byte>(secondsRange, intToByteConverter)
+class MinutesBuilder : TimeBuilder<Byte>(minutesRange, intToByteConverter)
+class HoursBuilder : TimeBuilder<Byte>(hoursRange, intToByteConverter)
+class DaysOfMonthBuilder : TimeBuilder<Byte>(dayOfMonthRange, intToByteConverter)
+class MonthsBuilder : TimeBuilder<Byte>(monthRange, intToByteConverter)
+class YearsBuilder : TimeBuilder<Int>(yearRange, intToIntConverter)

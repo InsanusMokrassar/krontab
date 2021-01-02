@@ -16,6 +16,7 @@ typealias KrontabTemplate = String
  * * hours
  * * dayOfMonth
  * * month
+ * * (optional) year
  *
  * And each one have next format:
  *
@@ -37,6 +38,7 @@ typealias KrontabTemplate = String
  * * Hours ranges can be found in [hoursRange]
  * * Days of month ranges can be found in [dayOfMonthRange]
  * * Months ranges can be found in [monthRange]
+ * * Years ranges can be found in [yearRange] (in fact - any [Int])
  *
  * Examples:
  *
@@ -44,20 +46,25 @@ typealias KrontabTemplate = String
  * * "0/5,L * * * *" for every five seconds triggering and on 59 second
  * * "0/15 30 * * *" for every 15th seconds in a half of each hour
  * * "1 2 3 F,4,L 5" for triggering in near first second of second minute of third hour of fourth day of may
+ * * "1 2 3 F,4,L 5 2021" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year
  *
  * @see dev.inmo.krontab.internal.createKronScheduler
  */
 fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
-    val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ")
+    val yearSource: String?
+    val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ").also {
+        yearSource = it.getOrNull(5)
+    }
 
     val secondsParsed = parseSeconds(secondsSource)
     val minutesParsed = parseMinutes(minutesSource)
     val hoursParsed = parseHours(hoursSource)
     val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
     val monthParsed = parseMonths(monthSource)
+    val yearParsed = parseYears(yearSource)
 
     return createKronScheduler(
-        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed
+        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed
     )
 }
 
@@ -70,3 +77,8 @@ fun buildSchedule(incoming: KrontabTemplate): KronScheduler = createSimpleSchedu
  * Shortcut for [buildSchedule]
  */
 fun KrontabTemplate.toSchedule(): KronScheduler = buildSchedule(this)
+
+/**
+ * Shortcut for [buildSchedule]
+ */
+fun KrontabTemplate.toKronScheduler(): KronScheduler = buildSchedule(this)
