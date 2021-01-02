@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.5.0
+## 0.5.0 Years
 
 **BREAKING CHANGES**
 
@@ -8,6 +8,15 @@
   * Old methods `merge` and `plus` related to `CronDateTimeScheduler` has been marked as `deprecated` and changed their
   parameters types - it is `KronScheduler` now
 * New methods `merge` has been added
+* **`KronScheduler#next` method now is nullable. Use `nextOrRelative`/`nextOrNow` to get next time certainly**
+* **Years was added as optional part of krontab template and opportunity in `SchedulerBuilder`**
+  * New builder `YearsBuilder`
+  * `SchedulerFlow#collectSafely` will be normally (without exceptions) finish when `next` of scheduler will return
+    null
+* `KronScheduler#doOnce` will run code immediately in case when `next` is returning null value
+* `KrontabTemplateWrapper` has been added
+* New extension `KrontabTemplate#toKronScheduler` (works as `toSchedule`)
+* **Fixed issue related to the fact that `toNearDateTime` of `CronDateTime` incorrectly handled months
 
 
 ## 0.4.2

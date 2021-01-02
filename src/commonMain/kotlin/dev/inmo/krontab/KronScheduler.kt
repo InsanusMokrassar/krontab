@@ -21,4 +21,7 @@ interface KronScheduler {
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
 }
 
-suspend fun KronScheduler.forceNext(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)
+suspend fun KronScheduler.nextOrRelative(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)
+suspend fun KronScheduler.nextOrNow(): DateTime = DateTime.now().let {
+    next(it) ?: getAnyNext(it)
+}
