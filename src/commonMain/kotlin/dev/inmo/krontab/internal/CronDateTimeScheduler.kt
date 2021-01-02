@@ -3,6 +3,7 @@ package dev.inmo.krontab.internal
 import com.soywiz.klock.DateTime
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.anyCronDateTime
+import dev.inmo.krontab.collection.plus
 
 /**
  * Cron-oriented realisation of [KronScheduler]
@@ -17,8 +18,7 @@ import dev.inmo.krontab.anyCronDateTime
  * @see dev.inmo.krontab.builder.buildSchedule
  * @see dev.inmo.krontab.builder.SchedulerBuilder
  */
-@Deprecated("This class will get internal status in future")
-data class CronDateTimeScheduler internal constructor(
+internal data class CronDateTimeScheduler internal constructor(
     internal val cronDateTimes: List<CronDateTime>
 ) : KronScheduler {
     /**
@@ -31,22 +31,26 @@ data class CronDateTimeScheduler internal constructor(
     }
 }
 
+internal fun mergeCronDateTimeSchedulers(schedulers: List<CronDateTimeScheduler>) = CronDateTimeScheduler(
+    schedulers.flatMap { it.cronDateTimes }
+)
+
 /**
  * @return New instance of [CronDateTimeScheduler] with all unique [CronDateTimeScheduler.cronDateTimes] of
  * [kronDateTimeSchedulers] included
  */
-@Suppress("NOTHING_TO_INLINE")
-fun merge(kronDateTimeSchedulers: List<CronDateTimeScheduler>) = CronDateTimeScheduler(
-    kronDateTimeSchedulers.flatMap { it.cronDateTimes }.distinct()
-)
+@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
+fun merge(kronSchedulers: List<KronScheduler>) = kronSchedulers.apply { dev.inmo.krontab.merge() }
 
 /**
- * @return Vararg shortcyut for [merge]
+ * @return Vararg shortcut for [dev.inmo.krontab.merge]
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun merge(vararg kronDateTimeSchedulers: CronDateTimeScheduler) = merge(kronDateTimeSchedulers.toList())
+@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
+inline fun merge(vararg kronDateTimeSchedulers: KronScheduler) = kronDateTimeSchedulers.apply { dev.inmo.krontab.merge() }
 /**
- * Use [merge] operation to internalcreate new [CronDateTimeScheduler] with all [CronDateTimeScheduler.cronDateTimes]
+ * @return Vararg shortcut for [dev.inmo.krontab.merge]
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun CronDateTimeScheduler.plus(other: CronDateTimeScheduler) = merge(this, other)
+@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
+inline fun KronScheduler.plus(other: KronScheduler) = this + other

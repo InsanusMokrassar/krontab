@@ -2,6 +2,14 @@
 
 ## 0.5.0
 
+**BREAKING CHANGES**
+
+* `CronDateTimeScheduler` has been marked as `internal` and no longer accessible outside of internal functions
+  * Old methods `merge` and `plus` related to `CronDateTimeScheduler` has been marked as `deprecated` and changed their
+  parameters types - it is `KronScheduler` now
+* New methods `merge` has been added
+
+
 ## 0.4.2
 
 * Versions
