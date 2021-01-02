@@ -119,5 +119,8 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        test {
+            java.srcDir file("src/jvmTest")
+        }
     }
 }
