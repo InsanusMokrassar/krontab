@@ -16,7 +16,7 @@
 * `KronScheduler#doOnce` will run code immediately in case when `next` is returning null value
 * `KrontabTemplateWrapper` has been added
 * New extension `KrontabTemplate#toKronScheduler` (works as `toSchedule`)
-* **Fixed issue related to the fact that `toNearDateTime` of `CronDateTime` incorrectly handled months
+* **Fixed issue related to the fact that `toNearDateTime` of `CronDateTime` incorrectly handled months**
 * **Android target has been added**
 
 ## 0.4.2
