@@ -2,7 +2,11 @@ package dev.inmo.krontab.internal
 
 import dev.inmo.krontab.utils.clamp
 
-private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte>? {
+typealias Converter<T> = (Int) -> T
+
+internal val intToByteConverter: Converter<Byte> = { it: Int -> it.toByte() }
+internal val intToIntConverter: Converter<Int> = { it: Int -> it }
+private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataConverter: Converter<T>): List<T>? {
     val things = from.split(",")
 
     val results = things.flatMap {
@@ -31,18 +35,19 @@ private fun createSimpleScheduler(from: String, dataRange: IntRange): Array<Byte
         }
     }
 
-    return results.map { it.toByte() }.toTypedArray()
+    return results.map(dataConverter)
 }
 
-internal fun parseMonths(from: String) = createSimpleScheduler(from, monthRange)
-internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfMonthRange)
-internal fun parseHours(from: String) = createSimpleScheduler(from, hoursRange)
-internal fun parseMinutes(from: String) = createSimpleScheduler(from, minutesRange)
-internal fun parseSeconds(from: String) = createSimpleScheduler(from, secondsRange)
+internal fun parseYears(from: String?) = from ?.let { createSimpleScheduler(from, yearRange, intToIntConverter) ?.toTypedArray() }
+internal fun parseMonths(from: String) = createSimpleScheduler(from, monthRange, intToByteConverter) ?.toTypedArray()
+internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfMonthRange, intToByteConverter) ?.toTypedArray()
+internal fun parseHours(from: String) = createSimpleScheduler(from, hoursRange, intToByteConverter) ?.toTypedArray()
+internal fun parseMinutes(from: String) = createSimpleScheduler(from, minutesRange, intToByteConverter) ?.toTypedArray()
+internal fun parseSeconds(from: String) = createSimpleScheduler(from, secondsRange, intToByteConverter) ?.toTypedArray()
 
-internal fun Array<Byte>.fillWith(
+internal fun <T> Array<T>.fillWith(
     whereToPut: MutableList<CronDateTime>,
-    createFactory: (CronDateTime, Byte) -> CronDateTime
+    createFactory: (CronDateTime, T) -> CronDateTime
 ) {
     val previousValues = whereToPut.toList()
 

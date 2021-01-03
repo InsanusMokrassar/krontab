@@ -17,7 +17,7 @@ class SchedulerFlow(
     override suspend fun collectSafely(collector: FlowCollector<DateTime>) {
         while (true) {
             val now = DateTime.now()
-            val nextTime = scheduler.next(now)
+            val nextTime = scheduler.next(now) ?: break
             val sleepDelay = (nextTime - now).millisecondsLong
             delay(sleepDelay)
             collector.emit(nextTime)

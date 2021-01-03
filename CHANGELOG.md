@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.5.0 Years
+
+**BREAKING CHANGES**
+
+* `CronDateTimeScheduler` has been marked as `internal` and no longer accessible outside of internal functions
+  * Old methods `merge` and `plus` related to `CronDateTimeScheduler` has been marked as `deprecated` and changed their
+  parameters types - it is `KronScheduler` now
+* New methods `merge` has been added
+* **`KronScheduler#next` method now is nullable. Use `nextOrRelative`/`nextOrNow` to get next time certainly**
+* **Years was added as optional part of krontab template and opportunity in `SchedulerBuilder`**
+  * New builder `YearsBuilder`
+  * `SchedulerFlow#collectSafely` will be normally (without exceptions) finish when `next` of scheduler will return
+    null
+* `KronScheduler#doOnce` will run code immediately in case when `next` is returning null value
+* `KrontabTemplateWrapper` has been added
+* New extension `KrontabTemplate#toKronScheduler` (works as `toSchedule`)
+* **Fixed issue related to the fact that `toNearDateTime` of `CronDateTime` incorrectly handled months
+* **Android target has been added**
+
 ## 0.4.2
 
 * Versions

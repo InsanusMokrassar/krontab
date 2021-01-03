@@ -7,9 +7,13 @@ import kotlinx.coroutines.delay
  * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
  *
  * WARNING!!! If you want to launch it in parallel, you must do this explicitly.
+ *
+ * WARNING!!! In case if [KronScheduler.next] of [this] instance will return null, [block] will be called immediately
  */
 suspend inline fun <T> KronScheduler.doOnce(noinline block: suspend () -> T): T {
-    delay((next() - DateTime.now()).millisecondsLong)
+    next() ?.let {
+        delay((it - DateTime.now()).millisecondsLong)
+    }
     return block()
 }
 

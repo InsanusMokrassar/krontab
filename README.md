@@ -53,18 +53,18 @@ For old version of Gradle, instead of `implementation` word developers must use 
 Developers can use more simple way to configure repeat times is string. String configuring
 like a `crontab`, but with a little bit different meanings:
 ```
-/-------- Seconds
-| /------ Minutes
-| | /---- Hours
-| | | /-- Days of months
-| | | | / Months
-| | | | |
-* * * * *
+/---------- Seconds
+| /-------- Minutes
+| | /------ Hours
+| | | /---- Days of months
+| | | | /-- Months
+| | | | | / (optional) Year
+* * * * * *
 ```
 
 It is different with original `crontab` syntax for the reason, that expected that in practice developers
-will use seconds and minutes with more probability than months (for example). In fact, developers will use something
-like:
+will use seconds and minutes with more probability than months (for example) or even years. In fact, developers will use
+something like:
 
 ```kotlin
 doWhile("/5 * * * *") {
@@ -73,7 +73,7 @@ doWhile("/5 * * * *") {
 }
 ```
 
-Or more version:
+An other version:
 
 ```kotlin
 doInfinity("/5 * * * *") {
@@ -85,7 +85,7 @@ Both of examples will print `Called` message every five seconds.
 
 ### Config via builder
 
-Also this library currently supports DSL for creating the same goals:
+Also, this library currently supports DSL for creating the same goals:
 
 ```kotlin
 val kronScheduler = buildSchedule {

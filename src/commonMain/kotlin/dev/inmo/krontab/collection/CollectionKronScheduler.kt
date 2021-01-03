@@ -1,11 +1,9 @@
 package dev.inmo.krontab.collection
 
 import com.soywiz.klock.DateTime
-import dev.inmo.krontab.KronScheduler
-import dev.inmo.krontab.anyCronDateTime
+import dev.inmo.krontab.*
 import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTimeScheduler
-import dev.inmo.krontab.internal.merge
 import dev.inmo.krontab.internal.toNearDateTime
 
 /**
@@ -20,7 +18,7 @@ data class CollectionKronScheduler internal constructor(
      * Add [kronScheduler] into its [schedulers] list
      *
      * * When [kronScheduler] is [CronDateTimeScheduler] it will merge all [CronDateTimeScheduler]s from [schedulers] list
-     * and this [kronScheduler] using [merge] function
+     * and this [kronScheduler] using [mergeCronDateTimeSchedulers] function
      * * When [kronScheduler] is [CollectionKronScheduler] it this instance will include all [kronScheduler]
      * [schedulers]
      * * Otherwise [kronScheduler] will be added to [schedulers] list
@@ -37,7 +35,7 @@ data class CollectionKronScheduler internal constructor(
                     }
                 }
                 schedulers.add(
-                    merge(resultCronDateTimes)
+                    mergeCronDateTimeSchedulers(resultCronDateTimes)
                 )
             }
             is CollectionKronScheduler -> kronScheduler.schedulers.forEach {
@@ -48,6 +46,6 @@ data class CollectionKronScheduler internal constructor(
     }
 
     override suspend fun next(relatively: DateTime): DateTime {
-        return schedulers.minOfOrNull { it.next(relatively) } ?: anyCronDateTime.toNearDateTime(relatively)
+        return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively)
     }
 }

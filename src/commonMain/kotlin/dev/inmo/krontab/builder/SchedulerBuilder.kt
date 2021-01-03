@@ -21,20 +21,21 @@ class SchedulerBuilder(
     private var minutes: Array<Byte>? = null,
     private var hours: Array<Byte>? = null,
     private var dayOfMonth: Array<Byte>? = null,
-    private var month: Array<Byte>? = null
+    private var month: Array<Byte>? = null,
+    private var year: Array<Int>? = null
 ) {
-    private fun <T : TimeBuilder> callAndReturn(
-        initial: Array<Byte>?,
+    private fun <I, T : TimeBuilder<I>> callAndReturn(
+        initial: Array<I>?,
         builder: T,
         block: T.() -> Unit
-    ): Array<Byte>? {
+    ): List<I>? {
         builder.block()
 
         val builderValue = builder.build()
 
         return initial ?.let {
             builderValue ?.let { _ ->
-                (it + builderValue).distinct().toTypedArray()
+                (it + builderValue).distinct()
             } ?: builderValue
         } ?: builderValue
     }
@@ -47,7 +48,7 @@ class SchedulerBuilder(
             seconds,
             SecondsBuilder(),
             block
-        )
+        ) ?.toTypedArray()
     }
 
     /**
@@ -58,7 +59,7 @@ class SchedulerBuilder(
             minutes,
             MinutesBuilder(),
             block
-        )
+        ) ?.toTypedArray()
     }
 
     /**
@@ -69,7 +70,7 @@ class SchedulerBuilder(
             hours,
             HoursBuilder(),
             block
-        )
+        ) ?.toTypedArray()
     }
 
     /**
@@ -80,7 +81,7 @@ class SchedulerBuilder(
             dayOfMonth,
             DaysOfMonthBuilder(),
             block
-        )
+        ) ?.toTypedArray()
     }
 
     /**
@@ -91,7 +92,18 @@ class SchedulerBuilder(
             month,
             MonthsBuilder(),
             block
-        )
+        ) ?.toTypedArray()
+    }
+
+    /**
+     * Starts an year block
+     */
+    fun years(block: YearsBuilder.() -> Unit) {
+        year = callAndReturn(
+            year,
+            YearsBuilder(),
+            block
+        ) ?.toTypedArray()
     }
 
     /**
@@ -100,5 +112,5 @@ class SchedulerBuilder(
      * @see dev.inmo.krontab.createSimpleScheduler
      * @see dev.inmo.krontab.internal.createKronScheduler
      */
-    fun build(): KronScheduler = createKronScheduler(seconds, minutes, hours, dayOfMonth, month)
+    fun build(): KronScheduler = createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year)
 }

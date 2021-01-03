@@ -1,12 +1,15 @@
 package dev.inmo.krontab
 
+import com.soywiz.klock.DateTime
 import dev.inmo.krontab.builder.buildSchedule
+import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTime
 import dev.inmo.krontab.internal.CronDateTimeScheduler
 
 internal val anyCronDateTime by lazy {
     CronDateTime()
 }
+internal fun getAnyNext(relatively: DateTime) = anyCronDateTime.toNearDateTime(relatively)!!
 
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now]
@@ -48,4 +51,11 @@ val EveryDayOfMonthScheduler: KronScheduler by lazy {
  */
 val EveryMonthScheduler: KronScheduler by lazy {
     buildSchedule { months { 0 every 1 } }
+}
+
+/**
+ * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one year
+ */
+val EveryYearScheduler: KronScheduler by lazy {
+    buildSchedule { years { 0 every 1 } }
 }
