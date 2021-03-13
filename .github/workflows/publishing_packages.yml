@@ -16,7 +16,7 @@ jobs:
       - name: prebuild
         run: ./gradlew clean build
       - name: Publish package
-        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository -x signJsPublication -x signJvmPublication -x signKotlinMultiplatformPublication -x signMetadataPublication
+        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository -x signJsPublication -x signJvmPublication -x signKotlinMultiplatformPublication -x signMetadataPublication -x signAndroidDebugPublication -x signAndroidPublication
         env:
           GITHUBPACKAGES_USER: ${{ github.actor }}
           GITHUBPACKAGES_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
