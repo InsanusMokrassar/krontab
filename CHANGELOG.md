@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1
+
+* Versions
+  * `Kotlin`: `1.4.21` -> `1.4.31`
+  * `Coroutines`: `1.4.2` -> `1.4.3`
+  * `Klock`: `2.0.3` -> `2.0.7`
+  * `Androidx Work`: `2.4.0` -> `2.5.0`
+
 ## 0.5.0 Years
 
 **BREAKING CHANGES**
