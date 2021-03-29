@@ -22,7 +22,7 @@ interface KronScheduler {
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
 
     suspend fun next(relatively: DateTimeTz): DateTimeTz? {
-        return next(relatively.utc) ?.toOffset(relatively.offset)
+        return next(relatively.local) ?.toOffsetUnadjusted(relatively.offset)
     }
 }
 
