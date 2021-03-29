@@ -1,6 +1,7 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.internal.toNearDateTime
 
 /**
@@ -19,9 +20,17 @@ interface KronScheduler {
      * @see dev.inmo.krontab.internal.CronDateTimeScheduler.next
      */
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
+
+    suspend fun next(relatively: DateTimeTz): DateTimeTz? {
+        return next(relatively.utc) ?.toOffset(relatively.offset)
+    }
 }
 
 suspend fun KronScheduler.nextOrRelative(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)
+suspend fun KronScheduler.nextOrRelative(relatively: DateTimeTz): DateTimeTz = next(relatively) ?: getAnyNext(relatively)
 suspend fun KronScheduler.nextOrNow(): DateTime = DateTime.now().let {
+    next(it) ?: getAnyNext(it)
+}
+suspend fun KronScheduler.nextOrNowWithOffset(): DateTimeTz = DateTimeTz.nowLocal().let {
     next(it) ?: getAnyNext(it)
 }

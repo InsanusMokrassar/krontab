@@ -1,6 +1,7 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.builder.buildSchedule
 import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTime
@@ -17,6 +18,7 @@ internal fun getAnyNext(relatively: DateTime) = anyCronDateTime.toNearDateTime(r
 val AnyTimeScheduler: KronScheduler by lazy {
     CronDateTimeScheduler(listOf(anyCronDateTime))
 }
+internal suspend fun getAnyNext(relatively: DateTimeTz) = AnyTimeScheduler.next(relatively)!!
 
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one second
