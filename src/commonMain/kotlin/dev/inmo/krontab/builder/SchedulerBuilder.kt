@@ -1,7 +1,10 @@
 package dev.inmo.krontab.builder
 
+import com.soywiz.klock.TimeSpan
+import com.soywiz.klock.TimezoneOffset
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.internal.createKronScheduler
+import dev.inmo.krontab.utils.Minutes
 
 /**
  * Will help to create an instance of [KronScheduler]
@@ -22,7 +25,8 @@ class SchedulerBuilder(
     private var hours: Array<Byte>? = null,
     private var dayOfMonth: Array<Byte>? = null,
     private var month: Array<Byte>? = null,
-    private var year: Array<Int>? = null
+    private var year: Array<Int>? = null,
+    var offset: Minutes? = null
 ) {
     private fun <I, T : TimeBuilder<I>> callAndReturn(
         initial: Array<I>?,
@@ -104,6 +108,27 @@ class SchedulerBuilder(
             YearsBuilder(),
             block
         ) ?.toTypedArray()
+    }
+
+    /**
+     * Setter of [offset] property
+     */
+    fun offset(offset: Minutes?) {
+        this.offset = offset
+    }
+
+    /**
+     * Setter of [offset] property
+     */
+    fun offset(offset: TimeSpan?) {
+        this.offset = offset ?.minutes ?.toInt()
+    }
+
+    /**
+     * Setter of [offset] property
+     */
+    fun offset(offset: TimezoneOffset?) {
+        this.offset = offset ?.totalMinutesInt
     }
 
     /**

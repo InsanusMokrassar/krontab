@@ -17,6 +17,7 @@ typealias KrontabTemplate = String
  * * dayOfMonth
  * * month
  * * (optional) year
+ * * (optional) (can be placed before year) offset
  *
  * And each one have next format:
  *
@@ -39,6 +40,7 @@ typealias KrontabTemplate = String
  * * Days of month ranges can be found in [dayOfMonthRange]
  * * Months ranges can be found in [monthRange]
  * * Years ranges can be found in [yearRange] (in fact - any [Int])
+ * * Offset (timezone) ranges can be found in [offsetRange]
  *
  * Examples:
  *
@@ -46,14 +48,31 @@ typealias KrontabTemplate = String
  * * "0/5,L * * * *" for every five seconds triggering and on 59 second
  * * "0/15 30 * * *" for every 15th seconds in a half of each hour
  * * "1 2 3 F,4,L 5" for triggering in near first second of second minute of third hour of fourth day of may
+ * * "1 2 3 F,4,L 5 60o" for triggering in near first second of second minute of third hour of fourth day of may with timezone UTC+01:00
  * * "1 2 3 F,4,L 5 2021" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year
+ * * "1 2 3 F,4,L 5 2021 60o" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year with timezone UTC+01:00
  *
  * @see dev.inmo.krontab.internal.createKronScheduler
  */
 fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
-    val yearSource: String?
+    var offsetParsed: Int? = null
+    var yearParsed: Array<Int>? = null
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ").also {
-        yearSource = it.getOrNull(5)
+        listOfNotNull(
+            it.getOrNull(5),
+            it.getOrNull(6)
+        ).forEach {
+            val parsedOffset = parseOffset(it)
+            offsetParsed = offsetParsed ?: parsedOffset
+            when {
+                parsedOffset == null && yearParsed == null -> {
+                    yearParsed = parseYears(it)
+                }
+                parsedOffset != null && offsetParsed == null -> {
+                    offsetParsed = parsedOffset
+                }
+            }
+        }
     }
 
     val secondsParsed = parseSeconds(secondsSource)
@@ -61,10 +80,9 @@ fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
     val hoursParsed = parseHours(hoursSource)
     val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
     val monthParsed = parseMonths(monthSource)
-    val yearParsed = parseYears(yearSource)
 
     return createKronScheduler(
-        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed
+        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed, offsetParsed
     )
 }
 

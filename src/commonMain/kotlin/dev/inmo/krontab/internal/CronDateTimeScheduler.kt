@@ -1,6 +1,7 @@
 package dev.inmo.krontab.internal
 
 import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.*
 import dev.inmo.krontab.collection.plus
 
@@ -27,6 +28,10 @@ internal data class CronDateTimeScheduler internal constructor(
      * @see toNearDateTime
      */
     override suspend fun next(relatively: DateTime): DateTime {
+        return cronDateTimes.mapNotNull { it.toNearDateTime(relatively) }.minOrNull() ?: getAnyNext(relatively)
+    }
+
+    override suspend fun next(relatively: DateTimeTz): DateTimeTz {
         return cronDateTimes.mapNotNull { it.toNearDateTime(relatively) }.minOrNull() ?: getAnyNext(relatively)
     }
 }

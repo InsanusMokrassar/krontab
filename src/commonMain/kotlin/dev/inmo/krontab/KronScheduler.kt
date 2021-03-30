@@ -21,9 +21,7 @@ interface KronScheduler {
      */
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
 
-    suspend fun next(relatively: DateTimeTz): DateTimeTz? {
-        return next(relatively.local) ?.toOffsetUnadjusted(relatively.offset)
-    }
+    suspend fun next(relatively: DateTimeTz): DateTimeTz?
 }
 
 suspend fun KronScheduler.nextOrRelative(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)

@@ -38,6 +38,7 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
     return results.map(dataConverter)
 }
 
+internal fun parseOffset(from: String?) = from ?.let { if (it.endsWith("o")) it.removeSuffix("o").toIntOrNull() else null }
 internal fun parseYears(from: String?) = from ?.let { createSimpleScheduler(from, yearRange, intToIntConverter) ?.toTypedArray() }
 internal fun parseMonths(from: String) = createSimpleScheduler(from, monthRange, intToByteConverter) ?.toTypedArray()
 internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfMonthRange, intToByteConverter) ?.toTypedArray()
@@ -57,6 +58,19 @@ internal fun <T> Array<T>.fillWith(
         forEach {
             whereToPut.add(createFactory(previousValue, it))
         }
+    }
+}
+
+internal fun <T> T.fillWith(
+    whereToPut: MutableList<CronDateTime>,
+    createFactory: (CronDateTime, T) -> CronDateTime
+) {
+    val previousValues = whereToPut.toList()
+
+    whereToPut.clear()
+
+    previousValues.forEach { previousValue ->
+        whereToPut.add(createFactory(previousValue, this))
     }
 }
 

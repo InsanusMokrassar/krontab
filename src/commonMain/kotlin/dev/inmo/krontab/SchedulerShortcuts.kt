@@ -11,6 +11,7 @@ internal val anyCronDateTime by lazy {
     CronDateTime()
 }
 internal fun getAnyNext(relatively: DateTime) = anyCronDateTime.toNearDateTime(relatively)!!
+internal fun getAnyNext(relatively: DateTimeTz) = anyCronDateTime.toNearDateTime(relatively)!!
 
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now]
@@ -18,7 +19,6 @@ internal fun getAnyNext(relatively: DateTime) = anyCronDateTime.toNearDateTime(r
 val AnyTimeScheduler: KronScheduler by lazy {
     CronDateTimeScheduler(listOf(anyCronDateTime))
 }
-internal suspend fun getAnyNext(relatively: DateTimeTz) = AnyTimeScheduler.next(relatively)!!
 
 /**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one second
