@@ -1,6 +1,7 @@
 package dev.inmo.krontab.utils
 
 import com.soywiz.klock.DateTimeTz
+import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
 import dev.inmo.krontab.internal.offsetRange
 import kotlinx.coroutines.*
@@ -84,9 +85,8 @@ class StringParseTest {
 
         runTest {
             for (i in offsetRange) {
-                val kronScheduler = buildSchedule("* * 10 * * ${i}o")
+                val kronScheduler = buildSchedule("* * 10 * * ${i}o") as KronSchedulerTz
                 val next = kronScheduler.next(now)
-
             }
         }
     }

@@ -1,9 +1,10 @@
 package dev.inmo.krontab.builder
 
-import com.soywiz.klock.TimeSpan
-import com.soywiz.klock.TimezoneOffset
+import com.soywiz.klock.*
 import dev.inmo.krontab.KronScheduler
+import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.internal.createKronScheduler
+import dev.inmo.krontab.internal.createKronSchedulerWithOffset
 import dev.inmo.krontab.utils.Minutes
 
 /**
@@ -19,6 +20,22 @@ fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
     return builder.build()
 }
 
+/**
+ * Will help to create an instance of [KronScheduler]
+ *
+ * @see dev.inmo.krontab.createSimpleScheduler
+ */
+fun buildSchedule(
+    offset: Minutes,
+    settingsBlock: SchedulerBuilder.() -> Unit
+): KronSchedulerTz {
+    val builder = SchedulerBuilder(offset = offset)
+
+    builder.settingsBlock()
+
+    return builder.build() as KronSchedulerTz
+}
+
 class SchedulerBuilder(
     private var seconds: Array<Byte>? = null,
     private var minutes: Array<Byte>? = null,
@@ -26,7 +43,7 @@ class SchedulerBuilder(
     private var dayOfMonth: Array<Byte>? = null,
     private var month: Array<Byte>? = null,
     private var year: Array<Int>? = null,
-    var offset: Minutes? = null
+    private val offset: Minutes? = null
 ) {
     private fun <I, T : TimeBuilder<I>> callAndReturn(
         initial: Array<I>?,
@@ -111,31 +128,12 @@ class SchedulerBuilder(
     }
 
     /**
-     * Setter of [offset] property
-     */
-    fun offset(offset: Minutes?) {
-        this.offset = offset
-    }
-
-    /**
-     * Setter of [offset] property
-     */
-    fun offset(offset: TimeSpan?) {
-        this.offset = offset ?.minutes ?.toInt()
-    }
-
-    /**
-     * Setter of [offset] property
-     */
-    fun offset(offset: TimezoneOffset?) {
-        this.offset = offset ?.totalMinutesInt
-    }
-
-    /**
      * @return Completely built and independent [KronScheduler]
      *
      * @see dev.inmo.krontab.createSimpleScheduler
      * @see dev.inmo.krontab.internal.createKronScheduler
      */
-    fun build(): KronScheduler = createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year)
+    fun build(): KronScheduler = offset ?.let {
+        createKronSchedulerWithOffset(seconds, minutes, hours, dayOfMonth, month, year, TimezoneOffset(it.minutes))
+    } ?: createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year)
 }

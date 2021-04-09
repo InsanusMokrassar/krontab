@@ -12,7 +12,7 @@ import dev.inmo.krontab.internal.toNearDateTime
  */
 data class CollectionKronScheduler internal constructor(
     internal val schedulers: MutableList<KronScheduler>
-) : KronScheduler {
+) : KronSchedulerTz {
     internal constructor() : this(mutableListOf())
 
     /**
@@ -51,6 +51,6 @@ data class CollectionKronScheduler internal constructor(
     }
 
     override suspend fun next(relatively: DateTimeTz): DateTimeTz {
-        return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively)
+        return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively.local).toOffsetUnadjusted(relatively.offset)
     }
 }

@@ -13,22 +13,15 @@ import dev.inmo.krontab.internal.toNearDateTime
  * @see dev.inmo.krontab.internal.CronDateTimeScheduler
  */
 interface KronScheduler {
-
     /**
      * @return Next [DateTime] when some action must be triggered according to settings of this instance
      *
      * @see dev.inmo.krontab.internal.CronDateTimeScheduler.next
      */
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
-
-    suspend fun next(relatively: DateTimeTz): DateTimeTz?
 }
 
 suspend fun KronScheduler.nextOrRelative(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)
-suspend fun KronScheduler.nextOrRelative(relatively: DateTimeTz): DateTimeTz = next(relatively) ?: getAnyNext(relatively)
 suspend fun KronScheduler.nextOrNow(): DateTime = DateTime.now().let {
-    next(it) ?: getAnyNext(it)
-}
-suspend fun KronScheduler.nextOrNowWithOffset(): DateTimeTz = DateTimeTz.nowLocal().let {
     next(it) ?: getAnyNext(it)
 }

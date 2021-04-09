@@ -1,6 +1,8 @@
 package dev.inmo.krontab
 
+import com.soywiz.klock.*
 import dev.inmo.krontab.internal.*
+import dev.inmo.krontab.utils.Minutes
 
 /**
  * @see createSimpleScheduler
@@ -52,9 +54,15 @@ typealias KrontabTemplate = String
  * * "1 2 3 F,4,L 5 2021" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year
  * * "1 2 3 F,4,L 5 2021 60o" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year with timezone UTC+01:00
  *
+ * @return In case when offset parameter is absent in [incoming] will be used [createSimpleScheduler] method and
+ * returned [CronDateTimeScheduler]. In case when offset parameter there is in [incoming] [KrontabTemplate] will be used
+ * [createKronSchedulerWithOffset] and returned [CronDateTimeSchedulerTz]
+ *
  * @see dev.inmo.krontab.internal.createKronScheduler
  */
-fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
+fun createSimpleScheduler(
+    incoming: KrontabTemplate
+): KronScheduler {
     var offsetParsed: Int? = null
     var yearParsed: Array<Int>? = null
     val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ").also {
@@ -81,22 +89,53 @@ fun createSimpleScheduler(incoming: KrontabTemplate): KronScheduler {
     val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
     val monthParsed = parseMonths(monthSource)
 
-    return createKronScheduler(
-        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed, offsetParsed
+    return offsetParsed ?.let { offset ->
+        createKronSchedulerWithOffset(
+            secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed, TimezoneOffset(offset.minutes)
+        )
+    } ?: createKronScheduler(
+        secondsParsed, minutesParsed, hoursParsed, dayOfMonthParsed, monthParsed, yearParsed
     )
+}
+
+fun createSimpleScheduler(
+    incoming: KrontabTemplate,
+    defaultOffset: Minutes
+): KronSchedulerTz {
+    val scheduler = createSimpleScheduler(incoming)
+    return if (scheduler is KronSchedulerTz) {
+        scheduler
+    } else {
+        CronDateTimeSchedulerTz(
+            (scheduler as CronDateTimeScheduler).cronDateTimes,
+            TimezoneOffset(defaultOffset.minutes)
+        )
+    }
 }
 
 /**
  * Shortcut for [createSimpleScheduler]
  */
 fun buildSchedule(incoming: KrontabTemplate): KronScheduler = createSimpleScheduler(incoming)
+/**
+ * Shortcut for [createSimpleScheduler]
+ */
+fun buildSchedule(incoming: KrontabTemplate, defaultOffset: Minutes): KronSchedulerTz = createSimpleScheduler(incoming, defaultOffset)
 
 /**
  * Shortcut for [buildSchedule]
  */
 fun KrontabTemplate.toSchedule(): KronScheduler = buildSchedule(this)
+/**
+ * Shortcut for [buildSchedule]
+ */
+fun KrontabTemplate.toSchedule(defaultOffset: Minutes): KronSchedulerTz = buildSchedule(this, defaultOffset)
 
 /**
  * Shortcut for [buildSchedule]
  */
 fun KrontabTemplate.toKronScheduler(): KronScheduler = buildSchedule(this)
+/**
+ * Shortcut for [buildSchedule]
+ */
+fun KrontabTemplate.toKronScheduler(defaultOffset: Minutes): KronSchedulerTz = buildSchedule(this, defaultOffset)

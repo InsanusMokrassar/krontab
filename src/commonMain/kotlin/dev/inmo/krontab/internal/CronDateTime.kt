@@ -12,7 +12,6 @@ import dev.inmo.krontab.utils.Minutes
  * @param seconds 0-59
  */
 internal data class CronDateTime(
-    val offset: Int? = null,
     val year: Int? = null,
     val month: Byte? = null,
     val dayOfMonth: Byte? = null,
@@ -30,7 +29,6 @@ internal data class CronDateTime(
     }
 
     internal val klockDayOfMonth = dayOfMonth ?.plus(1)
-    internal val klockOffset = offset ?.minutes ?.offset
 }
 
 /**
@@ -82,35 +80,14 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
     return current
 }
 
-/**
- * THIS METHOD WILL TAKE CARE ABOUT [offset] PARAMETER. It was decided due to the fact that we unable to get
- * real timezone offset from simple [DateTime]
- *
- * @return The near [DateTime] which happens after [relativelyTo] or will be equal to [relativelyTo]
- */
-internal fun CronDateTime.toNearDateTime(
-    relativelyTo: DateTimeTz
-): DateTimeTz? {
-    val klockOffset = klockOffset
-    return if (klockOffset != null) {
-        toNearDateTime(relativelyTo.toOffset(klockOffset).local) ?.toOffsetUnadjusted(klockOffset) ?.toOffset(relativelyTo.offset)
-    } else {
-        toNearDateTime(relativelyTo.local) ?.toOffsetUnadjusted(relativelyTo.offset)
-    }
-}
-
-/**
- * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
- */
-internal fun createKronScheduler(
+internal fun createCronDateTimeList(
     seconds: Array<Byte>? = null,
     minutes: Array<Byte>? = null,
     hours: Array<Byte>? = null,
     dayOfMonth: Array<Byte>? = null,
     month: Array<Byte>? = null,
-    years: Array<Int>? = null,
-    offset: Minutes? = null
-): KronScheduler {
+    years: Array<Int>? = null
+): List<CronDateTime> {
     val resultCronDateTimes = mutableListOf(CronDateTime())
 
     seconds ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Byte ->
@@ -141,9 +118,29 @@ internal fun createKronScheduler(
         previousCronDateTime.copy(year = currentTime)
     }
 
-    offset ?.fillWith(resultCronDateTimes) { previousCronDateTime: CronDateTime, currentTime: Int ->
-        previousCronDateTime.copy(year = currentTime)
-    }
-
-    return CronDateTimeScheduler(resultCronDateTimes.toList())
+    return resultCronDateTimes.toList()
 }
+
+/**
+ * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
+ */
+internal fun createKronScheduler(
+    seconds: Array<Byte>? = null,
+    minutes: Array<Byte>? = null,
+    hours: Array<Byte>? = null,
+    dayOfMonth: Array<Byte>? = null,
+    month: Array<Byte>? = null,
+    years: Array<Int>? = null
+): KronScheduler = CronDateTimeScheduler(createCronDateTimeList(seconds, minutes, hours, dayOfMonth, month, years))
+/**
+ * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
+ */
+internal fun createKronSchedulerWithOffset(
+    seconds: Array<Byte>? = null,
+    minutes: Array<Byte>? = null,
+    hours: Array<Byte>? = null,
+    dayOfMonth: Array<Byte>? = null,
+    month: Array<Byte>? = null,
+    years: Array<Int>? = null,
+    offset: TimezoneOffset
+): KronScheduler = CronDateTimeSchedulerTz(createCronDateTimeList(seconds, minutes, hours, dayOfMonth, month, years), offset)
