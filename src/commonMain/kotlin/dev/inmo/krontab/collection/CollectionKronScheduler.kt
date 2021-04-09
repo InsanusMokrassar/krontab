@@ -39,6 +39,18 @@ data class CollectionKronScheduler internal constructor(
                     mergeCronDateTimeSchedulers(resultCronDateTimes)
                 )
             }
+            is CronDateTimeSchedulerTz -> {
+                val newCronDateTimes = kronScheduler.cronDateTimes.toMutableList()
+                val cronDateTimes = schedulers.removeAll {
+                    if (it is CronDateTimeSchedulerTz && it.offset == kronScheduler.offset) {
+                        newCronDateTimes.addAll(it.cronDateTimes)
+                        true
+                    } else {
+                        false
+                    }
+                }
+                schedulers.add(CronDateTimeSchedulerTz(newCronDateTimes.toList(), kronScheduler.offset))
+            }
             is CollectionKronScheduler -> kronScheduler.schedulers.forEach {
                 include(it)
             }
