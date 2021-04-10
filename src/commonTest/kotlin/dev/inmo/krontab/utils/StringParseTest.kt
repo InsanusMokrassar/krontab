@@ -1,9 +1,8 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.DateTimeTz
+import com.soywiz.klock.*
 import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
-import dev.inmo.krontab.internal.offsetRange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.takeWhile
@@ -84,9 +83,13 @@ class StringParseTest {
         val now = DateTimeTz.nowLocal()
 
         runTest {
-            for (i in offsetRange) {
-                val kronScheduler = buildSchedule("* * 10 * * ${i}o") as KronSchedulerTz
+            for (i in 0 .. 1339) {
+                val expectedInCurrentOffset = now.toOffset(TimezoneOffset(i.minutes)) + 1.hours
+                val kronScheduler = buildSchedule(
+                    "${expectedInCurrentOffset.seconds} ${expectedInCurrentOffset.minutes} ${expectedInCurrentOffset.hours} * * ${i}o"
+                ) as KronSchedulerTz
                 val next = kronScheduler.next(now)
+                assertEquals(expectedInCurrentOffset.toOffset(now.offset), next)
             }
         }
     }

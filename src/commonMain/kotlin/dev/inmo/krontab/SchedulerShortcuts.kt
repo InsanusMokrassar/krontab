@@ -1,7 +1,6 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.builder.buildSchedule
 import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTime

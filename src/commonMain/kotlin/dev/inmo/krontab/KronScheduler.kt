@@ -1,7 +1,6 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.internal.toNearDateTime
 
 /**
@@ -13,6 +12,7 @@ import dev.inmo.krontab.internal.toNearDateTime
  * @see dev.inmo.krontab.internal.CronDateTimeScheduler
  */
 interface KronScheduler {
+
     /**
      * @return Next [DateTime] when some action must be triggered according to settings of this instance
      *

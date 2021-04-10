@@ -14,10 +14,10 @@ internal data class CronDateTimeSchedulerTz internal constructor(
     internal val offset: TimezoneOffset
 ) : KronSchedulerTz {
     override suspend fun next(relatively: DateTimeTz): DateTimeTz? {
-        val dateTimeWithActualOffset = relatively.utc.toOffset(offset).local
+        val dateTimeWithActualOffset = relatively.toOffset(offset).local
         return cronDateTimes.mapNotNull {
             it.toNearDateTime(dateTimeWithActualOffset)
-        }.minOrNull() ?.toOffset(relatively.offset)
+        }.minOrNull() ?.toOffsetUnadjusted(offset) ?.toOffset(relatively.offset)
     }
 }
 
