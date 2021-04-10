@@ -70,14 +70,14 @@ fun createSimpleScheduler(
             it.getOrNull(5),
             it.getOrNull(6)
         ).forEach {
-            val parsedOffset = parseOffset(it)
-            offsetParsed = offsetParsed ?: parsedOffset
+            val offsetFromString = parseOffset(it)
+            offsetParsed = offsetParsed ?: offsetFromString
             when {
-                parsedOffset == null && yearParsed == null -> {
+                offsetFromString == null && yearParsed == null -> {
                     yearParsed = parseYears(it)
                 }
-                parsedOffset != null && offsetParsed == null -> {
-                    offsetParsed = parsedOffset
+                offsetFromString != null && offsetParsed == null -> {
+                    offsetParsed = offsetFromString
                 }
             }
         }

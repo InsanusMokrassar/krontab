@@ -1,6 +1,6 @@
 package dev.inmo.krontab.internal
 
-import com.soywiz.klock.*
+import com.soywiz.klock.DateTime
 import dev.inmo.krontab.*
 import dev.inmo.krontab.collection.plus
 
