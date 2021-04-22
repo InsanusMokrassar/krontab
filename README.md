@@ -14,7 +14,8 @@ runtime of applications.
 | [ How to use: Config from string ](#config-from-string) |
 | [ How to use: Config via builder (DSL preview) ](#config-via-builder) |
 | [ How to use: KronScheduler as a Flow ](#KronScheduler-as-a-Flow) |
-| [ Note about week days ](#Note-about-week-days) |
+| [ How to use: Offsets ](#Offsets) |
+| [ How to use: Note about week days ](#Note-about-week-days) |
 
 ## How to use
 
@@ -156,6 +157,21 @@ flow.takeWhile {
     action()
 }
 ```
+
+### Offsets
+
+Offsets in this library works via passing parameter ending with `o` in any place after `month` config. Currently
+there is only one format supported for offsets: minutes of offsets. To use time zones you will need to call `next`
+method with `DateTimeTz` argument or `nextTimeZoned` method with any `KronScheduler` instance, but in case if this
+scheduler is not instance of `KronSchedulerTz` it will works like you passed just `DateTime`.
+
+Besides, in case you wish to use time zones explicitly, you will need to get `KronSchedulerTz`. It is possible by:
+
+* Using `createSimpleScheduler`/`buildSchedule`/`KrontabTemplate#toSchedule`/`KrontabTemplate#toKronScheduler` methods
+with passing `defaultOffset` parameter
+* Using `SchedulerBuilder#build`/`createSimpleScheduler`/`buildSchedule`/`KrontabTemplate#toSchedule`/`KrontabTemplate#toKronScheduler`
+methods with casting to `KronSchedulerTz` in case you are pretty sure that it is timezoned `KronScheduler`
+* Creating your own implementation of `KronSchedulerTz`
 
 ### Note about week days
 

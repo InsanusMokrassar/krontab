@@ -30,3 +30,5 @@ suspend fun KronScheduler.next(relatively: DateTimeTz) = if (this is KronSchedul
 } else {
     this.next(relatively.local) ?.toOffsetUnadjusted(relatively.offset)
 }
+
+suspend fun KronScheduler.nextTimeZoned() = next(DateTime.now().local)
