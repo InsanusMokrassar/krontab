@@ -54,7 +54,7 @@ internal fun CronDateTime.toNearDateTime(relativelyTo: DateTime = DateTime.now()
             current = (current + diff.days).startOfDay
 
             val next = toNearDateTime(current)
-            if (next ?.dayOfWeek ?.index0 == weekDay) {
+            if (next == null || next.dayOfWeek.index0 == weekDay) {
                 return next
             }
         } while (true)

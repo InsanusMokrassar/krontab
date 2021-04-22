@@ -27,8 +27,8 @@ internal data class CronDateTimeScheduler internal constructor(
      *
      * @see toNearDateTime
      */
-    override suspend fun next(relatively: DateTime): DateTime {
-        return cronDateTimes.mapNotNull { it.toNearDateTime(relatively) }.minOrNull() ?: getAnyNext(relatively)
+    override suspend fun next(relatively: DateTime): DateTime? {
+        return cronDateTimes.mapNotNull { it.toNearDateTime(relatively) }.minOrNull()
     }
 }
 
