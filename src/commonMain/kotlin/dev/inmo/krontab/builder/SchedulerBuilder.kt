@@ -1,6 +1,7 @@
 package dev.inmo.krontab.builder
 
-import com.soywiz.klock.*
+import com.soywiz.klock.TimezoneOffset
+import com.soywiz.klock.minutes
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.internal.createKronScheduler
@@ -43,6 +44,7 @@ class SchedulerBuilder(
     private var dayOfMonth: Array<Byte>? = null,
     private var month: Array<Byte>? = null,
     private var year: Array<Int>? = null,
+    private var dayOfWeek: Array<Byte>? = null,
     private val offset: Minutes? = null
 ) {
     private fun <I, T : TimeBuilder<I>> callAndReturn(
@@ -106,6 +108,17 @@ class SchedulerBuilder(
     }
 
     /**
+     * Starts an hours block
+     */
+    fun dayOfWeek(block: WeekDaysBuilder.() -> Unit) {
+        dayOfWeek = callAndReturn(
+            dayOfWeek,
+            WeekDaysBuilder(),
+            block
+        ) ?.toTypedArray()
+    }
+
+    /**
      * Starts an months block
      */
     fun months(block: MonthsBuilder.() -> Unit) {
@@ -134,6 +147,6 @@ class SchedulerBuilder(
      * @see dev.inmo.krontab.internal.createKronScheduler
      */
     fun build(): KronScheduler = offset ?.let {
-        createKronSchedulerWithOffset(seconds, minutes, hours, dayOfMonth, month, year, TimezoneOffset(it.minutes))
-    } ?: createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year)
+        createKronSchedulerWithOffset(seconds, minutes, hours, dayOfMonth, month, year, dayOfWeek, TimezoneOffset(it.minutes))
+    } ?: createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year, dayOfWeek)
 }

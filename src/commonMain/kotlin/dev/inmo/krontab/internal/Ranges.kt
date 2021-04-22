@@ -1,5 +1,6 @@
 package dev.inmo.krontab.internal
 
+internal val dayOfWeekRange = 0 .. 6
 internal val yearRange = Int.MIN_VALUE .. Int.MAX_VALUE
 internal val monthRange = 0 .. 11
 internal val dayOfMonthRange = 0 .. 30

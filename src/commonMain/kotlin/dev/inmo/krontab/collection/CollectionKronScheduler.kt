@@ -4,8 +4,6 @@ import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.*
 import dev.inmo.krontab.internal.*
-import dev.inmo.krontab.internal.CronDateTimeScheduler
-import dev.inmo.krontab.internal.toNearDateTime
 
 /**
  * This scheduler will be useful in case you want to unite several different [KronScheduler]s

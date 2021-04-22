@@ -1,12 +1,8 @@
 package dev.inmo.krontab
 
-import com.soywiz.klock.TimezoneOffset
 import dev.inmo.krontab.collection.CollectionKronScheduler
 import dev.inmo.krontab.collection.includeAll
 import dev.inmo.krontab.internal.*
-import dev.inmo.krontab.internal.CronDateTime
-import dev.inmo.krontab.internal.CronDateTimeScheduler
-import dev.inmo.krontab.internal.CronDateTimeSchedulerTz
 
 /**
  * Create new one [CollectionKronScheduler] to include all [KronScheduler]s of [this] [Iterator]

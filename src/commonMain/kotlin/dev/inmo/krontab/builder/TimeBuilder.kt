@@ -1,11 +1,10 @@
 package dev.inmo.krontab.builder
 
 import dev.inmo.krontab.internal.*
-import dev.inmo.krontab.utils.clamp
 
 /**
  * This class was created for incapsulation of builder work with specified [restrictionsRange]. For example,
- * [include] function of [TimeBuilder] will always [clamp] incoming data using its [restrictionsRange]
+ * [include] function of [TimeBuilder] will always [coerceIn] incoming data using its [restrictionsRange]
  */
 sealed class TimeBuilder<T : Number> (
     private val restrictionsRange: IntRange,
@@ -37,7 +36,7 @@ sealed class TimeBuilder<T : Number> (
      */
     @Suppress("MemberVisibilityCanBePrivate")
     infix fun include(array: Array<Int>) {
-        val clamped = array.map { it.clamp(restrictionsRange) } + (result ?: emptySet())
+        val clamped = array.map { it.coerceIn(restrictionsRange) } + (result ?: emptySet())
         result = clamped.toSet()
     }
 
@@ -46,7 +45,7 @@ sealed class TimeBuilder<T : Number> (
      */
     @Suppress("unused")
     infix fun at(value: Int) {
-        result = (result ?: emptySet()) + value.clamp(restrictionsRange)
+        result = (result ?: emptySet()) + value.coerceIn(restrictionsRange)
     }
 
 
@@ -70,7 +69,7 @@ sealed class TimeBuilder<T : Number> (
      * @see [from]
      */
     infix fun Int.every(delay: Int): Array<Int> {
-        val progression = clamp(restrictionsRange) .. restrictionsRange.last step delay
+        val progression = coerceIn(restrictionsRange) .. restrictionsRange.last step delay
         val result = progression.toSet().toTypedArray()
 
         this@TimeBuilder include result
@@ -88,7 +87,7 @@ sealed class TimeBuilder<T : Number> (
      */
     @Suppress("MemberVisibilityCanBePrivate")
     infix fun Int.upTo(endIncluding: Int): Array<Int> {
-        val progression = clamp(restrictionsRange) .. endIncluding.clamp(restrictionsRange)
+        val progression = coerceIn(restrictionsRange) .. endIncluding.coerceIn(restrictionsRange)
         val result = progression.toSet().toTypedArray()
 
         this@TimeBuilder include result
@@ -129,3 +128,4 @@ class HoursBuilder : TimeBuilder<Byte>(hoursRange, intToByteConverter)
 class DaysOfMonthBuilder : TimeBuilder<Byte>(dayOfMonthRange, intToByteConverter)
 class MonthsBuilder : TimeBuilder<Byte>(monthRange, intToByteConverter)
 class YearsBuilder : TimeBuilder<Int>(yearRange, intToIntConverter)
+class WeekDaysBuilder : TimeBuilder<Byte>(dayOfWeekRange, intToByteConverter)
