@@ -4,6 +4,9 @@
 
 * Versions
   * `Kotlin`: `1.4.31` -> `1.4.32`
+* Supporting of weekdays
+* Supporting of timezones
+  * Any `KronScheduler` now can be used for calling `next` with `DateTimeTz`
 
 ## 0.5.1
 
