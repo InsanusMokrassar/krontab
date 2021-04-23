@@ -7,6 +7,7 @@
 * Supporting of weekdays
 * Supporting of timezones
   * Any `KronScheduler` now can be used for calling `next` with `DateTimeTz`
+  * New type `KronSchedulerTz`
 
 ## 0.5.1
 
