@@ -1,17 +1,16 @@
 package dev.inmo.krontab.collection
 
 import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeTz
 import dev.inmo.krontab.*
 import dev.inmo.krontab.internal.*
-import dev.inmo.krontab.internal.CronDateTimeScheduler
-import dev.inmo.krontab.internal.toNearDateTime
 
 /**
  * This scheduler will be useful in case you want to unite several different [KronScheduler]s
  */
 data class CollectionKronScheduler internal constructor(
     internal val schedulers: MutableList<KronScheduler>
-) : KronScheduler {
+) : KronSchedulerTz {
     internal constructor() : this(mutableListOf())
 
     /**
@@ -38,6 +37,18 @@ data class CollectionKronScheduler internal constructor(
                     mergeCronDateTimeSchedulers(resultCronDateTimes)
                 )
             }
+            is CronDateTimeSchedulerTz -> {
+                val newCronDateTimes = kronScheduler.cronDateTimes.toMutableList()
+                val cronDateTimes = schedulers.removeAll {
+                    if (it is CronDateTimeSchedulerTz && it.offset == kronScheduler.offset) {
+                        newCronDateTimes.addAll(it.cronDateTimes)
+                        true
+                    } else {
+                        false
+                    }
+                }
+                schedulers.add(CronDateTimeSchedulerTz(newCronDateTimes.toList(), kronScheduler.offset))
+            }
             is CollectionKronScheduler -> kronScheduler.schedulers.forEach {
                 include(it)
             }
@@ -47,5 +58,9 @@ data class CollectionKronScheduler internal constructor(
 
     override suspend fun next(relatively: DateTime): DateTime {
         return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively)
+    }
+
+    override suspend fun next(relatively: DateTimeTz): DateTimeTz {
+        return schedulers.mapNotNull { it.next(relatively) }.minOrNull() ?: getAnyNext(relatively.local).toOffsetUnadjusted(relatively.offset)
     }
 }

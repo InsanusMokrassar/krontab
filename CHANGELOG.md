@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.2
+
+* Versions
+  * `Kotlin`: `1.4.31` -> `1.4.32`
+* Supporting of weekdays
+* Supporting of timezones
+  * Any `KronScheduler` now can be used for calling `next` with `DateTimeTz`
+  * New type `KronSchedulerTz`
+* `SchedulerFlow` has been deprecated
+* New extension `asTzFlow` and small changes in `asFlow` logic
+* `merge` extensions now return `CollectionKronScheduler` instead of just `KronScheduler`
+
 ## 0.5.1
 
 * Versions

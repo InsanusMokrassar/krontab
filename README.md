@@ -14,6 +14,8 @@ runtime of applications.
 | [ How to use: Config from string ](#config-from-string) |
 | [ How to use: Config via builder (DSL preview) ](#config-via-builder) |
 | [ How to use: KronScheduler as a Flow ](#KronScheduler-as-a-Flow) |
+| [ How to use: Offsets ](#Offsets) |
+| [ How to use: Note about week days ](#Note-about-week-days) |
 
 ## How to use
 
@@ -52,14 +54,17 @@ For old version of Gradle, instead of `implementation` word developers must use 
 
 Developers can use more simple way to configure repeat times is string. String configuring
 like a `crontab`, but with a little bit different meanings:
+
 ```
-/---------- Seconds
-| /-------- Minutes
-| | /------ Hours
-| | | /---- Days of months
-| | | | /-- Months
-| | | | | / (optional) Year
-* * * * * *
+/--------------- Seconds
+| /------------- Minutes
+| | /----------- Hours
+| | | /--------- Days of months
+| | | | /------- Months
+| | | | | /----- (optional) Year
+| | | | | | /--- (optional) Timezone offset
+| | | | | | |  / (optional) Week days
+* * * * * * 0o *w
 ```
 
 It is different with original `crontab` syntax for the reason, that expected that in practice developers
@@ -152,3 +157,27 @@ flow.takeWhile {
     action()
 }
 ```
+
+### Offsets
+
+Offsets in this library works via passing parameter ending with `o` in any place after `month` config. Currently
+there is only one format supported for offsets: minutes of offsets. To use time zones you will need to call `next`
+method with `DateTimeTz` argument or `nextTimeZoned` method with any `KronScheduler` instance, but in case if this
+scheduler is not instance of `KronSchedulerTz` it will works like you passed just `DateTime`.
+
+Besides, in case you wish to use time zones explicitly, you will need to get `KronSchedulerTz`. It is possible by:
+
+* Using `createSimpleScheduler`/`buildSchedule`/`KrontabTemplate#toSchedule`/`KrontabTemplate#toKronScheduler` methods
+with passing `defaultOffset` parameter
+* Using `SchedulerBuilder#build`/`createSimpleScheduler`/`buildSchedule`/`KrontabTemplate#toSchedule`/`KrontabTemplate#toKronScheduler`
+methods with casting to `KronSchedulerTz` in case you are pretty sure that it is timezoned `KronScheduler`
+* Creating your own implementation of `KronSchedulerTz`
+
+### Note about week days
+
+Unlike original CRON, here week days:
+
+* Works as `AND`: cron date time will search first day which will pass requirement according all parameters including
+week days
+* You may use any related to numbers syntax with week days: `0-3w`, `0,1,2,3w`, etc.
+* Week days (like years and offsets) are optional and can be placed anywhere after `month`

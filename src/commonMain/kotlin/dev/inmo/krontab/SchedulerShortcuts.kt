@@ -3,8 +3,6 @@ package dev.inmo.krontab
 import com.soywiz.klock.DateTime
 import dev.inmo.krontab.builder.buildSchedule
 import dev.inmo.krontab.internal.*
-import dev.inmo.krontab.internal.CronDateTime
-import dev.inmo.krontab.internal.CronDateTimeScheduler
 
 internal val anyCronDateTime by lazy {
     CronDateTime()

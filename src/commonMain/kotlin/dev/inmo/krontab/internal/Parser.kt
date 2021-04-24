@@ -1,7 +1,5 @@
 package dev.inmo.krontab.internal
 
-import dev.inmo.krontab.utils.clamp
-
 typealias Converter<T> = (Int) -> T
 
 internal val intToByteConverter: Converter<Byte> = { it: Int -> it.toByte() }
@@ -18,7 +16,7 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
         when {
             currentToken.contains("-") -> {
                 val splitted = currentToken.split("-")
-                (splitted.first().toInt().clamp(dataRange) .. splitted[1].toInt().clamp(dataRange)).toList()
+                (splitted.first().toInt().coerceIn(dataRange) .. splitted[1].toInt().coerceIn(dataRange)).toList()
             }
             currentToken.contains("/") -> {
                 val (start, step) = currentToken.split("/")
@@ -26,18 +24,20 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
                     0
                 } else {
                     start.toInt()
-                }).clamp(dataRange)
-                val stepNum = step.toInt().clamp(dataRange)
+                }).coerceIn(dataRange)
+                val stepNum = step.toInt().coerceIn(dataRange)
                 (startNum .. dataRange.last step stepNum).map { it }
             }
             currentToken == "*" -> return null
-            else -> listOf(currentToken.toInt().clamp(dataRange))
+            else -> listOf(currentToken.toInt().coerceIn(dataRange))
         }
     }
 
     return results.map(dataConverter)
 }
 
+internal fun parseWeekDay(from: String?) = from ?.let { if (it.endsWith("w")) createSimpleScheduler(it.removeSuffix("w"), dayOfWeekRange, intToByteConverter) ?.toTypedArray() else null }
+internal fun parseOffset(from: String?) = from ?.let { if (it.endsWith("o")) it.removeSuffix("o").toIntOrNull() else null }
 internal fun parseYears(from: String?) = from ?.let { createSimpleScheduler(from, yearRange, intToIntConverter) ?.toTypedArray() }
 internal fun parseMonths(from: String) = createSimpleScheduler(from, monthRange, intToByteConverter) ?.toTypedArray()
 internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfMonthRange, intToByteConverter) ?.toTypedArray()
@@ -57,6 +57,19 @@ internal fun <T> Array<T>.fillWith(
         forEach {
             whereToPut.add(createFactory(previousValue, it))
         }
+    }
+}
+
+internal fun <T> T.fillWith(
+    whereToPut: MutableList<CronDateTime>,
+    createFactory: (CronDateTime, T) -> CronDateTime
+) {
+    val previousValues = whereToPut.toList()
+
+    whereToPut.clear()
+
+    previousValues.forEach { previousValue ->
+        whereToPut.add(createFactory(previousValue, this))
     }
 }
 

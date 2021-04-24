@@ -1,5 +1,7 @@
 package dev.inmo.krontab.utils
 
+import com.soywiz.klock.*
+import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
@@ -74,6 +76,21 @@ class StringParseTest {
                 collected++
             }
             assertEquals(expectedCollects, collected)
+        }
+    }
+    @Test
+    fun testThatTimezoneCorrectlyDeserialized() {
+        val now = DateTimeTz.nowLocal()
+
+        runTest {
+            for (i in 0 .. 1339) {
+                val expectedInCurrentOffset = now.toOffset(TimezoneOffset(i.minutes)) + 1.hours
+                val kronScheduler = buildSchedule(
+                    "${expectedInCurrentOffset.seconds} ${expectedInCurrentOffset.minutes} ${expectedInCurrentOffset.hours} * * ${i}o"
+                ) as KronSchedulerTz
+                val next = kronScheduler.next(now)
+                assertEquals(expectedInCurrentOffset.toOffset(now.offset), next)
+            }
         }
     }
 }

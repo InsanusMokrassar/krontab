@@ -1,7 +1,6 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
-import dev.inmo.krontab.internal.toNearDateTime
 
 /**
  * This interface was created for abstraction of [next] operation. Currently, there is only
