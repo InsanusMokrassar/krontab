@@ -8,6 +8,8 @@
 * Supporting of timezones
   * Any `KronScheduler` now can be used for calling `next` with `DateTimeTz`
   * New type `KronSchedulerTz`
+* `SchedulerFlow` has been deprecated
+* New extension `asTzFlow` and small changes in `asFlow` logic
 
 ## 0.5.1
 
