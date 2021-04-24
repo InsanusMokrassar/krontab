@@ -3,7 +3,6 @@ package dev.inmo.krontab.internal
 import com.soywiz.klock.DateTime
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.collection.plus
-import dev.inmo.krontab.getAnyNext
 
 /**
  * Cron-oriented realisation of [KronScheduler]
