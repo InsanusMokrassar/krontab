@@ -84,12 +84,9 @@ fun createSimpleScheduler(
             offsetParsed = offsetParsed ?: offsetFromString
             dayOfWeekParsed = dayOfWeekParsed ?: dayOfWeekFromString
             when {
-                dayOfWeekFromString != null -> return@forEach
-                offsetFromString == null && yearParsed == null -> {
+                dayOfWeekFromString != null || offsetFromString != null -> return@forEach
+                yearParsed == null -> {
                     yearParsed = parseYears(it)
-                }
-                offsetFromString != null && offsetParsed == null -> {
-                    offsetParsed = offsetFromString
                 }
             }
         }

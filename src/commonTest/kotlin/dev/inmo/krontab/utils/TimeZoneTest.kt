@@ -10,14 +10,17 @@ class TimeZoneTest {
     @Test
     fun testDifferentTimeZonesReturnsDifferentTimes() {
         val scheduler = buildSchedule { seconds { every(1) } }
-        val now = DateTime.now()
+        val baseDate = DateTime.now().startOfWeek
         runTest {
-            for (i in 0 .. 24) {
-                val nowTz = now.toOffset(i.hours)
-                val next = scheduler.next(nowTz)!!
-                assertEquals(
-                    (nowTz + 1.seconds).utc.unixMillisLong, next.utc.unixMillisLong
-                )
+            for (i in 0 until 7) {
+                val now = baseDate + i.days
+                for (j in 0 .. 24) {
+                    val nowTz = now.toOffset(j.hours)
+                    val next = scheduler.next(nowTz)!!
+                    assertEquals(
+                        (nowTz + 1.seconds).utc.unixMillisLong, next.utc.unixMillisLong
+                    )
+                }
             }
         }
     }

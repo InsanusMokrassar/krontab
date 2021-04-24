@@ -10,6 +10,7 @@
   * New type `KronSchedulerTz`
 * `SchedulerFlow` has been deprecated
 * New extension `asTzFlow` and small changes in `asFlow` logic
+* `merge` extensions now return `CollectionKronScheduler` instead of just `KronScheduler`
 
 ## 0.5.1
 
