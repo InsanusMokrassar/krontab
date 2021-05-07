@@ -68,7 +68,7 @@ class StringParseTest {
 
         runTest {
             val ranges = rangesEnds.map { it.first .. it.second }.flatten().toMutableList()
-            val expectedCollects = rangesEnds.sumBy { it.second - it.first + 1 }
+            val expectedCollects = rangesEnds.sumOf { it.second - it.first + 1 }
             var collected = 0
 
             flow.takeWhile { ranges.isNotEmpty() }.collect {
