@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.6.1
+
 ## 0.6.0
 
 * Versions
