@@ -67,8 +67,8 @@ class StringParseTest {
         val flow = kronScheduler.asFlow()
 
         runTest {
-            val ranges = rangesEnds.map { it.first .. it.second }.flatten().toMutableList()
-            val expectedCollects = rangesEnds.sumOf { it.second - it.first + 1 }
+            val ranges = rangesEnds.map { it.first .. it.second }.flatten().distinct().toMutableList()
+            val expectedCollects = ranges.size
             var collected = 0
 
             flow.takeWhile { ranges.isNotEmpty() }.collect {

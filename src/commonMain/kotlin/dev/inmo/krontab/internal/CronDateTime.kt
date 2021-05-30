@@ -2,6 +2,7 @@ package dev.inmo.krontab.internal
 
 import com.soywiz.klock.*
 import dev.inmo.krontab.KronScheduler
+import dev.inmo.krontab.utils.copy
 
 /**
  * @param daysOfWeek 0-6
@@ -32,14 +33,14 @@ internal data class CronDateTime(
     }
 
     internal val calculators = listOf(
+        years ?.let { NearDateTimeCalculatorYears(it) },
+        daysOfWeek ?.let { NearDateTimeCalculatorWeekDays(it) },
         NearDateTimeCalculatorMillis(arrayOf(0)),
         seconds ?.let { NearDateTimeCalculatorSeconds(it) },
         minutes ?.let { NearDateTimeCalculatorMinutes(it) },
         hours ?.let { NearDateTimeCalculatorHours(it) },
         daysOfMonth ?.let { NearDateTimeCalculatorDays(it) },
         months ?.let { NearDateTimeCalculatorMonths(it) },
-        years ?.let { NearDateTimeCalculatorYears(it) },
-        daysOfWeek ?.let { NearDateTimeCalculatorWeekDays(it) },
     )
 
     internal fun toNearDateTime(relativelyTo: DateTime = DateTime.now()): DateTime? {
