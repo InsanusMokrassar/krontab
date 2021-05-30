@@ -13,7 +13,7 @@ internal fun getAnyNext(relatively: DateTime) = anyCronDateTime.toNearDateTime(r
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now]
  */
 val AnyTimeScheduler: KronScheduler by lazy {
-    CronDateTimeScheduler(listOf(anyCronDateTime))
+    CronDateTimeScheduler(anyCronDateTime)
 }
 
 /**

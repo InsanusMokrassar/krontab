@@ -10,7 +10,8 @@ class TimeZoneTest {
     @Test
     fun testDifferentTimeZonesReturnsDifferentTimes() {
         val scheduler = buildSchedule { seconds { every(1) } }
-        val baseDate = DateTime.now().startOfWeek
+        val additionalMilliseconds = 100.milliseconds
+        val baseDate = DateTime.now().startOfWeek.copy(milliseconds = additionalMilliseconds.millisecondsInt)
         runTest {
             for (i in 0 until 7) {
                 val now = baseDate + i.days
@@ -18,7 +19,7 @@ class TimeZoneTest {
                     val nowTz = now.toOffset(j.hours)
                     val next = scheduler.next(nowTz)!!
                     assertEquals(
-                        (nowTz + 1.seconds).utc.unixMillisLong, next.utc.unixMillisLong
+                        (nowTz + 1.seconds - additionalMilliseconds).utc.unixMillisLong, next.utc.unixMillisLong
                     )
                 }
             }

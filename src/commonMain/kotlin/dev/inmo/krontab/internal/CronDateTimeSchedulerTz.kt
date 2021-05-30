@@ -11,14 +11,12 @@ import dev.inmo.krontab.KronSchedulerTz
  * @see CronDateTime
  */
 internal data class CronDateTimeSchedulerTz internal constructor(
-    internal val cronDateTimes: List<CronDateTime>,
+    internal val cronDateTime: CronDateTime,
     internal val offset: TimezoneOffset
 ) : KronSchedulerTz {
     override suspend fun next(relatively: DateTimeTz): DateTimeTz? {
         val dateTimeWithActualOffset = relatively.toOffset(offset).local
-        return cronDateTimes.mapNotNull {
-            it.toNearDateTime(dateTimeWithActualOffset)
-        }.minOrNull() ?.toOffsetUnadjusted(offset) ?.toOffset(relatively.offset)
+        return cronDateTime.toNearDateTime(dateTimeWithActualOffset) ?.toOffsetUnadjusted(offset) ?.toOffset(relatively.offset)
     }
 }
 
@@ -27,5 +25,8 @@ internal fun mergeCronDateTimeSchedulers(
 ) = schedulers.groupBy {
     it.offset
 }.map { (offset, schedulers) ->
-    CronDateTimeSchedulerTz(schedulers.flatMap { it.cronDateTimes }, offset)
+    CronDateTimeSchedulerTz(
+        schedulers.map { it.cronDateTime }.merge(),
+        offset
+    )
 }

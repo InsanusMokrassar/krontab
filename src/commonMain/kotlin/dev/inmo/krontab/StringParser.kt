@@ -116,7 +116,7 @@ fun createSimpleScheduler(
         scheduler
     } else {
         CronDateTimeSchedulerTz(
-            (scheduler as CronDateTimeScheduler).cronDateTimes,
+            (scheduler as CronDateTimeScheduler).cronDateTime,
             TimezoneOffset(defaultOffset.minutes)
         )
     }
