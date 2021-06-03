@@ -16,13 +16,13 @@ fun Iterator<KronScheduler>.merge(): CollectionKronScheduler {
     val collectionScheduler = CollectionKronScheduler()
     forEach {
         when (it) {
-            is CronDateTimeScheduler -> cronDateTimes.addAll(it.cronDateTimes)
+            is CronDateTimeScheduler -> cronDateTimes.add(it.cronDateTime)
             is CronDateTimeSchedulerTz -> timezonedCronDateTimes.add(it)
             else -> collectionScheduler.include(it)
         }
     }
     if (cronDateTimes.isNotEmpty()) {
-        collectionScheduler.include(CronDateTimeScheduler(cronDateTimes))
+        collectionScheduler.include(CronDateTimeScheduler(cronDateTimes.merge()))
     }
     if (timezonedCronDateTimes.isNotEmpty()) {
         collectionScheduler.includeAll(mergeCronDateTimeSchedulers(timezonedCronDateTimes))

@@ -19,7 +19,7 @@ import dev.inmo.krontab.collection.plus
  * @see dev.inmo.krontab.builder.SchedulerBuilder
  */
 internal data class CronDateTimeScheduler internal constructor(
-    internal val cronDateTimes: List<CronDateTime>
+    internal val cronDateTime: CronDateTime
 ) : KronScheduler {
     /**
      * @return Near date using [cronDateTimes] list and getting the [Iterable.minByOrNull] one
@@ -27,12 +27,14 @@ internal data class CronDateTimeScheduler internal constructor(
      * @see toNearDateTime
      */
     override suspend fun next(relatively: DateTime): DateTime? {
-        return cronDateTimes.mapNotNull { it.toNearDateTime(relatively) }.minOrNull()
+        return cronDateTime.toNearDateTime(relatively)
     }
 }
 
-internal fun mergeCronDateTimeSchedulers(schedulers: List<CronDateTimeScheduler>) = CronDateTimeScheduler(
-    schedulers.flatMap { it.cronDateTimes }
+internal fun mergeCronDateTimeSchedulers(
+    schedulers: List<CronDateTimeScheduler>
+): CronDateTimeScheduler = CronDateTimeScheduler(
+    schedulers.map { it.cronDateTime }.merge()
 )
 
 /**

@@ -8,7 +8,7 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
     val things = from.split(",")
 
     val results = things.flatMap {
-        val currentToken = it.toLowerCase().replace(
+        val currentToken = it.lowercase().replace(
             "f", dataRange.first.toString()
         ).replace(
             "l", dataRange.last.toString()

@@ -38,16 +38,16 @@ data class CollectionKronScheduler internal constructor(
                 )
             }
             is CronDateTimeSchedulerTz -> {
-                val newCronDateTimes = kronScheduler.cronDateTimes.toMutableList()
-                val cronDateTimes = schedulers.removeAll {
+                val newCronDateTimes = mutableListOf(kronScheduler.cronDateTime)
+                schedulers.removeAll {
                     if (it is CronDateTimeSchedulerTz && it.offset == kronScheduler.offset) {
-                        newCronDateTimes.addAll(it.cronDateTimes)
+                        newCronDateTimes.add(it.cronDateTime)
                         true
                     } else {
                         false
                     }
                 }
-                schedulers.add(CronDateTimeSchedulerTz(newCronDateTimes.toList(), kronScheduler.offset))
+                schedulers.add(CronDateTimeSchedulerTz(newCronDateTimes.merge(), kronScheduler.offset))
             }
             is CollectionKronScheduler -> kronScheduler.schedulers.forEach {
                 include(it)
