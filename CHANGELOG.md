@@ -4,6 +4,7 @@
 
 * Versions
   * `Klock`: `2.1.0` -> `2.1.2`
+* Rewriting of default mechanism of `KronScheduler`s
 
 ## 0.6.0
 
