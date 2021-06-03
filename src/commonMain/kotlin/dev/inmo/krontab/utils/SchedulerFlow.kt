@@ -15,9 +15,16 @@ import kotlinx.coroutines.flow.*
  */
 @FlowPreview
 fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = channelFlow {
+    var previousTime = DateTime.nowLocal()
     while (isActive) {
-        val now = DateTime.now().local
+        val now = DateTime.nowLocal()
         val nextTime = next(now) ?: break
+        if (previousTime == nextTime) {
+            delay(1L) // skip 1ms
+            continue
+        } else {
+            previousTime = nextTime
+        }
         val sleepDelay = (nextTime - DateTime.now().local).millisecondsLong
         delay(sleepDelay)
         send(nextTime)
