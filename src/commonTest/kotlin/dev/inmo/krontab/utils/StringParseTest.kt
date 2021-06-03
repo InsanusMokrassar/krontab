@@ -80,7 +80,7 @@ class StringParseTest {
     }
     @Test
     fun testThatTimezoneCorrectlyDeserialized() {
-        val now = DateTimeTz.nowLocal()
+        val now = DateTime.now().copy(milliseconds = 0).local
 
         runTest {
             for (i in 0 .. 1339) {

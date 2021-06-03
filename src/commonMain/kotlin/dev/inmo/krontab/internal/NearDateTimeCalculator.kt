@@ -28,10 +28,10 @@ internal class CommonNearDateTimeCalculator<T>(
     ): Pair<DateTime, Boolean>? {
         val currentData = partGetter(relativelyTo)
         val greaterOrEquals = times.firstOrNull { it >= currentData }
-        val newDateTime = if (greaterOrEquals == null) {
-            partSetter(relativelyTo, times.first()) ?: return null
-        } else {
-            partSetter(relativelyTo, greaterOrEquals) ?: return null
+        val newDateTime = when (greaterOrEquals) {
+            null -> partSetter(relativelyTo, times.first()) ?: return null
+            currentData -> relativelyTo
+            else -> partSetter(relativelyTo, greaterOrEquals) ?: return null
         }
         return if (newDateTime == relativelyTo) {
             relativelyTo to false
