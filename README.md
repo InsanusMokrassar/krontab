@@ -45,7 +45,7 @@ implementation "dev.inmo:krontab:$krontab_version"
 
 Next version is the latest currently for the library:
 
-[ ![Download](https://api.bintray.com/packages/insanusmokrassar/InsanusMokrassar/krontab-mpp/images/download.svg) ](https://bintray.com/insanusmokrassar/InsanusMokrassar/krontab-mpp/_latestVersion)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab)
 
 For old version of Gradle, instead of `implementation` word developers must use `compile`.
 
