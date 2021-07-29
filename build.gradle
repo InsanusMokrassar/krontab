@@ -40,9 +40,9 @@ apply from: "github_release.gradle"
 
 repositories {
     mavenLocal()
-    jcenter()
+    // jcenter()
     mavenCentral()
-    maven { url "https://kotlin.bintray.com/kotlinx" }
+    // maven { url "https://kotlin.bintray.com/kotlinx" }
     google()
 }
 
