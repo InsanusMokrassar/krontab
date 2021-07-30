@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.2
+
+**LEGACY COMPILER VARIANT FOR JS IS NOT AVAILABLE SINCE THIS UPDATE**
+
+* Versions
+  * `Kotlin`: `1.5.21`
+  * `Coroutines`: `1.5.1`
+  * `Klock`: `2.3.1`
+
 ## 0.6.1
 
 * Versions
