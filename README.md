@@ -2,6 +2,7 @@
 
  [![Maven Central](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab/badge.svg)](https://maven-badges.herokuapp.com/maven-central/dev.inmo/krontab)
  [![Build Status](https://github.com/InsanusMokrassar/krontab/actions/workflows/regular_build.yml/badge.svg)](https://github.com/InsanusMokrassar/krontab/actions/workflows/regular_build.yml)
+ [![KDocs](https://raw.githubusercontent.com/InsanusMokrassar/badges/master/kdocs.svg)](https://krontab.inmo.dev/index.html)
  
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
