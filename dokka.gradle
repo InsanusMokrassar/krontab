@@ -15,31 +15,40 @@ dokkaHtml {
     }
 
     moduleName.set("kdocs")
-
+    
     dokkaSourceSets {
-        configureEach {
-            skipDeprecated.set(true)
-            includeNonPublic.set(true)
-            reportUndocumented.set(true)
+        switch (true) {
+            case project.hasProperty("DOKKA_PATH"):
+                outputDirectory = project.property("DOKKA_PATH").toString()
+                break
+            case System.getenv("DOKKA_PATH") != null:
+                outputDirectory = System.getenv("DOKKA_PATH")
+                break
+        }
 
-            sourceLink {
-                localDirectory.set(file("./"))
-                remoteUrl.set(new URL("https://github.com/InsanusMokrassar/krontab/blob/master/"))
-                remoteLineSuffix.set("#L")
+        dokkaSourceSets {
+            configureEach {
+                skipDeprecated.set(true)
+
+                sourceLink {
+                    localDirectory.set(file("./"))
+                    remoteUrl.set(new URL("https://github.com/InsanusMokrassar/krontab/blob/master/"))
+                    remoteLineSuffix.set("#L")
+                }
             }
-        }
 
-        named("commonMain") {
-            sourceRoot { path = "src/commonMain" }
-        }
+            named("commonMain") {
+                sourceRoots.setFrom(findSourcesWithName("commonMain"))
+            }
 
 //
-//        named("jsMain") {
-//            sourceRoot { path = "src/jsMain" }
-//        }
+//            named("jsMain") {
+//                sourceRoot { path = "src/jsMain" }
+//            }
 //
-//        named("jvmMain") {
-//            sourceRoot { path = "src/jvmMain" }
-//        }
+//            named("jvmMain") {
+//                sourceRoot { path = "src/jvmMain" }
+//            }
+        }
     }
 }
