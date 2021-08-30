@@ -2,6 +2,10 @@
 
 ## 0.6.3
 
+* Versions
+  * `Kotlin`: `1.5.30`
+  * `Klock`: `2.4.0`
+
 ## 0.6.2
 
 **LEGACY COMPILER VARIANT FOR JS IS NOT AVAILABLE SINCE THIS UPDATE**
