@@ -19,7 +19,7 @@ jobs:
         run: ./gradlew clean build
       - name: Publish package
         continue-on-error: true
-        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository -x signJsPublication -x signJvmPublication -x signKotlinMultiplatformPublication -x signAndroidReleasePublication
+        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository -x signJsPublication -x signJvmPublication -x signKotlinMultiplatformPublication -x signAndroidReleasePublication -x signAndroidDebugPublication -x signAndroidReleasePublication
         env:
           GITHUBPACKAGES_USER: ${{ github.actor }}
           GITHUBPACKAGES_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
