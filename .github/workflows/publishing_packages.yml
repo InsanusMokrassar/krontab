@@ -8,6 +8,8 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Fix android 31.0.0 dx
+        run: cd /usr/local/lib/android/sdk/build-tools/31.0.0/ && mv d8 dx && cd lib  && mv d8.jar dx.jar
       - name: Update version
         run: |
           branch="`echo "${{ github.ref }}" | grep -o "[^/]*$"`"
