@@ -9,6 +9,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Fix android 31.0.0 dx
+        continue-on-error: true
         run: cd /usr/local/lib/android/sdk/build-tools/31.0.0/ && mv d8 dx && cd lib  && mv d8.jar dx.jar
       - name: Update version
         run: |
