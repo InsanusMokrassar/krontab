@@ -2,6 +2,11 @@
 
 ## 0.6.4
 
+* Versions
+  * `Kotlin`: `1.5.31`
+  * `Coroutines`: `1.5.2`
+  * `Klock`: `2.4.2`
+
 ## 0.6.3
 
 * Versions
