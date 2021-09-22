@@ -6,6 +6,7 @@
   * `Kotlin`: `1.5.31`
   * `Coroutines`: `1.5.2`
   * `Klock`: `2.4.2`
+  * `Androidx Work`: `2.6.0`
 
 ## 0.6.3
 
