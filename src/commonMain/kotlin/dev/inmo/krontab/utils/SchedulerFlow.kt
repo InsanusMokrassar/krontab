@@ -2,8 +2,7 @@ package dev.inmo.krontab.utils
 
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeTz
-import dev.inmo.krontab.KronScheduler
-import dev.inmo.krontab.next
+import dev.inmo.krontab.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
@@ -12,30 +11,43 @@ import kotlinx.coroutines.flow.*
  * time zones
  *
  * @see channelFlow
+ * @see KronSchedulerTz.doWhile
  */
 @FlowPreview
-fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = channelFlow {
-    var previousTime = DateTime.nowLocal()
-    while (isActive) {
-        val now = DateTime.nowLocal()
-        val nextTime = next(now) ?: break
-        if (previousTime == nextTime) {
-            delay(1L) // skip 1ms
-            continue
-        } else {
-            previousTime = nextTime
-        }
-        val sleepDelay = (nextTime - DateTime.now().local).millisecondsLong
-        delay(sleepDelay)
-        send(nextTime)
+fun KronSchedulerTz.asTzFlow(): Flow<DateTimeTz> = channelFlow {
+    doWhile {
+        send(DateTime.nowLocal())
+        isActive
     }
 }
 
 /**
  * This method is a map for [asTzFlow] and will works the same but return flow with [DateTime]s
+ *
+ * @see channelFlow
+ * @see KronScheduler.doWhile
  */
 @FlowPreview
-fun KronScheduler.asFlow(): Flow<DateTime> = asTzFlow().map { it.local }
+fun KronScheduler.asFlow(): Flow<DateTime> = channelFlow {
+    doWhile {
+        send(DateTime.now())
+        isActive
+    }
+}
+
+/**
+ * This [Flow] will trigger emitting each near time which will be returned from [this] [KronScheduler] with attention to
+ * time zones
+ *
+ * @see channelFlow
+ * @see KronScheduler.asFlow
+ * @see KronSchedulerTz.asTzFlow
+ */
+@FlowPreview
+fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = when (this) {
+    is KronSchedulerTz -> asTzFlow()
+    else -> asFlow().map { it.local }
+}
 
 @Deprecated(
     "It is not recommended to use this class in future. This functionality will be removed soon",

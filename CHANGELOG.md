@@ -2,6 +2,9 @@
 
 ## 0.6.5
 
+* Flows now use `doWhile` functions
+* `doWhile` now use additional delay (for 1 ms) for cases when `block` executing too fast
+
 ## 0.6.4
 
 * Versions

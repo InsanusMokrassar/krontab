@@ -1,7 +1,22 @@
 package dev.inmo.krontab
 
 import com.soywiz.klock.DateTime
+import com.soywiz.klock.DateTimeTz
 import kotlinx.coroutines.delay
+
+/**
+ * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
+ *
+ * WARNING!!! If you want to launch it in parallel, you must do this explicitly.
+ *
+ * WARNING!!! In case if [KronScheduler.next] of [this] instance will return null, [block] will be called immediately
+ */
+suspend inline fun <T> KronSchedulerTz.doOnce(noinline block: suspend () -> T): T {
+    nextTimeZoned() ?.let {
+        delay((it - DateTimeTz.nowLocal()).millisecondsLong)
+    }
+    return block()
+}
 
 /**
  * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
@@ -24,13 +39,31 @@ suspend inline fun <T> KronScheduler.doOnce(noinline block: suspend () -> T): T 
 suspend inline fun <T> doOnce(
     scheduleConfig: String,
     noinline block: suspend () -> T
-) = buildSchedule(scheduleConfig).doOnce(block)
+) = with(buildSchedule(scheduleConfig)) {
+    when (this) {
+        is KronSchedulerTz -> doOnce(block)
+        else -> doOnce(block)
+    }
+}
 
 /**
  * Will execute [block] while it will return true as a result of its calculation
  */
 suspend inline fun KronScheduler.doWhile(noinline block: suspend () -> Boolean) {
-    do { val doNext = doOnce(block) } while (doNext)
+    do {
+        delay(1L)
+        val doNext = doOnce(block)
+    } while (doNext)
+}
+
+/**
+ * Will execute [block] while it will return true as a result of its calculation
+ */
+suspend inline fun KronSchedulerTz.doWhile(noinline block: suspend () -> Boolean) {
+    do {
+        delay(1L)
+        val doNext = doOnce(block)
+    } while (doNext)
 }
 
 /**
@@ -41,12 +74,25 @@ suspend inline fun KronScheduler.doWhile(noinline block: suspend () -> Boolean) 
 suspend inline fun doWhile(
     scheduleConfig: String,
     noinline block: suspend () -> Boolean
-) = buildSchedule(scheduleConfig).doWhile(block)
+) = with(buildSchedule(scheduleConfig)) {
+    when (this) {
+        is KronSchedulerTz -> doWhile(block)
+        else -> doWhile(block)
+    }
+}
 
 /**
  * Will execute [block] without any checking of result
  */
 suspend inline fun KronScheduler.doInfinity(noinline block: suspend () -> Unit) = doWhile {
+    block()
+    true
+}
+
+/**
+ * Will execute [block] without any checking of result
+ */
+suspend inline fun KronSchedulerTz.doInfinity(noinline block: suspend () -> Unit) = doWhile {
     block()
     true
 }
@@ -58,4 +104,9 @@ suspend inline fun KronScheduler.doInfinity(noinline block: suspend () -> Unit) 
 suspend inline fun doInfinity(
     scheduleConfig: String,
     noinline block: suspend () -> Unit
-) = buildSchedule(scheduleConfig).doInfinity(block)
+) = with(buildSchedule(scheduleConfig)) {
+    when (this) {
+        is KronSchedulerTz -> doInfinity(block)
+        else -> doInfinity(block)
+    }
+}
