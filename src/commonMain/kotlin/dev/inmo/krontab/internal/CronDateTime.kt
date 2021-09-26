@@ -1,8 +1,8 @@
 package dev.inmo.krontab.internal
 
-import com.soywiz.klock.*
+import com.soywiz.klock.DateTime
+import com.soywiz.klock.TimezoneOffset
 import dev.inmo.krontab.KronScheduler
-import dev.inmo.krontab.utils.copy
 
 /**
  * @param daysOfWeek 0-6
