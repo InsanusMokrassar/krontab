@@ -58,7 +58,6 @@ $dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator/calculateNearTi
 $dokka.location:dev.inmo.krontab.utils////PointingToDeclaration/kdocs/dev.inmo.krontab.utils/index.html
 $dokka.location:dev.inmo.krontab.utils//asFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow.html
 $dokka.location:dev.inmo.krontab.utils//asTzFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow.html
-$dokka.location:dev.inmo.krontab.utils//asTzFlow/dev.inmo.krontab.KronSchedulerTz#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow.html
 $dokka.location:dev.inmo.krontab.utils//copy/com.soywiz.klock.DateTime#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/copy.html
 $dokka.location:dev.inmo.krontab////PointingToDeclaration/kdocs/dev.inmo.krontab/index.html
 $dokka.location:dev.inmo.krontab//AnyTimeScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-any-time-scheduler.html
