@@ -7,16 +7,6 @@
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
 
-| Table of content |
-|---|
-| [ How to use ](#how-to-use) |
-| [ How to use: Including in project ](#including-in-project) |
-| [ How to use: Config from string ](#config-from-string) |
-| [ How to use: Config via builder (DSL preview) ](#config-via-builder) |
-| [ How to use: KronScheduler as a Flow ](#KronScheduler-as-a-Flow) |
-| [ How to use: Offsets ](#Offsets) |
-| [ How to use: Note about week days ](#Note-about-week-days) |
-
 ## How to use
 
 There are several ways to configure and use this library:
@@ -133,6 +123,38 @@ kronScheduler.doInfinity {
 
 All of these examples will do the same things: print `Called` message every five seconds.
 
+### do\* functions
+
+With regular `doOnce`/`doWhile`/`doInfinity` there are two types of their variations: **local** and **timezoned**. Local
+variations (`doOnceLocal`/`doWhileLocal`/`doInfinityLocal`) will pass `DateTime` as an argument into the block:
+
+```kotlin
+doInfinityLocal("/5 * * * *") {
+    println(it) // will print current date time
+}
+```
+
+Timezoned variations (`doOnceTz`/`doWhileTz`/`doInfinityTz`) will do the same thing but pass as an argument `DateTimeTz`:
+
+```kotlin
+doInfinityTz("/5 * * * * 0o") {
+    println(it) // will print current date time in UTC
+}
+```
+
+It is useful in cases when you need to get the time of calling and avoid extra calls to system time.
+
+#### Helpful table for 
+
+|  | No args | Local `DateTime` | Local `DateTimeTz` with offset of `KronScheduler` |
+|---| ------- | ---------------- | ------------------------------------------------- |
+| **Call only near time** | doOnce | doOnceLocal | doOnceTz |
+| **Call while condition is true** | doWhile | doWhileLocal | doWhileTz |
+| **Work infinity*** | doInfinity | doInfinityLocal | doInfinityTz |
+
+*Here there is an important notice, that `Work infinity` is not exactly `infinity`. Actually, that means that `do while
+coroutine is alive` and in fact executing will be stopped when coroutine became cancelled.
+
 ### KronScheduler as a Flow
 
 Any `KronScheduler`can e converted to a `Flow<DateTime` using extension `asFlow`:
@@ -163,7 +185,7 @@ flow.takeWhile {
 Offsets in this library works via passing parameter ending with `o` in any place after `month` config. Currently
 there is only one format supported for offsets: minutes of offsets. To use time zones you will need to call `next`
 method with `DateTimeTz` argument or `nextTimeZoned` method with any `KronScheduler` instance, but in case if this
-scheduler is not instance of `KronSchedulerTz` it will works like you passed just `DateTime`.
+scheduler is not instance of `KronSchedulerTz` it will work like you passed just `DateTime`.
 
 Besides, in case you wish to use time zones explicitly, you will need to get `KronSchedulerTz`. It is possible by:
 
