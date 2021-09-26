@@ -15,9 +15,8 @@ import kotlinx.coroutines.flow.*
  */
 @FlowPreview
 fun KronSchedulerTz.asTzFlow(): Flow<DateTimeTz> = channelFlow {
-    doWhile {
+    doInfinity {
         send(DateTime.nowLocal())
-        isActive
     }
 }
 
@@ -29,9 +28,8 @@ fun KronSchedulerTz.asTzFlow(): Flow<DateTimeTz> = channelFlow {
  */
 @FlowPreview
 fun KronScheduler.asFlow(): Flow<DateTime> = channelFlow {
-    doWhile {
+    doInfinity {
         send(DateTime.now())
-        isActive
     }
 }
 

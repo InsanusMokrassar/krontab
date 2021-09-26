@@ -3,6 +3,8 @@ package dev.inmo.krontab
 import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeTz
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlin.coroutines.coroutineContext
 
 /**
  * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
@@ -86,7 +88,7 @@ suspend inline fun doWhile(
  */
 suspend inline fun KronScheduler.doInfinity(noinline block: suspend () -> Unit) = doWhile {
     block()
-    true
+    coroutineContext.isActive
 }
 
 /**
@@ -94,7 +96,7 @@ suspend inline fun KronScheduler.doInfinity(noinline block: suspend () -> Unit) 
  */
 suspend inline fun KronSchedulerTz.doInfinity(noinline block: suspend () -> Unit) = doWhile {
     block()
-    true
+    coroutineContext.isActive
 }
 /**
  * Will [buildSchedule] using [scheduleConfig] and call [doInfinity] with [block]
