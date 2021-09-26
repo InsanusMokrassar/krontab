@@ -4,6 +4,7 @@
 
 * Flows now use `doWhile` functions
 * `doWhile` now use additional delay (for 1 ms) for cases when `block` executing too fast
+* New extensions for `KronScheduler`: `do(Once/While/Infinity)Local`/`do(Once/While/Infinity)Tz`
 
 ## 0.6.4
 
