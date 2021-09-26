@@ -12,12 +12,12 @@ import kotlinx.coroutines.flow.*
  * time zones
  *
  * @see channelFlow
- * @see KronSchedulerTz.doWhile
+ * @see KronSchedulerTz.doInfinityTz
  */
 @FlowPreview
-fun KronSchedulerTz.asTzFlow(): Flow<DateTimeTz> = channelFlow {
-    doInfinity {
-        send(DateTime.nowLocal())
+fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = channelFlow {
+    doInfinityTz {
+        send(it)
     }
 }
 
@@ -25,27 +25,13 @@ fun KronSchedulerTz.asTzFlow(): Flow<DateTimeTz> = channelFlow {
  * This method is a map for [asTzFlow] and will works the same but return flow with [DateTime]s
  *
  * @see channelFlow
- * @see KronScheduler.doWhile
+ * @see KronScheduler.doInfinityLocal
  */
 @FlowPreview
 fun KronScheduler.asFlow(): Flow<DateTime> = channelFlow {
-    doInfinity {
-        send(DateTime.now())
+    doInfinityLocal {
+        send(it)
     }
-}
-
-/**
- * This [Flow] will trigger emitting each near time which will be returned from [this] [KronScheduler] with attention to
- * time zones
- *
- * @see channelFlow
- * @see KronScheduler.asFlow
- * @see KronSchedulerTz.asTzFlow
- */
-@FlowPreview
-fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = when (this) {
-    is KronSchedulerTz -> asTzFlow()
-    else -> asFlow().map { it.local }
 }
 
 @Deprecated(
