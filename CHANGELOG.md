@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.6
+
+* Versions
+  * `Klock`: `2.4.8`
+  * `Androidx Work`: `2.7.0`
+
 ## 0.6.5
 
 * Flows now use `doWhile` functions
