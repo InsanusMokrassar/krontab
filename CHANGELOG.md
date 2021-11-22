@@ -2,6 +2,13 @@
 
 ## 0.7.0
 
+**ALL DEPRECATIONS HAVE BEEN REMOVED**
+
+* Versions
+  * `Kotlin`: `1.6.0`
+  * `Coroutines`: `1.6.0-RC`
+  * `Androidx Work`: `2.7.1`
+
 ## 0.6.6
 
 * Versions

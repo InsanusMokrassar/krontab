@@ -36,23 +36,3 @@ internal fun mergeCronDateTimeSchedulers(
 ): CronDateTimeScheduler = CronDateTimeScheduler(
     schedulers.map { it.cronDateTime }.merge()
 )
-
-/**
- * @return New instance of [CronDateTimeScheduler] with all unique [CronDateTimeScheduler.cronDateTimes] of
- * [kronSchedulers] included
- */
-@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
-fun merge(kronSchedulers: List<KronScheduler>) = kronSchedulers.apply { dev.inmo.krontab.merge() }
-
-/**
- * @return Vararg shortcut for [dev.inmo.krontab.merge]
- */
-@Suppress("NOTHING_TO_INLINE")
-@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
-inline fun merge(vararg kronDateTimeSchedulers: KronScheduler) = kronDateTimeSchedulers.apply { dev.inmo.krontab.merge() }
-/**
- * @return Vararg shortcut for [dev.inmo.krontab.merge]
- */
-@Suppress("NOTHING_TO_INLINE")
-@Deprecated("Will be removed in next major release", ReplaceWith("merge", "dev.inmo.krontab"))
-inline fun KronScheduler.plus(other: KronScheduler) = this + other
