@@ -5,8 +5,9 @@
 **ALL DEPRECATIONS HAVE BEEN REMOVED**
 
 * Versions
-  * `Kotlin`: `1.6.0`
-  * `Coroutines`: `1.6.0-RC`
+  * `Kotlin`: `1.6.10`
+  * `Klock`: `2.4.10`
+  * `Coroutines`: `1.6.0`
   * `Androidx Work`: `2.7.1`
 
 ## 0.6.6
