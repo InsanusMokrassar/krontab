@@ -11,9 +11,9 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Fix android 33.0.0 dx
+      - name: Fix android 32.0.0 dx
         continue-on-error: true
-        run: cd /usr/local/lib/android/sdk/build-tools/33.0.0/ && cp d8 dx && cd lib  && cp d8.jar dx.jar
+        run: cd /usr/local/lib/android/sdk/build-tools/32.0.0/ && cp d8 dx && cd lib  && cp d8.jar dx.jar
       - name: Build
         run: ./gradlew dokkaHtml
       - name: Publish KDocs
