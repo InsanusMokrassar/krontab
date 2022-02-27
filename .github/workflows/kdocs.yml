@@ -10,10 +10,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Fix android 32.0.0 dx
         continue-on-error: true
-        run: cd /usr/local/lib/android/sdk/build-tools/32.0.0/ && mv d8 dx && cd lib  && mv d8.jar dx.jar
+        run: cd /usr/local/lib/android/sdk/build-tools/32.0.0/ && cp d8 dx && cd lib  && cp d8.jar dx.jar
       - name: Build
         run: ./gradlew dokkaHtml
       - name: Publish KDocs
