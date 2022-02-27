@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1
+
+* Versions
+  * `Klock`: `2.5.2`
+
 ## 0.7.0
 
 **ALL DEPRECATIONS HAVE BEEN REMOVED**
