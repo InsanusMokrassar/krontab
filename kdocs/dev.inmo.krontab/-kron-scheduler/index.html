@@ -7,12 +7,12 @@ const savedDarkMode = storage ? JSON.parse(storage) : false
 if(savedDarkMode === true){
     document.getElementsByTagName("html")[0].classList.add("theme-dark")
 }</script>
-<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><link href="../../../styles/prism.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script><script type="text/javascript" src="../../../scripts/main.js" async="async"></script><script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>  </head>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><link href="../../../styles/prism.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script><script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script><script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>  </head>
   <body>
     <div class="navigation-wrapper" id="navigation-wrapper">
       <div id="leftToggler"><span class="icon-toggler"></span></div>
       <div class="library-name"><a href="../../../index.html">kdocs</a></div>
-      <div>0.7.0</div>
+      <div>0.7.1</div>
       <div class="pull-right d-flex">
         <div class="filter-section" id="filter-section"><button class="platform-tag platform-selector common-like" data-active="" data-filter=":dokkaHtml/commonMain">common</button></div>
 <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
@@ -23,7 +23,7 @@ if(savedDarkMode === true){
       <div id="leftColumn">
         <div id="sideMenu"></div>
       </div>
-      <div id="main"><script type="text/javascript" src="../../../scripts/main.js"></script>
+      <div id="main">
         <div class="main-content" id="content" pageIds="kdocs::dev.inmo.krontab/KronScheduler///PointingToDeclaration//788909594">
           <div class="breadcrumbs"><a href="../../../index.html">kdocs</a>/<a href="../index.html">dev.inmo.krontab</a>/<a href="index.html">KronScheduler</a></div>
           <div class="cover ">
@@ -39,13 +39,15 @@ if(savedDarkMode === true){
               <div data-togglable="See also">
                 <div class="platform-hinted WithExtraAttributes with-platform-tabs" data-platform-hinted="data-platform-hinted" data-togglable="See also">
                   <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark common-like" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain" data-active="" data-toggle=":dokkaHtml/commonMain">common</button></div>
-<div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div data-togglable="See also"><div class="table" data-togglable="See also"><div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><span data-unresolved-link="dev.inmo.krontab.internal/CronDateTimeScheduler///PointingToDeclaration/">dev.inmo.krontab.internal.CronDateTimeScheduler</span></span></div><div><div class="title"><div data-togglable="See also"></div></div></div></div></div></div></div></div>                </div>
+<div class="content sourceset-depenent-content" data-active="" data-togglable=":dokkaHtml/commonMain"><div data-togglable="See also"><div class="table" data-togglable="See also"><div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><span data-unresolved-link="dev.inmo.krontab.internal/CronDateTimeScheduler///PointingToDeclaration/"><span>dev.</span><wbr></wbr><span>inmo.</span><wbr></wbr><span>krontab.</span><wbr></wbr><span>internal.</span><wbr></wbr><span>Cron</span><wbr></wbr><span>Date</span><wbr></wbr><span>Time</span><wbr></wbr><span><span>Scheduler</span></span></span></div></span></div><div><div class="title"><div data-togglable="See also"></div></div></div></div></div></div></div></div>                </div>
               </div>
               <h2 class="">Functions</h2>
               <div class="table" data-togglable="Functions"><a data-name="-563994185%2FFunctions%2F788909594" anchor-label="next" id="-563994185%2FFunctions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="next.html"><span><span>next</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-563994185%2FFunctions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="next.html"><span><span>next</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-563994185%2FFunctions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -62,7 +64,9 @@ if(savedDarkMode === true){
               <div class="table" data-togglable="Inheritors"><a data-name="990568868%2FInheritors%2F788909594" anchor-label="KronSchedulerTz" id="990568868%2FInheritors%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../-kron-scheduler-tz/index.html">KronSchedulerTz</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="990568868%2FInheritors%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../-kron-scheduler-tz/index.html">KronSchedulerTz</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="990568868%2FInheritors%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div></div>
@@ -71,7 +75,9 @@ if(savedDarkMode === true){
 <a data-name="1803710713%2FInheritors%2F788909594" anchor-label="KrontabTemplateWrapper" id="1803710713%2FInheritors%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../-krontab-template-wrapper/index.html">KrontabTemplateWrapper</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1803710713%2FInheritors%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../-krontab-template-wrapper/index.html">KrontabTemplateWrapper</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1803710713%2FInheritors%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div></div>
@@ -82,7 +88,9 @@ if(savedDarkMode === true){
               <div class="table" data-togglable="Extensions"><a data-name="-27091295%2FExtensions%2F788909594" anchor-label="asFlow" id="-27091295%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../../dev.inmo.krontab.utils/as-flow.html"><span>as</span><wbr></wbr><span><span>Flow</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-27091295%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../../dev.inmo.krontab.utils/as-flow.html"><span>as</span><wbr></wbr><span><span>Flow</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-27091295%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -97,7 +105,9 @@ if(savedDarkMode === true){
 <a data-name="-1603012165%2FExtensions%2F788909594" anchor-label="asTzFlow" id="-1603012165%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../../dev.inmo.krontab.utils/as-tz-flow.html"><span>as</span><wbr></wbr><span>Tz</span><wbr></wbr><span><span>Flow</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1603012165%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../../dev.inmo.krontab.utils/as-tz-flow.html"><span>as</span><wbr></wbr><span>Tz</span><wbr></wbr><span><span>Flow</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1603012165%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -112,7 +122,9 @@ if(savedDarkMode === true){
 <a data-name="-1342303188%2FExtensions%2F788909594" anchor-label="doInfinity" id="-1342303188%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-infinity.html"><span>do</span><wbr></wbr><span><span>Infinity</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1342303188%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-infinity.html"><span>do</span><wbr></wbr><span><span>Infinity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1342303188%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -127,7 +139,9 @@ if(savedDarkMode === true){
 <a data-name="-657174099%2FExtensions%2F788909594" anchor-label="doInfinityLocal" id="-657174099%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-infinity-local.html"><span>do</span><wbr></wbr><span>Infinity</span><wbr></wbr><span><span>Local</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-657174099%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-infinity-local.html"><span>do</span><wbr></wbr><span>Infinity</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-657174099%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -142,7 +156,9 @@ if(savedDarkMode === true){
 <a data-name="-389703146%2FExtensions%2F788909594" anchor-label="doInfinityTz" id="-389703146%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-infinity-tz.html"><span>do</span><wbr></wbr><span>Infinity</span><wbr></wbr><span><span>Tz</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-389703146%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-infinity-tz.html"><span>do</span><wbr></wbr><span>Infinity</span><wbr></wbr><span><span>Tz</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-389703146%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -157,7 +173,9 @@ if(savedDarkMode === true){
 <a data-name="-850463720%2FExtensions%2F788909594" anchor-label="doOnce" id="-850463720%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-once.html"><span>do</span><wbr></wbr><span><span>Once</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-850463720%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-once.html"><span>do</span><wbr></wbr><span><span>Once</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-850463720%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -172,7 +190,9 @@ if(savedDarkMode === true){
 <a data-name="-628596281%2FExtensions%2F788909594" anchor-label="doOnceLocal" id="-628596281%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-once-local.html"><span>do</span><wbr></wbr><span>Once</span><wbr></wbr><span><span>Local</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-628596281%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-once-local.html"><span>do</span><wbr></wbr><span>Once</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-628596281%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -187,7 +207,9 @@ if(savedDarkMode === true){
 <a data-name="-998625470%2FExtensions%2F788909594" anchor-label="doOnceTz" id="-998625470%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-once-tz.html"><span>do</span><wbr></wbr><span>Once</span><wbr></wbr><span><span>Tz</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-998625470%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-once-tz.html"><span>do</span><wbr></wbr><span>Once</span><wbr></wbr><span><span>Tz</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-998625470%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -202,7 +224,9 @@ if(savedDarkMode === true){
 <a data-name="-259423721%2FExtensions%2F788909594" anchor-label="doWhile" id="-259423721%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-while.html"><span>do</span><wbr></wbr><span><span>While</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-259423721%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-while.html"><span>do</span><wbr></wbr><span><span>While</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-259423721%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -217,7 +241,9 @@ if(savedDarkMode === true){
 <a data-name="-20918984%2FExtensions%2F788909594" anchor-label="doWhileLocal" id="-20918984%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-while-local.html"><span>do</span><wbr></wbr><span>While</span><wbr></wbr><span><span>Local</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-20918984%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-while-local.html"><span>do</span><wbr></wbr><span>While</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-20918984%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -232,7 +258,9 @@ if(savedDarkMode === true){
 <a data-name="893431725%2FExtensions%2F788909594" anchor-label="doWhileTz" id="893431725%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../do-while-tz.html"><span>do</span><wbr></wbr><span>While</span><wbr></wbr><span><span>Tz</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="893431725%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../do-while-tz.html"><span>do</span><wbr></wbr><span>While</span><wbr></wbr><span><span>Tz</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="893431725%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -247,7 +275,9 @@ if(savedDarkMode === true){
 <a data-name="653159010%2FExtensions%2F788909594" anchor-label="next" id="653159010%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../next.html"><span><span>next</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="653159010%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../next.html"><span><span>next</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="653159010%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -262,7 +292,9 @@ if(savedDarkMode === true){
 <a data-name="-552786650%2FExtensions%2F788909594" anchor-label="nextOrNow" id="-552786650%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../next-or-now.html"><span>next</span><wbr></wbr><span>Or</span><wbr></wbr><span><span>Now</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-552786650%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../next-or-now.html"><span>next</span><wbr></wbr><span>Or</span><wbr></wbr><span><span>Now</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-552786650%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -277,7 +309,9 @@ if(savedDarkMode === true){
 <a data-name="-1217077129%2FExtensions%2F788909594" anchor-label="nextOrRelative" id="-1217077129%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../next-or-relative.html"><span>next</span><wbr></wbr><span>Or</span><wbr></wbr><span><span>Relative</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217077129%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../next-or-relative.html"><span>next</span><wbr></wbr><span>Or</span><wbr></wbr><span><span>Relative</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217077129%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -292,7 +326,9 @@ if(savedDarkMode === true){
 <a data-name="780665518%2FExtensions%2F788909594" anchor-label="nextTimeZoned" id="780665518%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../next-time-zoned.html"><span>next</span><wbr></wbr><span>Time</span><wbr></wbr><span><span>Zoned</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="780665518%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../next-time-zoned.html"><span>next</span><wbr></wbr><span>Time</span><wbr></wbr><span><span>Zoned</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="780665518%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -307,7 +343,9 @@ if(savedDarkMode === true){
 <a data-name="-793367848%2FExtensions%2F788909594" anchor-label="plus" id="-793367848%2FExtensions%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="../../dev.inmo.krontab.collection/plus.html"><span><span>plus</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-793367848%2FExtensions%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="../../dev.inmo.krontab.collection/plus.html"><span><span>plus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-793367848%2FExtensions%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div>
@@ -324,7 +362,9 @@ if(savedDarkMode === true){
               <div class="table" data-togglable="Sources"><a data-name="-537540662%2FSource%2F788909594" anchor-label="https://github.com/InsanusMokrassar/krontab/blob/master//src/commonMain/kotlin/dev/inmo/krontab/KronScheduler.kt#L5" id="-537540662%2FSource%2F788909594" data-filterable-set=":dokkaHtml/commonMain"></a>
                 <div class="table-row" data-filterable-current=":dokkaHtml/commonMain" data-filterable-set=":dokkaHtml/commonMain">
                   <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="https://github.com/InsanusMokrassar/krontab/blob/master//src/commonMain/kotlin/dev/inmo/krontab/KronScheduler.kt#L5">common source</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-537540662%2FSource%2F788909594"></span>
+                    <div class=""><span class="inline-flex">
+                        <div><a href="https://github.com/InsanusMokrassar/krontab/blob/master//src/commonMain/kotlin/dev/inmo/krontab/KronScheduler.kt#L5">common source</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-537540662%2FSource%2F788909594"></span>
                           <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                         </span></span></div>
                     <div></div>
@@ -334,7 +374,7 @@ if(savedDarkMode === true){
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2021 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
       </div>
     </div>
   </body>
