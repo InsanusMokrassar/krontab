@@ -6,6 +6,7 @@ import dev.inmo.krontab.*
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.isActive
 
 /**
  * This [Flow] will trigger emitting each near time which will be returned from [this] [KronScheduler] with attention to
@@ -25,11 +26,11 @@ fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = channelFlow {
  * This method is a map for [asTzFlow] and will works the same but return flow with [DateTime]s
  *
  * @see channelFlow
- * @see KronScheduler.doInfinityLocal
+ * @see KronScheduler.doInfinity
  */
 @FlowPreview
 fun KronScheduler.asFlow(): Flow<DateTime> = channelFlow {
-    doInfinityLocal {
+    doInfinity {
         send(it)
     }
 }

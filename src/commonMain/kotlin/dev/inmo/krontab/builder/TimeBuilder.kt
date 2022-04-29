@@ -122,6 +122,7 @@ sealed class TimeBuilder<T : Number> (
     internal fun build() = result ?.map(converter)
 }
 
+class MillisecondsBuilder : TimeBuilder<Short>(millisecondsRange, intToShortConverter)
 class SecondsBuilder : TimeBuilder<Byte>(secondsRange, intToByteConverter)
 class MinutesBuilder : TimeBuilder<Byte>(minutesRange, intToByteConverter)
 class HoursBuilder : TimeBuilder<Byte>(hoursRange, intToByteConverter)

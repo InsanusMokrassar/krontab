@@ -5,6 +5,8 @@
 * Versions
   * `Coroutines`: `1.6.1`
   * `Klock`: `2.7.0`
+* Deprecate `do*Local` due to their redundancy (use `do*` instead)
+* Add support of milliseconds as optional parameter after month (fix of [#31](https://github.com/InsanusMokrassar/krontab/issues/31))
 
 ## 0.7.1
 

@@ -20,7 +20,8 @@ internal data class CronDateTime(
     val daysOfMonth: Array<Byte>? = null,
     val hours: Array<Byte>? = null,
     val minutes: Array<Byte>? = null,
-    val seconds: Array<Byte>? = null
+    val seconds: Array<Byte>? = null,
+    val milliseconds: Array<Short>? = millisecondsArrayDefault
 ) {
     init {
         check(daysOfWeek ?.all { it in dayOfWeekRange } ?: true)
@@ -30,12 +31,13 @@ internal data class CronDateTime(
         check(hours?.all { it in hoursRange } ?: true)
         check(minutes?.all { it in minutesRange } ?: true)
         check(seconds?.all { it in secondsRange } ?: true)
+        check(milliseconds?.all { it in millisecondsRange } ?: true)
     }
 
     internal val calculators = listOf(
         years ?.let { NearDateTimeCalculatorYears(it) },
         daysOfWeek ?.let { NearDateTimeCalculatorWeekDays(it) },
-        NearDateTimeCalculatorMillis(arrayOf(0)),
+        milliseconds ?.let { NearDateTimeCalculatorMillis(it) },
         seconds ?.let { NearDateTimeCalculatorSeconds(it) },
         minutes ?.let { NearDateTimeCalculatorMinutes(it) },
         hours ?.let { NearDateTimeCalculatorHours(it) },
@@ -65,9 +67,10 @@ internal fun createCronDateTime(
     dayOfMonth: Array<Byte>? = null,
     month: Array<Byte>? = null,
     years: Array<Int>? = null,
-    weekDays: Array<Byte>? = null
+    weekDays: Array<Byte>? = null,
+    milliseconds: Array<Short>? = millisecondsArrayDefault
 ): CronDateTime {
-    return CronDateTime(weekDays, years, month, dayOfMonth, hours, minutes, seconds)
+    return CronDateTime(weekDays, years, month, dayOfMonth, hours, minutes, seconds, milliseconds)
 }
 
 /**
@@ -80,8 +83,20 @@ internal fun createKronScheduler(
     dayOfMonth: Array<Byte>? = null,
     month: Array<Byte>? = null,
     years: Array<Int>? = null,
-    weekDays: Array<Byte>? = null
-): KronScheduler = CronDateTimeScheduler(createCronDateTime(seconds, minutes, hours, dayOfMonth, month, years, weekDays))
+    weekDays: Array<Byte>? = null,
+    milliseconds: Array<Short>? = millisecondsArrayDefault
+): KronScheduler = CronDateTimeScheduler(
+    createCronDateTime(
+        seconds,
+        minutes,
+        hours,
+        dayOfMonth,
+        month,
+        years,
+        weekDays,
+        milliseconds
+    )
+)
 /**
  * @return [KronScheduler] (in fact [CronDateTimeScheduler]) based on incoming data
  */
@@ -93,8 +108,21 @@ internal fun createKronSchedulerWithOffset(
     month: Array<Byte>? = null,
     years: Array<Int>? = null,
     weekDays: Array<Byte>? = null,
-    offset: TimezoneOffset
-): KronScheduler = CronDateTimeSchedulerTz(createCronDateTime(seconds, minutes, hours, dayOfMonth, month, years, weekDays), offset)
+    offset: TimezoneOffset,
+    milliseconds: Array<Short>? = millisecondsArrayDefault
+): KronScheduler = CronDateTimeSchedulerTz(
+    createCronDateTime(
+        seconds,
+        minutes,
+        hours,
+        dayOfMonth,
+        month,
+        years,
+        weekDays,
+        milliseconds
+    ),
+    offset
+)
 
 internal fun List<CronDateTime>.merge() = CronDateTime(
     flatMap { it.daysOfWeek ?.toList() ?: emptyList() }.distinct().toTypedArray().takeIf { it.isNotEmpty() },
@@ -104,4 +132,5 @@ internal fun List<CronDateTime>.merge() = CronDateTime(
     flatMap { it.hours ?.toList() ?: emptyList() }.distinct().toTypedArray().takeIf { it.isNotEmpty() },
     flatMap { it.minutes ?.toList() ?: emptyList() }.distinct().toTypedArray().takeIf { it.isNotEmpty() },
     flatMap { it.seconds ?.toList() ?: emptyList() }.distinct().toTypedArray().takeIf { it.isNotEmpty() },
+    flatMap { it.milliseconds ?.toList() ?: listOf(0) }.distinct().toTypedArray().takeIf { it.isNotEmpty() },
 )

@@ -7,6 +7,7 @@ import dev.inmo.krontab.KronScheduler
  * Cron-oriented realisation of [KronScheduler]
  *
  * @see dev.inmo.krontab.AnyTimeScheduler
+ * @see dev.inmo.krontab.EveryMillisecondScheduler
  * @see dev.inmo.krontab.EverySecondScheduler
  * @see dev.inmo.krontab.EveryMinuteScheduler
  * @see dev.inmo.krontab.EveryHourScheduler

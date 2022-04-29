@@ -17,6 +17,13 @@ val AnyTimeScheduler: KronScheduler by lazy {
 }
 
 /**
+ * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one millisecond
+ */
+val EveryMillisecondScheduler: KronScheduler by lazy {
+    buildSchedule { milliseconds { 0 every 1 } }
+}
+
+/**
  * [KronScheduler.next] will always return [com.soywiz.klock.DateTime.now] + one second
  */
 val EverySecondScheduler: KronScheduler by lazy {
