@@ -7,16 +7,19 @@ $dokka.location:dev.inmo.krontab.builder/DaysOfMonthBuilder///PointingToDeclarat
 $dokka.location:dev.inmo.krontab.builder/DaysOfMonthBuilder/DaysOfMonthBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-days-of-month-builder/-days-of-month-builder.html
 $dokka.location:dev.inmo.krontab.builder/HoursBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-hours-builder/index.html
 $dokka.location:dev.inmo.krontab.builder/HoursBuilder/HoursBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-hours-builder/-hours-builder.html
+$dokka.location:dev.inmo.krontab.builder/MillisecondsBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-milliseconds-builder/index.html
+$dokka.location:dev.inmo.krontab.builder/MillisecondsBuilder/MillisecondsBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-milliseconds-builder/-milliseconds-builder.html
 $dokka.location:dev.inmo.krontab.builder/MinutesBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-minutes-builder/index.html
 $dokka.location:dev.inmo.krontab.builder/MinutesBuilder/MinutesBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-minutes-builder/-minutes-builder.html
 $dokka.location:dev.inmo.krontab.builder/MonthsBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-months-builder/index.html
 $dokka.location:dev.inmo.krontab.builder/MonthsBuilder/MonthsBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-months-builder/-months-builder.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/index.html
-$dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/SchedulerBuilder/#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Int]?#kotlin.Array[kotlin.Byte]?#kotlin.Int?/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/-scheduler-builder.html
+$dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/SchedulerBuilder/#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Byte]?#kotlin.Array[kotlin.Int]?#kotlin.Array[kotlin.Byte]?#kotlin.Int?#kotlin.Array[kotlin.Short]?/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/-scheduler-builder.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/build/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/build.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/dayOfMonth/#kotlin.Function1[dev.inmo.krontab.builder.DaysOfMonthBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/day-of-month.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/dayOfWeek/#kotlin.Function1[dev.inmo.krontab.builder.WeekDaysBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/day-of-week.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/hours/#kotlin.Function1[dev.inmo.krontab.builder.HoursBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/hours.html
+$dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/milliseconds/#kotlin.Function1[dev.inmo.krontab.builder.MillisecondsBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/milliseconds.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/minutes/#kotlin.Function1[dev.inmo.krontab.builder.MinutesBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/minutes.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/months/#kotlin.Function1[dev.inmo.krontab.builder.MonthsBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/months.html
 $dokka.location:dev.inmo.krontab.builder/SchedulerBuilder/seconds/#kotlin.Function1[dev.inmo.krontab.builder.SecondsBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-scheduler-builder/seconds.html
@@ -55,6 +58,25 @@ $dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/next/#com.so
 $dokka.location:dev.inmo.krontab.internal////PointingToDeclaration/kdocs/dev.inmo.krontab.internal/index.html
 $dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator///PointingToDeclaration/kdocs/dev.inmo.krontab.internal/-near-date-time-calculator/index.html
 $dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator/calculateNearTime/#com.soywiz.klock.DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab.internal/-near-date-time-calculator/calculate-near-time.html
+$dokka.location:dev.inmo.krontab.utils.flows////PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/index.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterDaysOfMonths/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-days-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterHours/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMinutes/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.Array[com.soywiz.klock.Month]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths0/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months0.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths1/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months1.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterSeconds/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-seconds.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.Array[com.soywiz.klock.DayOfWeek]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#com.soywiz.klock.Year/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfDays/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfHours/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMinutes/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMondays/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-mondays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMonths/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-sundays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/kotlinx.coroutines.flow.Flow[com.soywiz.klock.DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
 $dokka.location:dev.inmo.krontab.utils////PointingToDeclaration/kdocs/dev.inmo.krontab.utils/index.html
 $dokka.location:dev.inmo.krontab.utils//asFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow.html
 $dokka.location:dev.inmo.krontab.utils//asTzFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow.html
@@ -63,6 +85,7 @@ $dokka.location:dev.inmo.krontab////PointingToDeclaration/kdocs/dev.inmo.kronta
 $dokka.location:dev.inmo.krontab//AnyTimeScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-any-time-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryDayOfMonthScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-day-of-month-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryHourScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-hour-scheduler.html
+$dokka.location:dev.inmo.krontab//EveryMillisecondScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-millisecond-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryMinuteScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-minute-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryMonthScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-month-scheduler.html
 $dokka.location:dev.inmo.krontab//EverySecondScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-second-scheduler.html
@@ -71,22 +94,16 @@ $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String#kotlin.Int/Pointi
 $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/build-schedule.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
-$dokka.location:dev.inmo.krontab//doInfinity/#kotlin.String#kotlin.coroutines.SuspendFunction0[kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
-$dokka.location:dev.inmo.krontab//doInfinity/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction0[kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
-$dokka.location:dev.inmo.krontab//doInfinityLocal/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-local.html
-$dokka.location:dev.inmo.krontab//doInfinityLocal/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-local.html
+$dokka.location:dev.inmo.krontab//doInfinity/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
+$dokka.location:dev.inmo.krontab//doInfinity/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
 $dokka.location:dev.inmo.krontab//doInfinityTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
 $dokka.location:dev.inmo.krontab//doInfinityTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
-$dokka.location:dev.inmo.krontab//doOnce/#kotlin.String#kotlin.coroutines.SuspendFunction0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
 $dokka.location:dev.inmo.krontab//doOnce/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
-$dokka.location:dev.inmo.krontab//doOnce/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction0[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
-$dokka.location:dev.inmo.krontab//doOnceLocal/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-local.html
+$dokka.location:dev.inmo.krontab//doOnce/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
 $dokka.location:dev.inmo.krontab//doOnceTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
 $dokka.location:dev.inmo.krontab//doOnceTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
-$dokka.location:dev.inmo.krontab//doWhile/#kotlin.String#kotlin.coroutines.SuspendFunction0[kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
-$dokka.location:dev.inmo.krontab//doWhile/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction0[kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
-$dokka.location:dev.inmo.krontab//doWhileLocal/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-local.html
-$dokka.location:dev.inmo.krontab//doWhileLocal/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-local.html
+$dokka.location:dev.inmo.krontab//doWhile/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
+$dokka.location:dev.inmo.krontab//doWhile/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
 $dokka.location:dev.inmo.krontab//doWhileTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
 $dokka.location:dev.inmo.krontab//doWhileTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[com.soywiz.klock.DateTimeTz,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#dev.inmo.krontab.KronScheduler#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
@@ -127,4 +144,5 @@ dev.inmo.krontab.builder
 dev.inmo.krontab.collection
 dev.inmo.krontab.internal
 dev.inmo.krontab.utils
+dev.inmo.krontab.utils.flows
 
