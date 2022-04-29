@@ -2,6 +2,10 @@
 
 ## 0.7.2
 
+* Versions
+  * `Coroutines`: `1.6.1`
+  * `Klock`: `2.7.0`
+
 ## 0.7.1
 
 * Versions
