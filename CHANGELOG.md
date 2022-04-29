@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.2
+
+* Versions
+  * `Coroutines`: `1.6.1`
+  * `Klock`: `2.7.0`
+* Deprecate `do*Local` due to their redundancy (use `do*` instead)
+* Add support of milliseconds as optional parameter after month (fix of [#31](https://github.com/InsanusMokrassar/krontab/issues/31))
+* Add support of filters for `Flow`s with `DateTime` (fix of [#30](https://github.com/InsanusMokrassar/krontab/issues/30))
+
 ## 0.7.1
 
 * Versions

@@ -3,6 +3,7 @@ package dev.inmo.krontab.internal
 typealias Converter<T> = (Int) -> T
 
 internal val intToByteConverter: Converter<Byte> = { it: Int -> it.toByte() }
+internal val intToShortConverter: Converter<Short> = { it: Int -> it.toShort() }
 internal val intToIntConverter: Converter<Int> = { it: Int -> it }
 private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataConverter: Converter<T>): List<T>? {
     val things = from.split(",")
@@ -44,6 +45,7 @@ internal fun parseDaysOfMonth(from: String) = createSimpleScheduler(from, dayOfM
 internal fun parseHours(from: String) = createSimpleScheduler(from, hoursRange, intToByteConverter) ?.toTypedArray()
 internal fun parseMinutes(from: String) = createSimpleScheduler(from, minutesRange, intToByteConverter) ?.toTypedArray()
 internal fun parseSeconds(from: String) = createSimpleScheduler(from, secondsRange, intToByteConverter) ?.toTypedArray()
+internal fun parseMilliseconds(from: String?) = from ?.let { if (it.endsWith("ms")) createSimpleScheduler(from.removeSuffix("ms"), millisecondsRange, intToShortConverter) ?.toTypedArray() else null }
 
 internal fun <T> Array<T>.fillWith(
     whereToPut: MutableList<CronDateTime>,

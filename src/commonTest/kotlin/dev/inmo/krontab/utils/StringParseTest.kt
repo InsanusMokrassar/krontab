@@ -6,8 +6,8 @@ import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.takeWhile
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import kotlin.math.floor
+import kotlin.test.*
 
 @ExperimentalCoroutinesApi
 @FlowPreview
@@ -15,6 +15,23 @@ class StringParseTest {
     @Test
     fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnString() {
         val kronScheduler = buildSchedule("*/1 * * * *")
+
+        val flow = kronScheduler.asFlow()
+
+        runTest {
+            val mustBeCollected = 10
+            var collected = 0
+            flow.takeWhile {
+                collected < mustBeCollected
+            }.collect {
+                collected++
+            }
+            assertEquals(mustBeCollected, collected)
+        }
+    }
+    @Test
+    fun testThatFlowIsCorrectlyWorkEverySecondWhenMillisIsHalfOfSecondBuiltOnString() {
+        val kronScheduler = buildSchedule("*/1 * * * * 500ms")
 
         val flow = kronScheduler.asFlow()
 
@@ -74,6 +91,29 @@ class StringParseTest {
             flow.takeWhile { ranges.isNotEmpty() }.collect {
                 ranges.remove(it.seconds)
                 collected++
+                assertTrue(collected <= expectedCollects)
+            }
+            assertEquals(expectedCollects, collected)
+        }
+    }
+    @Test
+    fun testNextIsCorrectlyWorkEverySeveralMillisecondsRangeBuiltOnString() {
+        val rangesEnds = listOf(0, 200, 500, 750)
+        val kronScheduler = buildSchedule("* * * * * ${rangesEnds.joinToString(",") { "$it" }}ms")
+
+        runTest {
+            val ranges = rangesEnds.toMutableList()
+            val expectedCollects = ranges.size
+            var collected = 0
+
+            var currentTime = DateTime.now()
+            while (ranges.isNotEmpty()) {
+                val nextTrigger = kronScheduler.next(currentTime) ?: error("Strangely unable to get next time")
+
+                ranges.remove(nextTrigger.milliseconds)
+                collected++
+
+                currentTime = nextTrigger + 1.milliseconds
             }
             assertEquals(expectedCollects, collected)
         }
