@@ -4,6 +4,13 @@
  [![Build Status](https://github.com/InsanusMokrassar/krontab/actions/workflows/publishing_packages.yml/badge.svg)](https://github.com/InsanusMokrassar/krontab/actions/workflows/publishing_packages.yml)
  [![KDocs](https://raw.githubusercontent.com/InsanusMokrassar/badges/master/kdocs.svg)](https://krontab.inmo.dev/index.html)
  
+ ![JVM](https://img.shields.io/badge/JVM-red?style=for-the-badge&logo=openjdk&logoColor=white)
+![Android](https://img.shields.io/badge/Android-green?style=for-the-badge&logo=android&logoColor=white)
+![Js](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+[![KDocs](https://img.shields.io/badge/KDocs-323330?style=for-the-badge&logo=Kotlin&logoColor=7F52FF)](https://krontab.inmo.dev/index.html)
+[![Tutorials](https://img.shields.io/badge/Tutorials-0288D1?style=for-the-badge&logo=bookstack&logoColor=white)](https://bookstack.inmo.dev/books/krontab)
+ 
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
 
