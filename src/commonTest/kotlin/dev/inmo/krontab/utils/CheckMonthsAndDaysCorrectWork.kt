@@ -5,9 +5,9 @@ import com.soywiz.klock.days
 import dev.inmo.krontab.buildSchedule
 import kotlin.test.*
 
-class InfinityLoopCheckTest {
+class CheckMonthsAndDaysCorrectWork {
     @Test
-    fun absenceOfInfinityLoopCheckTest() {
+    fun checkMonthsAndDaysCorrectWork() {
         val now = DateTime.now().startOfYear.startOfDay
         for (i in 0 until now.year.days) {
             val scheduleDateTime = (now + i.days)
