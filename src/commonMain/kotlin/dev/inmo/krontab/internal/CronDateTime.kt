@@ -8,7 +8,7 @@ import dev.inmo.krontab.KronScheduler
  * @param daysOfWeek 0-6
  * @param years any int
  * @param months 0-11
- * @param daysOfMonth 0-31
+ * @param daysOfMonth 0-30
  * @param hours 0-23
  * @param minutes 0-59
  * @param seconds 0-59

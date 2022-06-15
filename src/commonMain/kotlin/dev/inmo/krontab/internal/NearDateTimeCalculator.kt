@@ -103,12 +103,13 @@ internal fun NearDateTimeCalculatorDays(
     times,
     { it.dayOfMonth.toByte() },
     { dateTime, newOne ->
-        (if (newOne < dateTime.dayOfMonth) {
+        val dateTime = (if (newOne < dateTime.dayOfMonth) {
             dateTime.plus(1.months)
         } else {
             dateTime
-        }).copy(
-            dayOfMonth = min(dateTime.month.days(dateTime.year), newOne.toInt() + 1), // index1
+        })
+        dateTime.copy(
+            dayOfMonth = min(dateTime.month.days(dateTime.year) - 1, newOne.toInt()), // index1
             hour = 0,
             minute = 0,
             second = 0,
