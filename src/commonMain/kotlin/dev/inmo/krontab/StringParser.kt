@@ -57,13 +57,13 @@ typealias KrontabTemplate = String
  * * "0/5,L * * * *" for every five seconds triggering and on 59 second
  * * "0/15 30 * * *" for every 15th seconds in a half of each hour
  * * "0/15 30 * * * 500ms" for every 15th seconds in a half of each hour when milliseconds equal to 500
- * * "1 2 3 F,4,L 5" for triggering in near first second of second minute of third hour of fourth day of may
- * * "1 2 3 F,4,L 5 60o" for triggering in near first second of second minute of third hour of fourth day of may with timezone UTC+01:00
- * * "1 2 3 F,4,L 5 60o 0-2w" for triggering in near first second of second minute of third hour of fourth day of may in case if it will be in Sunday-Tuesday week days with timezone UTC+01:00
- * * "1 2 3 F,4,L 5 2021" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year
- * * "1 2 3 F,4,L 5 2021 60o" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year with timezone UTC+01:00
- * * "1 2 3 F,4,L 5 2021 60o 0-2w" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year if it will be in Sunday-Tuesday week days with timezone UTC+01:00
- * * "1 2 3 F,4,L 5 2021 60o 0-2w 500ms" for triggering in near first second of second minute of third hour of fourth day of may of 2021st year if it will be in Sunday-Tuesday week days with timezone UTC+01:00 when milliseconds will be equal to 500
+ * * "1 2 3 F,4,L 5" for triggering in near first second of second minute of third hour of first, fifth and last days of may
+ * * "1 2 3 F,4,L 5 60o" for triggering in near first second of second minute of third hour of first, fifth and last days of may with timezone UTC+01:00
+ * * "1 2 3 F,4,L 5 60o 0-2w" for triggering in near first second of second minute of third hour of first, fifth and last days of may in case if it will be in Sunday-Tuesday week days with timezone UTC+01:00
+ * * "1 2 3 F,4,L 5 2021" for triggering in near first second of second minute of third hour of first, fifth and last days of may of 2021st year
+ * * "1 2 3 F,4,L 5 2021 60o" for triggering in near first second of second minute of third hour of first, fifth and last days of may of 2021st year with timezone UTC+01:00
+ * * "1 2 3 F,4,L 5 2021 60o 0-2w" for triggering in near first second of second minute of third hour of first, fifth and last days of may of 2021st year if it will be in Sunday-Tuesday week days with timezone UTC+01:00
+ * * "1 2 3 F,4,L 5 2021 60o 0-2w 500ms" for triggering in near first second of second minute of third hour of first, fifth and last days of may of 2021st year if it will be in Sunday-Tuesday week days with timezone UTC+01:00 when milliseconds will be equal to 500
  *
  * @return In case when offset parameter is absent in [incoming] will be used [createSimpleScheduler] method and
  * returned [CronDateTimeScheduler]. In case when offset parameter there is in [incoming] [KrontabTemplate] will be used
