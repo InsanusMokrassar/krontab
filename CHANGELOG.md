@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.3
+
+* Versions
+  * `Kotlin`: `1.6.21`
+* Several bug fixes ([#27](https://github.com/InsanusMokrassar/krontab/issues/27), [#34](https://github.com/InsanusMokrassar/krontab/issues/34))
+* New factories for `KronScheduler` and `KronSchedulerTz` (fix of [#35](https://github.com/InsanusMokrassar/krontab/issues/35))
+* Fill extensions for flow with time zones (fix of [#33](https://github.com/InsanusMokrassar/krontab/issues/33))
+
 ## 0.7.2
 
 * Versions
