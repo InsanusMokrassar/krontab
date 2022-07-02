@@ -21,7 +21,7 @@ if (new File(projectDir, "secret.gradle").exists()) {
         owner "InsanusMokrassar"
         repo "${rootProject.name}"
 
-        tagName "${project.version}"
+        tagName "v${project.version}"
         releaseName "${project.version}"
         targetCommitish "${project.version}"
 
