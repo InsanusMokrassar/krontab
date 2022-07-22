@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.5
+
+* Versions
+  * `Coroutines`: `1.6.4`
+
 ## 0.7.4
 
 * Versions
