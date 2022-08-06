@@ -53,52 +53,52 @@ $dokka.location:dev.inmo.krontab.collection//plus/dev.inmo.krontab.KronScheduler
 $dokka.location:dev.inmo.krontab.collection//plusAssign/dev.inmo.krontab.collection.CollectionKronScheduler#dev.inmo.krontab.KronScheduler/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/plus-assign.html
 $dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler///PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/index.html
 $dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/include/#dev.inmo.krontab.KronScheduler/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/include.html
-$dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/next/#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/next.html
-$dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/next/#DateTimeTz/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/next.html
+$dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/next/#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/next.html
+$dokka.location:dev.inmo.krontab.collection/CollectionKronScheduler/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab.collection/-collection-kron-scheduler/next.html
 $dokka.location:dev.inmo.krontab.internal////PointingToDeclaration/kdocs/dev.inmo.krontab.internal/index.html
 $dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator///PointingToDeclaration/kdocs/dev.inmo.krontab.internal/-near-date-time-calculator/index.html
-$dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator/calculateNearTime/#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab.internal/-near-date-time-calculator/calculate-near-time.html
+$dokka.location:dev.inmo.krontab.internal/NearDateTimeCalculator/calculateNearTime/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab.internal/-near-date-time-calculator/calculate-near-time.html
 $dokka.location:dev.inmo.krontab.utils.flows////PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/index.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterDaysOfMonths/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-days-of-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterDaysOfMonths/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-days-of-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterHours/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-hours.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterHours/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-hours.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMinutes/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-minutes.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMinutes/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-minutes.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths/Flow<DateTime>[DateTime]#kotlin.Array[Month]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths/Flow<DateTimeTz>[DateTimeTz]#kotlin.Array[Month]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths0/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months0.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths0/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months0.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths1/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months1.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterMonths1/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months1.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterSeconds/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-seconds.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterSeconds/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-seconds.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/Flow<DateTime>[DateTime]#kotlin.Array[DayOfWeek]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/Flow<DateTimeTz>[DateTimeTz]#kotlin.Array[DayOfWeek]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterYears/Flow<DateTime>[DateTime]#Year/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterYears/Flow<DateTime>[DateTime]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterYears/Flow<DateTimeTz>[DateTimeTz]#Year/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
-$dokka.location:dev.inmo.krontab.utils.flows//filterYears/Flow<DateTimeTz>[DateTimeTz]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfDays/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfDays/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-days.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfHours/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-hours.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfHours/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-hours.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMinutes/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-minutes.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMinutes/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-minutes.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMondays/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-mondays.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMondays/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-mondays.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMonths/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMonths/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-months.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-sundays.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-sundays.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/Flow<DateTime>[DateTime]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
-$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/Flow<DateTimeTz>[DateTimeTz]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterDaysOfMonths/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-days-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterDaysOfMonths/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-days-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterHours/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterHours/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMinutes/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMinutes/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.Array[[Error type: Unresolved type for Month]]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.Array[[Error type: Unresolved type for Month]]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths0/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months0.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths0/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months0.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths1/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months1.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterMonths1/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-months1.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterSeconds/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-seconds.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterSeconds/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-seconds.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.Array[[Error type: Unresolved type for DayOfWeek]]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.Array[[Error type: Unresolved type for DayOfWeek]]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterWeekDays/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-week-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#[Error type: Unresolved type for Year]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#[Error type: Unresolved type for Year]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//filterYears/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#kotlin.IntArray/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/filter-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfDays/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfDays/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-days.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfHours/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfHours/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-hours.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMinutes/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMinutes/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-minutes.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMondays/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-mondays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMondays/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-mondays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMonths/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfMonths/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-months.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-sundays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-sundays.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
+$dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
 $dokka.location:dev.inmo.krontab.utils////PointingToDeclaration/kdocs/dev.inmo.krontab.utils/index.html
 $dokka.location:dev.inmo.krontab.utils//asFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow.html
 $dokka.location:dev.inmo.krontab.utils//asTzFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow.html
-$dokka.location:dev.inmo.krontab.utils//copy/DateTime#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/copy.html
+$dokka.location:dev.inmo.krontab.utils//copy/[Error type: Unresolved type for DateTime]#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/copy.html
 $dokka.location:dev.inmo.krontab////PointingToDeclaration/kdocs/dev.inmo.krontab/index.html
 $dokka.location:dev.inmo.krontab//AnyTimeScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-any-time-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryDayOfMonthScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-day-of-month-scheduler.html
@@ -108,24 +108,24 @@ $dokka.location:dev.inmo.krontab//EveryMinuteScheduler/#/PointingToDeclaration/
 $dokka.location:dev.inmo.krontab//EveryMonthScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-month-scheduler.html
 $dokka.location:dev.inmo.krontab//EverySecondScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-second-scheduler.html
 $dokka.location:dev.inmo.krontab//EveryYearScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-year-scheduler.html
-$dokka.location:dev.inmo.krontab//KronScheduler/#kotlin.coroutines.SuspendFunction1[DateTime,DateTime?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler.html
-$dokka.location:dev.inmo.krontab//KronSchedulerTz/#kotlin.coroutines.SuspendFunction1[DateTimeTz,DateTimeTz?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz.html
+$dokka.location:dev.inmo.krontab//KronScheduler/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],[Error type: Unresolved type for DateTime]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler.html
+$dokka.location:dev.inmo.krontab//KronSchedulerTz/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],[Error type: Unresolved type for DateTimeTz]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz.html
 $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/build-schedule.html
 $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/build-schedule.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
-$dokka.location:dev.inmo.krontab//doInfinity/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
-$dokka.location:dev.inmo.krontab//doInfinity/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTime,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
-$dokka.location:dev.inmo.krontab//doInfinityTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTimeTz,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
-$dokka.location:dev.inmo.krontab//doInfinityTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTimeTz,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
-$dokka.location:dev.inmo.krontab//doOnce/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTime,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
-$dokka.location:dev.inmo.krontab//doOnce/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTime,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
-$dokka.location:dev.inmo.krontab//doOnceTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTimeTz,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
-$dokka.location:dev.inmo.krontab//doOnceTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTimeTz,TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
-$dokka.location:dev.inmo.krontab//doWhile/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
-$dokka.location:dev.inmo.krontab//doWhile/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTime,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
-$dokka.location:dev.inmo.krontab//doWhileTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[DateTimeTz,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
-$dokka.location:dev.inmo.krontab//doWhileTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[DateTimeTz,kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
+$dokka.location:dev.inmo.krontab//doInfinity/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
+$dokka.location:dev.inmo.krontab//doInfinity/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
+$dokka.location:dev.inmo.krontab//doInfinityTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
+$dokka.location:dev.inmo.krontab//doInfinityTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
+$dokka.location:dev.inmo.krontab//doOnce/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
+$dokka.location:dev.inmo.krontab//doOnce/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once.html
+$dokka.location:dev.inmo.krontab//doOnceTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
+$dokka.location:dev.inmo.krontab//doOnceTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-once-tz.html
+$dokka.location:dev.inmo.krontab//doWhile/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
+$dokka.location:dev.inmo.krontab//doWhile/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while.html
+$dokka.location:dev.inmo.krontab//doWhileTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
+$dokka.location:dev.inmo.krontab//doWhileTz/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],kotlin.Boolean]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-while-tz.html
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#dev.inmo.krontab.KronScheduler#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#dev.inmo.krontab.KronScheduler#java.lang.Class[TypeParam(bounds=[dev.inmo.krontab.KronSchedulerWork])]#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#kotlin.Long#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
@@ -135,11 +135,11 @@ $dokka.location:dev.inmo.krontab//krontabTemplateWorkField/#/PointingToDeclarati
 $dokka.location:dev.inmo.krontab//merge/#kotlin.Array[dev.inmo.krontab.KronScheduler]/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
 $dokka.location:dev.inmo.krontab//merge/kotlin.collections.Iterable[dev.inmo.krontab.KronScheduler]#/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
 $dokka.location:dev.inmo.krontab//merge/kotlin.collections.Iterator[dev.inmo.krontab.KronScheduler]#/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
-$dokka.location:dev.inmo.krontab//next/dev.inmo.krontab.KronScheduler#DateTimeTz/PointingToDeclaration/kdocs/dev.inmo.krontab/next.html
+$dokka.location:dev.inmo.krontab//next/dev.inmo.krontab.KronScheduler#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab/next.html
 $dokka.location:dev.inmo.krontab//nextOrNow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-now.html
 $dokka.location:dev.inmo.krontab//nextOrNowWithOffset/dev.inmo.krontab.KronSchedulerTz#/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-now-with-offset.html
-$dokka.location:dev.inmo.krontab//nextOrRelative/dev.inmo.krontab.KronScheduler#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-relative.html
-$dokka.location:dev.inmo.krontab//nextOrRelative/dev.inmo.krontab.KronSchedulerTz#DateTimeTz/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-relative.html
+$dokka.location:dev.inmo.krontab//nextOrRelative/dev.inmo.krontab.KronScheduler#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-relative.html
+$dokka.location:dev.inmo.krontab//nextOrRelative/dev.inmo.krontab.KronSchedulerTz#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-relative.html
 $dokka.location:dev.inmo.krontab//nextTimeZoned/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab/next-time-zoned.html
 $dokka.location:dev.inmo.krontab//toKronScheduler/kotlin.String#/PointingToDeclaration/kdocs/dev.inmo.krontab/to-kron-scheduler.html
 $dokka.location:dev.inmo.krontab//toKronScheduler/kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/to-kron-scheduler.html
@@ -147,10 +147,10 @@ $dokka.location:dev.inmo.krontab//toSchedule/kotlin.String#/PointingToDeclaratio
 $dokka.location:dev.inmo.krontab//toSchedule/kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/to-schedule.html
 $dokka.location:dev.inmo.krontab//wrapAsKronScheduler/kotlin.String#/PointingToDeclaration/kdocs/dev.inmo.krontab/wrap-as-kron-scheduler.html
 $dokka.location:dev.inmo.krontab/KronScheduler///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/index.html
-$dokka.location:dev.inmo.krontab/KronScheduler/next/#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/next.html
+$dokka.location:dev.inmo.krontab/KronScheduler/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/next.html
 $dokka.location:dev.inmo.krontab/KronSchedulerTz///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/index.html
-$dokka.location:dev.inmo.krontab/KronSchedulerTz/next/#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/next.html
-$dokka.location:dev.inmo.krontab/KronSchedulerTz/next/#DateTimeTz/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/next.html
+$dokka.location:dev.inmo.krontab/KronSchedulerTz/next/#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/next.html
+$dokka.location:dev.inmo.krontab/KronSchedulerTz/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/next.html
 $dokka.location:dev.inmo.krontab/KronSchedulerWork///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/index.html
 $dokka.location:dev.inmo.krontab/KronSchedulerWork/KronSchedulerWork/#android.content.Context#androidx.work.WorkerParameters/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab/KronSchedulerWork/doWork/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/do-work.html
@@ -160,11 +160,11 @@ $dokka.location:dev.inmo.krontab/KrontabTemplateWrapper///PointingToDeclaration/
 $dokka.location:dev.inmo.krontab/KrontabTemplateWrapper/KrontabTemplateWrapper/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-wrapper/-krontab-template-wrapper.html
 $dokka.location:dev.inmo.krontab/KrontabTemplateWrapper/template/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-wrapper/template.html
 $dokka.location:dev.inmo.krontab/LambdaKronScheduler///PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/index.html
-$dokka.location:dev.inmo.krontab/LambdaKronScheduler/LambdaKronScheduler/#kotlin.coroutines.SuspendFunction1[DateTime,DateTime?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/-lambda-kron-scheduler.html
-$dokka.location:dev.inmo.krontab/LambdaKronScheduler/next/#DateTime/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/next.html
+$dokka.location:dev.inmo.krontab/LambdaKronScheduler/LambdaKronScheduler/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],[Error type: Unresolved type for DateTime]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/-lambda-kron-scheduler.html
+$dokka.location:dev.inmo.krontab/LambdaKronScheduler/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/next.html
 $dokka.location:dev.inmo.krontab/LambdaKronSchedulerTz///PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler-tz/index.html
-$dokka.location:dev.inmo.krontab/LambdaKronSchedulerTz/LambdaKronSchedulerTz/#kotlin.coroutines.SuspendFunction1[DateTimeTz,DateTimeTz?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler-tz/-lambda-kron-scheduler-tz.html
-$dokka.location:dev.inmo.krontab/LambdaKronSchedulerTz/next/#DateTimeTz/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler-tz/next.html
+$dokka.location:dev.inmo.krontab/LambdaKronSchedulerTz/LambdaKronSchedulerTz/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],[Error type: Unresolved type for DateTimeTz]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler-tz/-lambda-kron-scheduler-tz.html
+$dokka.location:dev.inmo.krontab/LambdaKronSchedulerTz/next/#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler-tz/next.html
 dev.inmo.krontab
 dev.inmo.krontab.builder
 dev.inmo.krontab.collection
