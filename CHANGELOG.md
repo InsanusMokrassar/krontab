@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.0
+
+**THIS VERSION HAS CHANGED MIN ANDROID SDK FROM 19 -> 21**
+
+* Versions
+  * `Kotlin`: `1.7.10`
+  * `Klock`: `3.0.0`
+
 ## 0.7.5
 
 * Versions
