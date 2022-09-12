@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.1
+
+* Versions
+  * `Klock`: `3.1.0`
+
 ## 0.8.0
 
 **THIS VERSION HAS CHANGED MIN ANDROID SDK FROM 19 -> 21**
