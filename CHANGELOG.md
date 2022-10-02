@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.2
+
+**THIS VERSION HAS CHANGED COMPILE ANDROID SDK FROM 32 -> 33**
+
+* Versions
+  * `Kotlin`: `1.7.20`
+  * `Klock`: `3.2.0`
+
 ## 0.8.1
 
 * Versions
