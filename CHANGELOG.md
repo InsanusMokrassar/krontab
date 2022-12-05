@@ -2,6 +2,9 @@
 
 ## 0.8.4
 
+* Versions
+  * `Kotlin`: `1.7.22`
+
 ## 0.8.3
 
 * Versions
