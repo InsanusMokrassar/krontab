@@ -14,9 +14,14 @@ jobs:
           sed -i -e "s/^version=\([0-9\.]*\)/version=\1-branch_$branch-build${{ github.run_number }}/" gradle.properties
       - name: prebuild
         run: ./gradlew clean build
+      - name: Publish to Gitea
+        continue-on-error: true
+        run: ./gradlew publishAllPublicationsToGiteaRepository
+        env:
+          GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
       - name: Publish package
         continue-on-error: true
-        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository -x signJsPublication -x signJvmPublication -x signKotlinMultiplatformPublication -x signAndroidReleasePublication -x signAndroidDebugPublication -x signAndroidReleasePublication
+        run: ./gradlew --no-parallel publishAllPublicationsToGithubPackagesRepository
         env:
           GITHUBPACKAGES_USER: ${{ github.actor }}
           GITHUBPACKAGES_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
