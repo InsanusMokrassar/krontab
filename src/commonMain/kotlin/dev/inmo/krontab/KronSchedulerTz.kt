@@ -13,7 +13,7 @@ import com.soywiz.klock.DateTimeTz
 interface KronSchedulerTz : KronScheduler {
     suspend fun next(relatively: DateTimeTz): DateTimeTz?
 
-    override suspend fun next(relatively: DateTime): DateTime? = next(relatively.localUnadjusted) ?.local
+    override suspend fun next(relatively: DateTime): DateTime? = next(relatively.local) ?.local
 }
 
 suspend fun KronSchedulerTz.nextOrRelative(relatively: DateTimeTz): DateTimeTz = next(relatively) ?: getAnyNext(

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.5
+
+* Project is now available in owner `Gitea`: https://git.inmo.dev/InsanusMokrassar/-/packages/maven/dev.inmo-krontab
+* `KronSchedulerTz#next` with incoming `DateTime` now will use adjusted local time instead of unadjusted one
+* `CronDateTimeSchedulerTz#next` with incoming `DateTime` will convert that parameter to internal offset directly
+
 ## 0.8.4
 
 * Versions

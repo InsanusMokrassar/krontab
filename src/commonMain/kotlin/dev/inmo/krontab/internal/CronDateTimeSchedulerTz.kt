@@ -1,5 +1,6 @@
 package dev.inmo.krontab.internal
 
+import com.soywiz.klock.DateTime
 import com.soywiz.klock.DateTimeTz
 import com.soywiz.klock.TimezoneOffset
 import dev.inmo.krontab.KronScheduler
@@ -17,6 +18,10 @@ internal data class CronDateTimeSchedulerTz internal constructor(
     override suspend fun next(relatively: DateTimeTz): DateTimeTz? {
         val dateTimeWithActualOffset = relatively.toOffset(offset).local
         return cronDateTime.toNearDateTime(dateTimeWithActualOffset) ?.toOffsetUnadjusted(offset) ?.toOffset(relatively.offset)
+    }
+
+    override suspend fun next(relatively: DateTime): DateTime? {
+        return next(relatively.toOffset(offset)) ?.utc
     }
 }
 
