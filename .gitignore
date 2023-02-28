@@ -9,4 +9,6 @@ settings.xml
 build/
 out/
 
+kotlin-js-store/
+
 local.properties
