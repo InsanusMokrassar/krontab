@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.0
+
+* Versions
+  * `Kotlin`: `1.8.10`
+  * `AndroidXWork`: `2.8.0`
+
 ## 0.8.5
 
 * Project is now available in owner `Gitea`: https://git.inmo.dev/InsanusMokrassar/-/packages/maven/dev.inmo-krontab
