@@ -26,7 +26,7 @@ Anyway, to start some action from time to time you will need to use one of exten
 ```kotlin
 val kronScheduler = /* creating of KronScheduler instance */;
 
-kronScheuler.doWhile {
+kronScheduler.doWhile {
     // some action
     true // true - repeat on next time
 }
