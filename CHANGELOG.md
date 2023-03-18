@@ -2,6 +2,13 @@
 
 ## 0.10.0
 
+* New extensions for `KronScheduler`:
+  * `asTzFlowWithoutDelays`/`asFlowWithoutDelays`
+  * `asTzFlowWithDelays`/`asFlowWithDelays`
+* Old `KronScheduler.asFlow` and `KronScheduler.asTzFlow` temporarily marked as deprecated: after several versions their
+behaviour will be changed to undelayed one
+* All the flow extensions now use `cold` non-channel flows. Potentially it should increase performance and decrease memory usage
+
 ## 0.9.0
 
 * Versions
