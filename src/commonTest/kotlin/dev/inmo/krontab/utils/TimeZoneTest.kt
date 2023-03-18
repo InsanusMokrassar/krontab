@@ -3,6 +3,7 @@ package dev.inmo.krontab.utils
 import com.soywiz.klock.*
 import dev.inmo.krontab.builder.buildSchedule
 import dev.inmo.krontab.next
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
