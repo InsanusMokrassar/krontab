@@ -96,8 +96,10 @@ $dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfSundays/[Error type: U
 $dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/[Error type: Unresolved type for Flow<DateTime>][[Error type: Unresolved type for DateTime]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
 $dokka.location:dev.inmo.krontab.utils.flows//onlyStartsOfYears/[Error type: Unresolved type for Flow<DateTimeTz>][[Error type: Unresolved type for DateTimeTz]]#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils.flows/only-starts-of-years.html
 $dokka.location:dev.inmo.krontab.utils////PointingToDeclaration/kdocs/dev.inmo.krontab.utils/index.html
-$dokka.location:dev.inmo.krontab.utils//asFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow.html
-$dokka.location:dev.inmo.krontab.utils//asTzFlow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow.html
+$dokka.location:dev.inmo.krontab.utils//asFlowWithDelays/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow-with-delays.html
+$dokka.location:dev.inmo.krontab.utils//asFlowWithoutDelays/dev.inmo.krontab.KronScheduler#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-flow-without-delays.html
+$dokka.location:dev.inmo.krontab.utils//asTzFlowWithDelays/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow-with-delays.html
+$dokka.location:dev.inmo.krontab.utils//asTzFlowWithoutDelays/dev.inmo.krontab.KronScheduler#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/as-tz-flow-without-delays.html
 $dokka.location:dev.inmo.krontab.utils//copy/[Error type: Unresolved type for DateTime]#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab.utils/copy.html
 $dokka.location:dev.inmo.krontab////PointingToDeclaration/kdocs/dev.inmo.krontab/index.html
 $dokka.location:dev.inmo.krontab//AnyTimeScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-any-time-scheduler.html
