@@ -4,9 +4,8 @@ import com.soywiz.klock.*
 import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.takeWhile
-import kotlin.math.floor
+import kotlinx.coroutines.test.runTest
 import kotlin.test.*
 
 @ExperimentalCoroutinesApi
@@ -16,7 +15,7 @@ class StringParseTest {
     fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnString() {
         val kronScheduler = buildSchedule("*/1 * * * *")
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val mustBeCollected = 10
@@ -33,7 +32,7 @@ class StringParseTest {
     fun testThatFlowIsCorrectlyWorkEverySecondWhenMillisIsHalfOfSecondBuiltOnString() {
         val kronScheduler = buildSchedule("*/1 * * * * 500ms")
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val mustBeCollected = 10
@@ -51,14 +50,14 @@ class StringParseTest {
     fun testThatFlowIsCorrectlyWorkEverySecondWithMuchOfEmittersBuiltOnString() {
         val kronScheduler = buildSchedule("*/1 * * * *")
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val testsCount = 10
-            val failJob = it.createFailJob((testsCount * 2) * 1000L)
+            val failJob = createFailJob((testsCount * 2) * 1000L)
             val mustBeCollected = 10
             val answers = (0 until testsCount).map { _ ->
-                it.async {
+                async {
                     var collected = 0
                     flow.takeWhile {
                         collected < mustBeCollected
@@ -81,7 +80,7 @@ class StringParseTest {
         val rangesEnds = listOf(0 to 5, 30 to 35)
         val kronScheduler = buildSchedule("${rangesEnds.joinToString(",") { "${it.first}-${it.second}" }} * * * *")
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val ranges = rangesEnds.map { it.first .. it.second }.flatten().distinct().toMutableList()
@@ -91,7 +90,10 @@ class StringParseTest {
             flow.takeWhile { ranges.isNotEmpty() }.collect {
                 ranges.remove(it.seconds)
                 collected++
-                assertTrue(collected <= expectedCollects)
+                assertTrue(
+                    collected <= expectedCollects,
+                    "Expected value should be less than $expectedCollects, but was $collected. Ranges state: $ranges"
+                )
             }
             assertEquals(expectedCollects, collected)
         }

@@ -2,6 +2,7 @@ package dev.inmo.krontab.utils
 
 import com.soywiz.klock.*
 import dev.inmo.krontab.builder.buildSchedule
+import kotlinx.coroutines.test.runTest
 import kotlin.math.ceil
 import kotlin.test.*
 

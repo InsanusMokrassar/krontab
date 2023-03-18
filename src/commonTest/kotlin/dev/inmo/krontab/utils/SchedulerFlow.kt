@@ -2,8 +2,8 @@ package dev.inmo.krontab.utils
 
 import dev.inmo.krontab.builder.buildSchedule
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.takeWhile
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -18,7 +18,7 @@ class SchedulerFlowTests {
             }
         }
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val mustBeCollected = 10
@@ -40,14 +40,14 @@ class SchedulerFlowTests {
             }
         }
 
-        val flow = kronScheduler.asFlow()
+        val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val testsCount = 10
-            val failJob = it.createFailJob((testsCount * 2) * 1000L)
+            val failJob = createFailJob((testsCount * 2) * 1000L)
             val mustBeCollected = 10
             val answers = (0 until testsCount).map { _ ->
-                it.async {
+                async {
                     var collected = 0
                     flow.takeWhile {
                         collected < mustBeCollected
