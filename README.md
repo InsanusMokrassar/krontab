@@ -7,6 +7,7 @@
 ![JVM](https://img.shields.io/badge/JVM-red?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-green?style=for-the-badge&logo=android&logoColor=white)
 ![Js](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Linux x64](https://img.shields.io/badge/Linux%20x64-white?style=for-the-badge&logo=linux&logoColor=black)
 
 [![KDocs](https://img.shields.io/badge/KDocs-323330?style=for-the-badge&logo=Kotlin&logoColor=7F52FF)](https://insanusmokrassar.github.io/krontab/)
 [![Tutorials](https://img.shields.io/badge/Tutorials-0288D1?style=for-the-badge&logo=bookstack&logoColor=white)](https://bookstack.inmo.dev/books/krontab)
