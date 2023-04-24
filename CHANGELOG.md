@@ -2,6 +2,10 @@
 
 ## 1.0.0
 
+* Versions
+  * `Kotlin`: `1.8.20`
+  * `AndroidXWork`: `2.8.1`
+
 ## 0.10.0
 
 * New extensions for `KronScheduler`:
