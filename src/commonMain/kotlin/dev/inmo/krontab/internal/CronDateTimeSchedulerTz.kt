@@ -1,8 +1,8 @@
 package dev.inmo.krontab.internal
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
-import com.soywiz.klock.TimezoneOffset
+import korlibs.time.DateTime
+import korlibs.time.DateTimeTz
+import korlibs.time.TimezoneOffset
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.KronSchedulerTz
 

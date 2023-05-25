@@ -1,6 +1,6 @@
 package dev.inmo.krontab
 
-import com.soywiz.klock.DateTime
+import korlibs.time.DateTime
 
 /**
  * This interface was created for abstraction of [next] operation. Currently, there is only

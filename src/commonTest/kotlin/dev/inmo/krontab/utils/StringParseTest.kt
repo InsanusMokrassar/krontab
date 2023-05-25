@@ -1,6 +1,6 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.*
+import korlibs.time.*
 import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.*

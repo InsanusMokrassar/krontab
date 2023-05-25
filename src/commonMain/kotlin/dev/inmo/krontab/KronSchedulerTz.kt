@@ -1,7 +1,7 @@
 package dev.inmo.krontab
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
+import korlibs.time.DateTime
+import korlibs.time.DateTimeTz
 
 /**
  * This interface extending [KronScheduler] to use [DateTimeTz] with taking into account offset of incoming time for

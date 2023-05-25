@@ -1,7 +1,7 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.Month
+import korlibs.time.DateTime
+import korlibs.time.Month
 import kotlin.math.min
 
 fun DateTime.copy(

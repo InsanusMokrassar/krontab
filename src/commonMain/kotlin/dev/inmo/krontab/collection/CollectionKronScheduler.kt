@@ -1,7 +1,7 @@
 package dev.inmo.krontab.collection
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
+import korlibs.time.DateTime
+import korlibs.time.DateTimeTz
 import dev.inmo.krontab.*
 import dev.inmo.krontab.internal.*
 

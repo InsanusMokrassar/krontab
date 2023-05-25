@@ -1,6 +1,6 @@
 package dev.inmo.krontab.utils.flows
 
-import com.soywiz.klock.*
+import korlibs.time.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 

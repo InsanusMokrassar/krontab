@@ -1,7 +1,7 @@
 package dev.inmo.krontab
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
+import korlibs.time.DateTime
+import korlibs.time.DateTimeTz
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlin.coroutines.coroutineContext
