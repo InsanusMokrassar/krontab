@@ -1,8 +1,8 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.DateTimeTz
-import com.soywiz.klock.milliseconds
+import korlibs.time.DateTime
+import korlibs.time.DateTimeTz
+import korlibs.time.milliseconds
 import dev.inmo.krontab.KronScheduler
 import dev.inmo.krontab.next
 import kotlinx.coroutines.currentCoroutineContext

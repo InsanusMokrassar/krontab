@@ -58,6 +58,7 @@ kotlin {
         publishAllLibraryVariants()
     }
     linuxX64()
+    mingwX64()
 
 
     sourceSets {
@@ -104,8 +105,9 @@ kotlin {
 apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
-    compileSdkVersion "$android_compileSdkVersion".toInteger()
+    compileSdk "$android_compileSdkVersion".toInteger()
     buildToolsVersion "$android_buildToolsVersion"
+    namespace "${group}.${project.name}"
 
     defaultConfig {
         minSdkVersion "$android_minSdkVersion".toInteger()

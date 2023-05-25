@@ -1,6 +1,6 @@
 package dev.inmo.krontab.internal
 
-import com.soywiz.klock.*
+import korlibs.time.*
 import dev.inmo.krontab.utils.copy
 import kotlin.math.min
 

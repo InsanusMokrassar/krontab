@@ -1,6 +1,6 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.*
+import korlibs.time.*
 import dev.inmo.krontab.builder.buildSchedule
 import dev.inmo.krontab.next
 import kotlinx.coroutines.test.runTest

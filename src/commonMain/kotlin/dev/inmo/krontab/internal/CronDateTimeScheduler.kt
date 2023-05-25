@@ -1,6 +1,6 @@
 package dev.inmo.krontab.internal
 
-import com.soywiz.klock.DateTime
+import korlibs.time.DateTime
 import dev.inmo.krontab.KronScheduler
 
 /**

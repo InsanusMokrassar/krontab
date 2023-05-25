@@ -1,7 +1,7 @@
 package dev.inmo.krontab.utils
 
-import com.soywiz.klock.DateTime
-import com.soywiz.klock.days
+import korlibs.time.DateTime
+import korlibs.time.days
 import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.test.runTest
 import kotlin.test.*

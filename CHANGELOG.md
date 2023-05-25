@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0
+
+* Versions
+  * `Kotlin`: `1.8.21`
+  * `Klock`: `4.0.1`
+* Support of `mingwx64` platform
+
 ## 1.0.0
 
 * Versions

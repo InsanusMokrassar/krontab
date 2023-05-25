@@ -1,6 +1,6 @@
 package dev.inmo.krontab
 
-import com.soywiz.klock.DateTime
+import korlibs.time.DateTime
 
 class LambdaKronScheduler(
     private val onNext: suspend (DateTime) -> DateTime?

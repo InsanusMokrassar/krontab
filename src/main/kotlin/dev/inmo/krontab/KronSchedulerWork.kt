@@ -2,7 +2,7 @@ package dev.inmo.krontab
 
 import android.content.Context
 import androidx.work.*
-import com.soywiz.klock.DateTime
+import korlibs.time.DateTime
 import java.util.concurrent.TimeUnit
 
 /**
