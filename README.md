@@ -10,7 +10,7 @@
 ![Linux x64](https://img.shields.io/badge/Linux%20x64-white?style=for-the-badge&logo=linux&logoColor=black)
 
 [![KDocs](https://img.shields.io/badge/KDocs-323330?style=for-the-badge&logo=Kotlin&logoColor=7F52FF)](https://insanusmokrassar.github.io/krontab/)
-[![Tutorials](https://img.shields.io/badge/Tutorials-0288D1?style=for-the-badge&logo=bookstack&logoColor=white)](https://bookstack.inmo.dev/books/krontab)
+[![Tutorials](https://img.shields.io/badge/Tutorials-0288D1?style=for-the-badge&logo=mkdocs&logoColor=white)](https://docs.inmo.dev/krontab/index.html)
 
 Library was created to give oppotunity to launch some things from time to time according to some schedule in
 runtime of applications.
