@@ -2,6 +2,10 @@
 
 ## 2.0.1
 
+* Versions
+  * `Kotlin`: `1.8.22`
+  * `Klock`: `4.0.3`
+
 ## 2.0.0
 
 * Versions
