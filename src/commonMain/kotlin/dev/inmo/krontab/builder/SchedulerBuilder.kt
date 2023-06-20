@@ -41,7 +41,7 @@ inline fun buildSchedule(
 /**
  * Creates new [KronScheduler] with [settingsBlock]
  *
- * Due to the fact that it is inline function, you may break execution of [settingsBlock]
+ * Since it is inline function, you may break execution of [settingsBlock]
  * at any time
  */
 inline operator fun KronScheduler.Companion.invoke(
@@ -52,7 +52,7 @@ inline operator fun KronScheduler.Companion.invoke(
 /**
  * Creates new [KronScheduler] with [settingsBlock]
  *
- * Due to the fact that it is inline function, you may break execution of [settingsBlock]
+ * Since it is inline function, you may break execution of [settingsBlock]
  * at any time
  */
 inline operator fun KronScheduler.Companion.invoke(
