@@ -8,6 +8,8 @@
 * New value class `KrontabConfig`. Since this update, it is preferable way to create `KronScheduler` instead of
   `KrontabTemplate`
 * You may configure krontab with builders using simple `KronScheduler` invoke extension
+* New useful extensions like `KronScheduler.daily`
+* `KrontabTemplateWrapper` is obsolete in favor to `KrontabConfig`
 
 ## 2.0.0
 
