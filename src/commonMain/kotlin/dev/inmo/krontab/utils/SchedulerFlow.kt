@@ -18,10 +18,11 @@ import kotlinx.coroutines.isActive
  * Will emit all the [KronScheduler.next] as soon as possible. In case [KronScheduler.next] return null, flow will
  * be completed
  *
- * @param since Will be used as the first parameter for [KronScheduler.next] fun
+ * @param since Will be used as the first parameter for [KronScheduler.next] fun. If passed null, `flow`
+ * will always start since the moment of collecting start
  */
-fun KronScheduler.asTzFlowWithoutDelays(since: DateTimeTz = DateTime.nowLocal()): Flow<DateTimeTz> = flow {
-    var previous = since
+fun KronScheduler.asTzFlowWithoutDelays(since: DateTimeTz? = null): Flow<DateTimeTz> = flow {
+    var previous = since ?: DateTime.nowLocal()
     while (currentCoroutineContext().isActive) {
         val next = next(previous) ?: break
         emit(next)
@@ -57,10 +58,11 @@ fun KronScheduler.asTzFlow(): Flow<DateTimeTz> = asTzFlowWithDelays()
  * Will emit all the [KronScheduler.next] as soon as possible. In case [KronScheduler.next] return null, flow will
  * be completed
  *
- * @param since Will be used as the first parameter for [KronScheduler.next] fun
+ * @param since Will be used as the first parameter for [KronScheduler.next] fun. If passed null, `flow`
+ * will always start since the moment of collecting start
  */
-fun KronScheduler.asFlowWithoutDelays(since: DateTime = DateTime.now()): Flow<DateTime> = flow {
-    var previous = since
+fun KronScheduler.asFlowWithoutDelays(since: DateTime? = null): Flow<DateTime> = flow {
+    var previous = since ?: DateTime.now()
     while (currentCoroutineContext().isActive) {
         val next = next(previous) ?: break
         emit(next)
