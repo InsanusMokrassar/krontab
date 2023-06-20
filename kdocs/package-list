@@ -3,6 +3,8 @@ $dokka.linkExtension:html
 $dokka.location:dev.inmo.krontab.builder////PointingToDeclaration/kdocs/dev.inmo.krontab.builder/index.html
 $dokka.location:dev.inmo.krontab.builder//buildSchedule/#kotlin.Function1[dev.inmo.krontab.builder.SchedulerBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/build-schedule.html
 $dokka.location:dev.inmo.krontab.builder//buildSchedule/#kotlin.Int#kotlin.Function1[dev.inmo.krontab.builder.SchedulerBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/build-schedule.html
+$dokka.location:dev.inmo.krontab.builder//invoke/dev.inmo.krontab.KronScheduler.Companion#kotlin.Function1[dev.inmo.krontab.builder.SchedulerBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/invoke.html
+$dokka.location:dev.inmo.krontab.builder//invoke/dev.inmo.krontab.KronScheduler.Companion#kotlin.Int#kotlin.Function1[dev.inmo.krontab.builder.SchedulerBuilder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/invoke.html
 $dokka.location:dev.inmo.krontab.builder/DaysOfMonthBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-days-of-month-builder/index.html
 $dokka.location:dev.inmo.krontab.builder/DaysOfMonthBuilder/DaysOfMonthBuilder/#/PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-days-of-month-builder/-days-of-month-builder.html
 $dokka.location:dev.inmo.krontab.builder/HoursBuilder///PointingToDeclaration/kdocs/dev.inmo.krontab.builder/-hours-builder/index.html
@@ -112,10 +114,12 @@ $dokka.location:dev.inmo.krontab//EverySecondScheduler/#/PointingToDeclaration/
 $dokka.location:dev.inmo.krontab//EveryYearScheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-every-year-scheduler.html
 $dokka.location:dev.inmo.krontab//KronScheduler/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],[Error type: Unresolved type for DateTime]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler.html
 $dokka.location:dev.inmo.krontab//KronSchedulerTz/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],[Error type: Unresolved type for DateTimeTz]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz.html
+$dokka.location:dev.inmo.krontab//annually/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/annually.html
 $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/build-schedule.html
 $dokka.location:dev.inmo.krontab//buildSchedule/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/build-schedule.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
 $dokka.location:dev.inmo.krontab//createSimpleScheduler/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/create-simple-scheduler.html
+$dokka.location:dev.inmo.krontab//daily/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/daily.html
 $dokka.location:dev.inmo.krontab//doInfinity/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
 $dokka.location:dev.inmo.krontab//doInfinity/dev.inmo.krontab.KronScheduler#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity.html
 $dokka.location:dev.inmo.krontab//doInfinityTz/#kotlin.String#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTimeTz],kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/do-infinity-tz.html
@@ -133,10 +137,16 @@ $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Conte
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#kotlin.Long#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab//enqueueKronSchedulerWork/android.content.Context#kotlin.String#kotlin.Long#java.lang.Class[TypeParam(bounds=[dev.inmo.krontab.KronSchedulerWork])]#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction1[androidx.work.OneTimeWorkRequest.Builder,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab//enqueueKrontabTemplateSchedulerWork/android.content.Context#kotlin.String#kotlin.String#androidx.work.ExistingWorkPolicy#kotlin.coroutines.SuspendFunction2[androidx.work.OneTimeWorkRequest.Builder,androidx.work.Data,kotlin.Unit]/PointingToDeclaration/kdocs/dev.inmo.krontab/enqueue-krontab-template-scheduler-work.html
+$dokka.location:dev.inmo.krontab//everyMillisecond/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/every-millisecond.html
+$dokka.location:dev.inmo.krontab//everyMinute/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/every-minute.html
+$dokka.location:dev.inmo.krontab//everySecond/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/every-second.html
+$dokka.location:dev.inmo.krontab//hourly/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/hourly.html
+$dokka.location:dev.inmo.krontab//krontabConfig/kotlin.String#/PointingToDeclaration/kdocs/dev.inmo.krontab/krontab-config.html
 $dokka.location:dev.inmo.krontab//krontabTemplateWorkField/#/PointingToDeclaration/kdocs/dev.inmo.krontab/krontab-template-work-field.html
 $dokka.location:dev.inmo.krontab//merge/#kotlin.Array[dev.inmo.krontab.KronScheduler]/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
 $dokka.location:dev.inmo.krontab//merge/kotlin.collections.Iterable[dev.inmo.krontab.KronScheduler]#/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
 $dokka.location:dev.inmo.krontab//merge/kotlin.collections.Iterator[dev.inmo.krontab.KronScheduler]#/PointingToDeclaration/kdocs/dev.inmo.krontab/merge.html
+$dokka.location:dev.inmo.krontab//monthly/dev.inmo.krontab.KronScheduler.Companion#/PointingToDeclaration/kdocs/dev.inmo.krontab/monthly.html
 $dokka.location:dev.inmo.krontab//next/dev.inmo.krontab.KronScheduler#[Error type: Unresolved type for DateTimeTz]/PointingToDeclaration/kdocs/dev.inmo.krontab/next.html
 $dokka.location:dev.inmo.krontab//nextOrNow/dev.inmo.krontab.KronScheduler#/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-now.html
 $dokka.location:dev.inmo.krontab//nextOrNowWithOffset/dev.inmo.krontab.KronSchedulerTz#/PointingToDeclaration/kdocs/dev.inmo.krontab/next-or-now-with-offset.html
@@ -147,7 +157,7 @@ $dokka.location:dev.inmo.krontab//toKronScheduler/kotlin.String#/PointingToDecla
 $dokka.location:dev.inmo.krontab//toKronScheduler/kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/to-kron-scheduler.html
 $dokka.location:dev.inmo.krontab//toSchedule/kotlin.String#/PointingToDeclaration/kdocs/dev.inmo.krontab/to-schedule.html
 $dokka.location:dev.inmo.krontab//toSchedule/kotlin.String#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/to-schedule.html
-$dokka.location:dev.inmo.krontab//wrapAsKronScheduler/kotlin.String#/PointingToDeclaration/kdocs/dev.inmo.krontab/wrap-as-kron-scheduler.html
+$dokka.location:dev.inmo.krontab/KronScheduler.Companion///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/-companion/index.html
 $dokka.location:dev.inmo.krontab/KronScheduler///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/index.html
 $dokka.location:dev.inmo.krontab/KronScheduler/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler/next.html
 $dokka.location:dev.inmo.krontab/KronSchedulerTz///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-tz/index.html
@@ -156,11 +166,13 @@ $dokka.location:dev.inmo.krontab/KronSchedulerTz/next/#[Error type: Unresolved t
 $dokka.location:dev.inmo.krontab/KronSchedulerWork///PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/index.html
 $dokka.location:dev.inmo.krontab/KronSchedulerWork/KronSchedulerWork/#android.content.Context#androidx.work.WorkerParameters/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/-kron-scheduler-work.html
 $dokka.location:dev.inmo.krontab/KronSchedulerWork/doWork/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-kron-scheduler-work/do-work.html
+$dokka.location:dev.inmo.krontab/KrontabConfig///PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-config/index.html
+$dokka.location:dev.inmo.krontab/KrontabConfig/KrontabConfig/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-config/-krontab-config.html
+$dokka.location:dev.inmo.krontab/KrontabConfig/scheduler/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-config/scheduler.html
+$dokka.location:dev.inmo.krontab/KrontabConfig/scheduler/#kotlin.Int/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-config/scheduler.html
+$dokka.location:dev.inmo.krontab/KrontabConfig/template/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-config/template.html
 $dokka.location:dev.inmo.krontab/KrontabTemplateSchedulerWork///PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-scheduler-work/index.html
 $dokka.location:dev.inmo.krontab/KrontabTemplateSchedulerWork/KrontabTemplateSchedulerWork/#android.content.Context#androidx.work.WorkerParameters/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-scheduler-work/-krontab-template-scheduler-work.html
-$dokka.location:dev.inmo.krontab/KrontabTemplateWrapper///PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-wrapper/index.html
-$dokka.location:dev.inmo.krontab/KrontabTemplateWrapper/KrontabTemplateWrapper/#kotlin.String/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-wrapper/-krontab-template-wrapper.html
-$dokka.location:dev.inmo.krontab/KrontabTemplateWrapper/template/#/PointingToDeclaration/kdocs/dev.inmo.krontab/-krontab-template-wrapper/template.html
 $dokka.location:dev.inmo.krontab/LambdaKronScheduler///PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/index.html
 $dokka.location:dev.inmo.krontab/LambdaKronScheduler/LambdaKronScheduler/#kotlin.coroutines.SuspendFunction1[[Error type: Unresolved type for DateTime],[Error type: Unresolved type for DateTime]?]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/-lambda-kron-scheduler.html
 $dokka.location:dev.inmo.krontab/LambdaKronScheduler/next/#[Error type: Unresolved type for DateTime]/PointingToDeclaration/kdocs/dev.inmo.krontab/-lambda-kron-scheduler/next.html
