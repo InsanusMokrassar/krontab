@@ -5,6 +5,10 @@ package dev.inmo.krontab
  * [dev.inmo.krontab.internal.CronDateTimeScheduler] due to the fact that [toKronScheduler] will return it under the
  * hood
  */
+@Deprecated(
+    "It is useless wrapper for KrontabTemplate. Use KrontabConfig instead",
+    ReplaceWith("KrontabConfig(template)", "dev.inmo.krontab.KrontabConfig")
+)
 data class KrontabTemplateWrapper(
     val template: KrontabTemplate
 ) : KronScheduler by template.toKronScheduler()
@@ -15,4 +19,8 @@ data class KrontabTemplateWrapper(
  * @see [toKronScheduler]
  * @see [KrontabTemplateWrapper]
  */
+@Deprecated(
+    "Will be removed in near major update with KrontabTemplateWrapper",
+    ReplaceWith("this.krontabConfig", "dev.inmo.krontab.krontabConfig")
+)
 fun KrontabTemplate.wrapAsKronScheduler() = KrontabTemplateWrapper(this)

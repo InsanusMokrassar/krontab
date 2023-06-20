@@ -18,6 +18,8 @@ interface KronScheduler {
      * @see dev.inmo.krontab.internal.CronDateTimeScheduler.next
      */
     suspend fun next(relatively: DateTime = DateTime.now()): DateTime?
+
+    companion object
 }
 
 suspend fun KronScheduler.nextOrRelative(relatively: DateTime = DateTime.now()): DateTime = next(relatively) ?: getAnyNext(relatively)

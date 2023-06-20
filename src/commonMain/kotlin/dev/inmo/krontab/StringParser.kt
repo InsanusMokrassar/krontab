@@ -1,7 +1,5 @@
 package dev.inmo.krontab
 
-import korlibs.time.TimezoneOffset
-import korlibs.time.minutes
 import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.utils.Minutes
 
@@ -10,6 +8,8 @@ import dev.inmo.krontab.utils.Minutes
  * @see buildSchedule
  */
 typealias KrontabTemplate = String
+
+inline fun KrontabTemplate.krontabConfig() = KrontabConfig(this)
 
 /**
  * Parse [incoming] string and adapt according to next format: "* * * * *" where order of things:
@@ -70,80 +70,16 @@ typealias KrontabTemplate = String
  * [createKronSchedulerWithOffset] and returned [CronDateTimeSchedulerTz]
  *
  * @see dev.inmo.krontab.internal.createKronScheduler
+ * @see KrontabConfig.scheduler
  */
 fun createSimpleScheduler(
     incoming: KrontabTemplate
-): KronScheduler {
-    var offsetParsed: Int? = null
-    var dayOfWeekParsed: Array<Byte>? = null
-    var yearParsed: Array<Int>? = null
-    var millisecondsParsed: Array<Short>? = null
-    val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = incoming.split(" ").also {
-        listOfNotNull(
-            it.getOrNull(5),
-            it.getOrNull(6),
-            it.getOrNull(7),
-            it.getOrNull(8)
-        ).forEach {
-            val offsetFromString = parseOffset(it)
-            val dayOfWeekFromString = parseWeekDay(it)
-            val millisecondsFromString = parseMilliseconds(it)
-            offsetParsed = offsetParsed ?: offsetFromString
-            dayOfWeekParsed = dayOfWeekParsed ?: dayOfWeekFromString
-            millisecondsParsed = millisecondsParsed ?: millisecondsFromString
-            when {
-                dayOfWeekFromString != null || offsetFromString != null || millisecondsFromString != null -> return@forEach
-                yearParsed == null -> {
-                    yearParsed = parseYears(it)
-                }
-            }
-        }
-    }
-
-    val secondsParsed = parseSeconds(secondsSource)
-    val minutesParsed = parseMinutes(minutesSource)
-    val hoursParsed = parseHours(hoursSource)
-    val dayOfMonthParsed = parseDaysOfMonth(dayOfMonthSource)
-    val monthParsed = parseMonths(monthSource)
-
-    return offsetParsed ?.let { offset ->
-        createKronSchedulerWithOffset(
-            secondsParsed,
-            minutesParsed,
-            hoursParsed,
-            dayOfMonthParsed,
-            monthParsed,
-            yearParsed,
-            dayOfWeekParsed,
-            TimezoneOffset(offset.minutes),
-            millisecondsParsed ?: millisecondsArrayDefault
-        )
-    } ?: createKronScheduler(
-        secondsParsed,
-        minutesParsed,
-        hoursParsed,
-        dayOfMonthParsed,
-        monthParsed,
-        yearParsed,
-        dayOfWeekParsed,
-        millisecondsParsed ?: millisecondsArrayDefault
-    )
-}
+): KronScheduler = KrontabConfig(incoming).scheduler()
 
 fun createSimpleScheduler(
     incoming: KrontabTemplate,
     defaultOffset: Minutes
-): KronSchedulerTz {
-    val scheduler = createSimpleScheduler(incoming)
-    return if (scheduler is KronSchedulerTz) {
-        scheduler
-    } else {
-        CronDateTimeSchedulerTz(
-            (scheduler as CronDateTimeScheduler).cronDateTime,
-            TimezoneOffset(defaultOffset.minutes)
-        )
-    }
-}
+): KronSchedulerTz = KrontabConfig(incoming).scheduler(defaultOffset)
 
 /**
  * Shortcut for [createSimpleScheduler]

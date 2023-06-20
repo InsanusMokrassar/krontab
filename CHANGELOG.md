@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0
+
+* Versions
+  * `Kotlin`: `1.8.22`
+  * `Klock`: `4.0.3`
+* New value class `KrontabConfig`. It is preferable way to create `KronScheduler` instead of
+  `KrontabTemplate` since this update
+* You may configure krontab with builders using simple `KronScheduler` invoke extension
+* New useful extensions like `KronScheduler.daily`
+* `KrontabTemplateWrapper` is obsolete in favor to `KrontabConfig`
+
 ## 2.0.0
 
 * Versions
