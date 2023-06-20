@@ -14,7 +14,7 @@ import dev.inmo.krontab.utils.Minutes
  *
  * @see dev.inmo.krontab.createSimpleScheduler
  */
-fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
+inline fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
     val builder = SchedulerBuilder()
 
     builder.settingsBlock()
@@ -27,7 +27,7 @@ fun buildSchedule(settingsBlock: SchedulerBuilder.() -> Unit): KronScheduler {
  *
  * @see dev.inmo.krontab.createSimpleScheduler
  */
-fun buildSchedule(
+inline fun buildSchedule(
     offset: Minutes,
     settingsBlock: SchedulerBuilder.() -> Unit
 ): KronSchedulerTz {
@@ -37,6 +37,27 @@ fun buildSchedule(
 
     return builder.build() as KronSchedulerTz
 }
+
+/**
+ * Creates new [KronScheduler] with [settingsBlock]
+ *
+ * Due to the fact that it is inline function, you may break execution of [settingsBlock]
+ * at any time
+ */
+inline operator fun KronScheduler.Companion.invoke(
+    offset: Minutes,
+    settingsBlock: SchedulerBuilder.() -> Unit
+): KronSchedulerTz = buildSchedule(offset, settingsBlock)
+
+/**
+ * Creates new [KronScheduler] with [settingsBlock]
+ *
+ * Due to the fact that it is inline function, you may break execution of [settingsBlock]
+ * at any time
+ */
+inline operator fun KronScheduler.Companion.invoke(
+    settingsBlock: SchedulerBuilder.() -> Unit
+): KronScheduler = buildSchedule(settingsBlock)
 
 class SchedulerBuilder(
     private var seconds: Array<Byte>? = null,
