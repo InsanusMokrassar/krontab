@@ -2,6 +2,14 @@
 
 ## 2.1.1
 
+* `asFlowWithoutDelays` and `asTzFlowWithoutDelays` will have nullable `since` parameters with default to `null`
+  to avoid any inconsistency of `Flow` idiom.
+  <details>
+    <summary>About the reason of changes</summary>
+    Cold flows should not contain some state by default. So, it was not right to save some `DateTime`/`DateTimeTz`
+    by default. Now it will not use some external state unless developers will set it manually
+  </details>
+
 ## 2.1.0
 
 * Versions
