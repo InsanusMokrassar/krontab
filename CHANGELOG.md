@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.1.2
+
 ## 2.1.1
 
 * `asFlowWithoutDelays` and `asTzFlowWithoutDelays` will have nullable `since` parameters with default to `null`
