@@ -14,7 +14,7 @@ import kotlin.coroutines.coroutineContext
  *
  * WARNING!!! In case if [KronScheduler.next] of [this] instance will return null, [block] will be called immediately
  */
-suspend inline fun <T> KronScheduler.doOnce(noinline block: suspend (DateTime) -> T): T {
+suspend inline fun <T> KronScheduler.doOnce(block: (DateTime) -> T): T {
     val time = nextOrNow().also {
         delay((it - DateTime.now()).millisecondsLong)
     }
@@ -29,7 +29,7 @@ suspend inline fun <T> KronScheduler.doOnce(noinline block: suspend (DateTime) -
  * WARNING!!! In case if [KronScheduler.next] of [this] instance will return null, [block] will be called immediately
  */
 @Deprecated("Replaceable", ReplaceWith("doOnce", "dev.inmo.krontab.doOnce"))
-suspend inline fun <T> KronScheduler.doOnceLocal(noinline block: suspend (DateTime) -> T): T = doOnce(block)
+suspend inline fun <T> KronScheduler.doOnceLocal(block: (DateTime) -> T): T = doOnce(block)
 
 /**
  * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
@@ -53,7 +53,7 @@ suspend inline fun <T> KronScheduler.doOnceTz(noinline block: suspend (DateTimeT
  */
 suspend inline fun <T> doOnce(
     scheduleConfig: String,
-    noinline block: suspend (DateTime) -> T
+    block: (DateTime) -> T
 ) = buildSchedule(scheduleConfig).doOnce(block)
 
 /**
@@ -69,7 +69,7 @@ suspend inline fun <T> doOnceTz(
 /**
  * Will execute [block] while it will return true as a result of its calculation
  */
-suspend inline fun KronScheduler.doWhile(noinline block: suspend (DateTime) -> Boolean) {
+suspend inline fun KronScheduler.doWhile(block: (DateTime) -> Boolean) {
     do {
         delay(1L)
     } while (doOnce(block))
@@ -78,7 +78,7 @@ suspend inline fun KronScheduler.doWhile(noinline block: suspend (DateTime) -> B
  * Will execute [block] while it will return true as a result of its calculation
  */
 @Deprecated("Replaceable", ReplaceWith("doWhile", "dev.inmo.krontab.doWhile"))
-suspend inline fun KronScheduler.doWhileLocal(noinline block: suspend (DateTime) -> Boolean) = doWhile(block)
+suspend inline fun KronScheduler.doWhileLocal(block: (DateTime) -> Boolean) = doWhile(block)
 
 /**
  * Will execute [block] while it will return true as a result of its calculation
@@ -96,7 +96,7 @@ suspend inline fun KronScheduler.doWhileTz(noinline block: suspend (DateTimeTz) 
  */
 suspend inline fun doWhile(
     scheduleConfig: String,
-    noinline block: suspend (DateTime) -> Boolean
+    block: (DateTime) -> Boolean
 ) = buildSchedule(scheduleConfig).doWhile(block)
 
 /**
@@ -107,7 +107,7 @@ suspend inline fun doWhile(
 @Deprecated("Replaceable", ReplaceWith("doWhile", "dev.inmo.krontab.doWhile"))
 suspend inline fun doWhileLocal(
     scheduleConfig: String,
-    noinline block: suspend (DateTime) -> Boolean
+    block: (DateTime) -> Boolean
 ) = doWhile(scheduleConfig, block)
 
 /**
@@ -124,7 +124,7 @@ suspend inline fun doWhileTz(
 /**
  * Will execute [block] without any checking of result
  */
-suspend inline fun KronScheduler.doInfinity(noinline block: suspend (DateTime) -> Unit) = doWhile {
+suspend inline fun KronScheduler.doInfinity(block: (DateTime) -> Unit) = doWhile {
     block(it)
     coroutineContext.isActive
 }
@@ -132,7 +132,7 @@ suspend inline fun KronScheduler.doInfinity(noinline block: suspend (DateTime) -
  * Will execute [block] without any checking of result
  */
 @Deprecated("Replaceable", ReplaceWith("doInfinity", "dev.inmo.krontab.doInfinity"))
-suspend inline fun KronScheduler.doInfinityLocal(noinline block: suspend (DateTime) -> Unit) = doInfinity(block)
+suspend inline fun KronScheduler.doInfinityLocal(block: (DateTime) -> Unit) = doInfinity(block)
 
 /**
  * Will execute [block] without any checking of result
@@ -149,7 +149,7 @@ suspend inline fun KronScheduler.doInfinityTz(noinline block: suspend (DateTimeT
  */
 suspend inline fun doInfinity(
     scheduleConfig: String,
-    noinline block: suspend (DateTime) -> Unit
+    block: (DateTime) -> Unit
 ) = buildSchedule(scheduleConfig).doInfinity(block)
 
 /**
@@ -160,7 +160,7 @@ suspend inline fun doInfinity(
 @Deprecated("Replaceable", ReplaceWith("doInfinity", "dev.inmo.krontab.doInfinity"))
 suspend inline fun doInfinityLocal(
     scheduleConfig: String,
-    noinline block: suspend (DateTime) -> Unit
+    block: (DateTime) -> Unit
 ) = doInfinity(scheduleConfig, block)
 
 /**

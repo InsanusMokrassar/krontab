@@ -4,6 +4,7 @@
 
 * Versions
   * `Coroutines`: `1.7.2`
+* All callbacks for standard extensions like `doInfinity` now fully inline
 
 ## 2.1.1
 
