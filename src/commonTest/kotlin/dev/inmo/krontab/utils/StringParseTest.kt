@@ -3,7 +3,6 @@ package dev.inmo.krontab.utils
 import korlibs.time.*
 import dev.inmo.krontab.KronSchedulerTz
 import dev.inmo.krontab.buildSchedule
-import dev.inmo.krontab.doInfinity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.takeWhile
 import kotlinx.coroutines.test.runTest
