@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.2
+
+* Versions
+  * `Coroutines`: `1.7.2`
+* All callbacks for standard extensions like `doInfinity` now fully inline
+
 ## 2.1.1
 
 * `asFlowWithoutDelays` and `asTzFlowWithoutDelays` will have nullable `since` parameters with default to `null`
