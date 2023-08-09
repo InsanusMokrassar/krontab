@@ -97,7 +97,7 @@ kotlin {
                 implementation kotlin('test-js')
             }
         }
-        androidTest {
+        androidUnitTest {
             dependencies {
                 implementation kotlin('test-junit')
             }
