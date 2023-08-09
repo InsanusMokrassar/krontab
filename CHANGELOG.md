@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.2.0
+
+* Versions
+  * `Kotlin`: `1.9.0`
+  * `Coroutines`: `1.7.3`
+  * `Klock`: `4.0.9`
+
 ## 2.1.2
 
 * Versions
