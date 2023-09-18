@@ -2,6 +2,8 @@
 
 ## 2.2.1
 
+* Potential fix of [#65](https://github.com/InsanusMokrassar/krontab/issues/65)
+
 ## 2.2.0
 
 * Versions

@@ -108,13 +108,19 @@ internal fun NearDateTimeCalculatorDays(
         } else {
             dateTime
         })
-        dateTime.copy(
+        val newDateTime = dateTime.copy(
             dayOfMonth = min(dateTime.month.days(dateTime.year), newOne.toInt() + 1), // index1
             hour = 0,
             minute = 0,
             second = 0,
             milliseconds = 0
         )
+        // If day of month has not been changed, use old dateTime due to no changes required
+        if (newDateTime.dayOfMonth == dateTime.dayOfMonth) {
+            dateTime
+        } else {
+            newDateTime
+        }
     }
 )
 
