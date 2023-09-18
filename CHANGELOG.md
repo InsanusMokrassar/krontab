@@ -6,6 +6,7 @@
 * Versions
   * `Kotlin`: `1.9.20-Beta`
   * `Klock`: `4.0.10`
+  * `Serialization`: `1.6.0`
 
 ## 2.2.0
 
