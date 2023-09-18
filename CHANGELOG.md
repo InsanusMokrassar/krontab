@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.1
+
+* Potential fix of [#65](https://github.com/InsanusMokrassar/krontab/issues/65)
+* Versions
+  * `Kotlin`: `1.9.20-Beta`
+  * `Klock`: `4.0.10`
+  * `Serialization`: `1.6.0`
+
 ## 2.2.0
 
 * Versions
