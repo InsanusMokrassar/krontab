@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.2.3
+
+**THIS UPDATE CONTAINS UPGRADE OF USED JDK UP TO 17**
+
+* Versions
+  * `Kotlin`: `1.9.20`
+
 ## 2.2.2
 
 * Versions

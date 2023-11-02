@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 
 task javadocsJar(type: Jar) {
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
 }
 
 publishing {
@@ -95,5 +95,11 @@ if (project.hasProperty("signing.gnupg.keyName")) {
         tasks.withType(Sign).forEach {
             dependsOn(it)
         }
+    }
+
+    // Workaround to make android sign operations depend on signing tasks
+    project.getTasks().withType(AbstractPublishToMaven.class).configureEach {
+        def signingTasks = project.getTasks().withType(Sign.class)
+        mustRunAfter(signingTasks)
     }
 }
