@@ -2,6 +2,9 @@
 
 ## 2.2.3
 
+* Versions
+  * `Kotlin`: `1.9.20`
+
 ## 2.2.2
 
 * Versions
