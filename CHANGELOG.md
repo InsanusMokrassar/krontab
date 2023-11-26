@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.4
+
+* `Versions`
+  * `Kotlin`: `1.9.21`
+  * `Serialization`: `1.6.1`
+
 ## 2.2.3
 
 **THIS UPDATE CONTAINS UPGRADE OF USED JDK UP TO 17**
