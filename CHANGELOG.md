@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.5
+
+* `Versions`
+  * `Kotlin`: `1.9.22`
+  * `Serialization`: `1.6.2`
+
 ## 2.2.4
 
 * `Versions`
