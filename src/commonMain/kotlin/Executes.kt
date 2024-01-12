@@ -2,6 +2,7 @@ package dev.inmo.krontab
 
 import korlibs.time.DateTime
 import korlibs.time.DateTimeTz
+import korlibs.time.millisecondsLong
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlin.coroutines.coroutineContext

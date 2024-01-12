@@ -2,6 +2,11 @@
 
 ## 2.2.6
 
+**Since this version klock depdendency replaced with `com.soywiz.korge:korlibs-time`**
+
+* `Version`:
+  * `Klock`: `5.3.0`
+
 ## 2.2.5
 
 * `Versions`
