@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.2.7
+
 ## 2.2.6
 
 **Since this version klock depdendency replaced with `com.soywiz.korge:korlibs-time`**
