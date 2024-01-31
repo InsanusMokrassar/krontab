@@ -2,6 +2,10 @@
 
 ## 2.2.7
 
+* `Version`:
+  * `Klock`: `5.3.1`
+  * `AndroidXWork`: `2.9.0`
+
 ## 2.2.6
 
 **Since this version klock depdendency replaced with `com.soywiz.korge:korlibs-time`**
