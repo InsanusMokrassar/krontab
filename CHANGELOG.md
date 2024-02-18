@@ -2,6 +2,9 @@
 
 ## 2.2.8
 
+* `Version`:
+  * `Coroutines`: `1.8.0`
+
 ## 2.2.7
 
 * `Version`:
