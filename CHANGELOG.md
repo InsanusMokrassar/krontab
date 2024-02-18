@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.2.8
+
 ## 2.2.7
 
 * `Version`:
