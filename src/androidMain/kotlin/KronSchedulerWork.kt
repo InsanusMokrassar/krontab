@@ -139,6 +139,7 @@ abstract class KronSchedulerWork(
             }
             throw e
         }
+        result.outputData
         when (result) {
             is Result.Failure -> if (prolongOnFailure) prolong()
             is Result.Success -> if (prolongOnSuccess) prolong()

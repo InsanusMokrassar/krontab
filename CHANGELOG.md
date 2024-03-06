@@ -2,6 +2,10 @@
 
 ## 2.2.9
 
+* `Version`:
+  * `Serialization`: `1.6.3`
+  * `Klock`: `5.3.2`
+
 ## 2.2.8
 
 * `Version`:
