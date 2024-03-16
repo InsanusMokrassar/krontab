@@ -3,6 +3,7 @@
 ## 2.2.9
 
 * `Version`:
+  * `Kotlin`: `1.9.23`
   * `Serialization`: `1.6.3`
   * `Klock`: `5.3.2`
 
