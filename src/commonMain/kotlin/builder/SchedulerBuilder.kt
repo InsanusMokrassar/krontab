@@ -182,15 +182,24 @@ class SchedulerBuilder(
      */
     fun build(): KronScheduler = offset ?.let {
         createKronSchedulerWithOffset(
-            seconds,
-            minutes,
-            hours,
-            dayOfMonth,
-            month,
-            year,
-            dayOfWeek,
-            TimezoneOffset(it.minutes),
-            milliseconds ?: millisecondsArrayDefault
+            seconds = seconds,
+            minutes = minutes,
+            hours = hours,
+            dayOfMonth = dayOfMonth,
+            month = month,
+            years = year,
+            weekDays = dayOfWeek,
+            offset = TimezoneOffset(it.minutes),
+            milliseconds = milliseconds ?: millisecondsArrayDefault
         )
-    } ?: createKronScheduler(seconds, minutes, hours, dayOfMonth, month, year, dayOfWeek, milliseconds ?: millisecondsArrayDefault)
+    } ?: createKronScheduler(
+        seconds = seconds,
+        minutes = minutes,
+        hours = hours,
+        dayOfMonth = dayOfMonth,
+        month = month,
+        years = year,
+        weekDays = dayOfWeek,
+        milliseconds = milliseconds ?: millisecondsArrayDefault
+    )
 }

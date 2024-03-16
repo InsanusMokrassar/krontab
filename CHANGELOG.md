@@ -6,6 +6,7 @@
   * `Kotlin`: `1.9.23`
   * `Serialization`: `1.6.3`
   * `Klock`: `5.3.2`
+* Fixes in build-in schedulers
 
 ## 2.2.8
 

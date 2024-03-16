@@ -34,35 +34,60 @@ val EverySecondScheduler: KronScheduler by lazy {
  * [KronScheduler.next] will always return [korlibs.time.DateTime.now] + one minute
  */
 val EveryMinuteScheduler: KronScheduler by lazy {
-    buildSchedule { minutes { 0 every 1 } }
+    buildSchedule {
+        seconds { at(0) }
+        minutes { 0 every 1 }
+    }
 }
 
 /**
  * [KronScheduler.next] will always return [korlibs.time.DateTime.now] + one hour
  */
 val EveryHourScheduler: KronScheduler by lazy {
-    buildSchedule { hours { 0 every 1 } }
+    buildSchedule {
+        seconds { at(0) }
+        minutes { at(0) }
+        hours { 0 every 1 }
+    }
 }
 
 /**
  * [KronScheduler.next] will always return [korlibs.time.DateTime.now] + one day
  */
 val EveryDayOfMonthScheduler: KronScheduler by lazy {
-    buildSchedule { dayOfMonth { 0 every 1 } }
+    buildSchedule {
+        seconds { at(0) }
+        minutes { at(0) }
+        hours { at(0) }
+        dayOfMonth { 0 every 1 }
+    }
 }
 
 /**
  * [KronScheduler.next] will always return [korlibs.time.DateTime.now] + one month
  */
 val EveryMonthScheduler: KronScheduler by lazy {
-    buildSchedule { months { 0 every 1 } }
+    buildSchedule {
+        seconds { at(0) }
+        minutes { at(0) }
+        hours { at(0) }
+        dayOfMonth { at(0) }
+        months { 0 every 1 }
+    }
 }
 
 /**
  * [KronScheduler.next] will always return [korlibs.time.DateTime.now] + one year
  */
 val EveryYearScheduler: KronScheduler by lazy {
-    buildSchedule { years { 0 every 1 } }
+    buildSchedule {
+        seconds { at(0) }
+        minutes { at(0) }
+        hours { at(0) }
+        dayOfMonth { at(0) }
+        months { at(0) }
+        years { 0 every 1 }
+    }
 }
 
 /**
