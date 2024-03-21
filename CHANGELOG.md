@@ -2,6 +2,8 @@
 
 ## 2.3.0
 
+* `doWhile` now will guarantee that it will not call `doOnce` more than once for time
+
 ## 2.2.9
 
 * `Version`:

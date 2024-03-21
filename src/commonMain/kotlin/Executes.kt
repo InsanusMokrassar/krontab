@@ -71,9 +71,18 @@ suspend inline fun <T> doOnceTz(
  * Will execute [block] while it will return true as a result of its calculation
  */
 suspend inline fun KronScheduler.doWhile(block: (DateTime) -> Boolean) {
+    var latest: DateTime? = null
     do {
         delay(1L)
-    } while (doOnce(block))
+        val result = doOnce {
+            if (latest != it) {
+                latest = it
+                block(it)
+            } else {
+                null
+            }
+        }
+    } while (result == null || result)
 }
 /**
  * Will execute [block] while it will return true as a result of its calculation
@@ -85,9 +94,18 @@ suspend inline fun KronScheduler.doWhileLocal(block: (DateTime) -> Boolean) = do
  * Will execute [block] while it will return true as a result of its calculation
  */
 suspend inline fun KronScheduler.doWhileTz(noinline block: suspend (DateTimeTz) -> Boolean) {
+    var latest: DateTimeTz? = null
     do {
         delay(1L)
-    } while (doOnceTz(block))
+        val result = doOnceTz {
+            if (latest != it) {
+                latest = it
+                block(it)
+            } else {
+                null
+            }
+        }
+    } while (result == null || result)
 }
 
 /**
