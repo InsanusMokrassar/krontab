@@ -2,6 +2,13 @@
 
 ## 2.4.0
 
+* `Version`:
+  * `Kotlin`: `2.0.10`
+  * `Coroutines`: `1.8.1`
+  * `Serialization`: `1.7.1`
+  * `Klock`: `5.4.0`
+  * `AndroidXWork`: `2.9.1`
+
 ## 2.3.0
 
 * `doWhile` now will guarantee that it will not call `doOnce` more than once for time
