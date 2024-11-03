@@ -37,9 +37,75 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
     return results.map(dataConverter)
 }
 
-internal val KrontabPartNumberRegexString = "((\\d+\\-\\d+)|([\\d\\*]+(/[\\d\\*]+)?))"
-internal val KrontabPartsNumberRegexString = "$KrontabPartNumberRegexString(,$KrontabPartNumberRegexString)*"
-internal val KrontabConfigPartRegex = Regex("(($KrontabPartsNumberRegexString+)|(\\d+o)|($KrontabPartsNumberRegexString+w)|($KrontabPartsNumberRegexString+ms))")
+/**
+ * FSM for parsing of incoming data. If at the end of parsing it have non-null state and string is not empty, data passed check
+ *
+ * 1.
+ *      * \\d -> 1
+ *      * \\* -> 2
+ *      * \\- -> 5
+ *      * , -> 1
+ *      * m -> 6
+ *      * o -> 7
+ *      * w -> 7
+ * 2.
+ *      * / -> 3
+ * 3.
+ *      * \\d -> 3
+ *      * \\* -> 4
+ * 4.
+ *      * , -> 1
+ * 5.
+ *      * \\d -> 5
+ *      * , -> 1
+ * 6.
+ *      * s -> 7
+ * 7. Empty, end of parse
+ */
+private val checkIncomingPartTransitionsMap = listOf(
+    listOf(
+        Regex("\\d") to 0,
+        Regex("\\*") to 1,
+        Regex("-") to 4,
+        Regex(",") to 0,
+        Regex("m") to 5,
+        Regex("o") to 6,
+        Regex("w") to 6,
+    ),
+    listOf(
+        Regex("/") to 2,
+    ),
+    listOf(
+        Regex("\\d") to 2,
+        Regex("\\*") to 3,
+    ),
+    listOf(
+        Regex(",") to 0,
+    ),
+    listOf(
+        Regex("\\d") to 4,
+        Regex(",") to 0,
+    ),
+    listOf(
+        Regex("s") to 6, // end of ms
+    ),
+    listOf(), // empty state, end of parsing
+)
+internal fun checkIncomingPart(part: String): Boolean {
+    var i = 0
+    var state = checkIncomingPartTransitionsMap[0]
+    while (i < part.length) {
+        val char = part[i]
+        val nextState = state.firstNotNullOfOrNull {
+            it.second.takeIf { _ -> it.first.matches("$char") }
+        }
+        if (nextState == null) return false
+        state = checkIncomingPartTransitionsMap[nextState]
+        i++
+    }
+
+    return part.isNotEmpty()
+}
 
 internal fun parseWeekDay(from: String?) = from ?.let { if (it.endsWith("w")) createSimpleScheduler(it.removeSuffix("w"), dayOfWeekRange, intToByteConverter) ?.toTypedArray() else null }
 internal fun parseOffset(from: String?) = from ?.let { if (it.endsWith("o")) it.removeSuffix("o").toIntOrNull() else null }
