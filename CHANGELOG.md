@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.6.0
+
 ## 2.5.1
 
 * Add cleaning up of incoming template, which must remove all malformed parts from string template (fix of [#126](https://github.com/InsanusMokrassar/krontab/issues/126))
