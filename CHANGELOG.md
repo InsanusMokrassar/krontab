@@ -2,18 +2,18 @@
 
 ## 2.5.1
 
-* `Version`:
-  * `Kotlin`: `2.0.21`
-  * `Coroutines`: `1.9.0`
-  * `Serialization`: `1.7.3`
-
-## 2.5.0
-
 * Add cleaning up of incoming template, which must remove all malformed parts from string template (fix of [#126](https://github.com/InsanusMokrassar/krontab/issues/126))
 * Add support of insufficient amount of arguments (fix of [#126](https://github.com/InsanusMokrassar/krontab/issues/126))
 * `Version`:
-  * `Kotlin`: `2.0.20`
+  * `Kotlin`: `2.0.21`
   * `AndroidXWork`: `2.10.0`
+
+## 2.5.0
+
+* `Version`:
+  * `Kotlin`: `2.0.20`
+  * `Coroutines`: `1.9.0`
+  * `Serialization`: `1.7.3`
 
 ## 2.4.0
 
