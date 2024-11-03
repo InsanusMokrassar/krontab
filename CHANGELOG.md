@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.6.0
+
+* Fix of `doOnceTz` behaviour: now it will use local time as utc time to get next waking up time
+
 ## 2.5.1
 
 * Add cleaning up of incoming template, which must remove all malformed parts from string template (fix of [#126](https://github.com/InsanusMokrassar/krontab/issues/126))
