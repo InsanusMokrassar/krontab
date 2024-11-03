@@ -96,7 +96,7 @@ value class KrontabConfig(
         var yearParsed: Array<Int>? = null
         var millisecondsParsed: Array<Short>? = null
         val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = template
-            .split(Regex("\\s"))
+            .split(" ")
             .filter { it.matches(KrontabConfigPartRegex) } // filter garbage from string
             .let {
                 if (it.size < 5) { // reconstruction in case of insufficient arguments; 5 is amount of required arguments out of latest also code
