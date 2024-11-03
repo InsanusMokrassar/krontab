@@ -173,9 +173,4 @@ value class KrontabConfig(
             )
         }
     }
-
-    companion object {
-        val spacesRegex = Regex("\\s")
-        val numberRegex = Regex("\\d+")
-    }
 }
