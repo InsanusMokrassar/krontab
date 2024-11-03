@@ -37,6 +37,10 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
     return results.map(dataConverter)
 }
 
+internal val KrontabPartNumberRegexString = "((\\d+\\-\\d+)|([\\d\\*]+(/[\\d\\*]+)?))"
+internal val KrontabPartsNumberRegexString = "$KrontabPartNumberRegexString(,$KrontabPartNumberRegexString)*"
+internal val KrontabConfigPartRegex = Regex("(($KrontabPartsNumberRegexString+)|(\\d+o)|($KrontabPartsNumberRegexString+w)|($KrontabPartsNumberRegexString+ms))")
+
 internal fun parseWeekDay(from: String?) = from ?.let { if (it.endsWith("w")) createSimpleScheduler(it.removeSuffix("w"), dayOfWeekRange, intToByteConverter) ?.toTypedArray() else null }
 internal fun parseOffset(from: String?) = from ?.let { if (it.endsWith("o")) it.removeSuffix("o").toIntOrNull() else null }
 internal fun parseYears(from: String?) = from ?.let { createSimpleScheduler(from, yearRange, intToIntConverter) ?.toTypedArray() }

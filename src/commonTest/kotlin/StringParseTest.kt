@@ -29,6 +29,57 @@ class StringParseTest {
         }
     }
     @Test
+    fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithWrongAmountOfSpaces() {
+        val kronScheduler = buildSchedule("*/1  *  * *  * ")
+
+        val flow = kronScheduler.asFlowWithoutDelays()
+
+        runTest {
+            val mustBeCollected = 10
+            var collected = 0
+            flow.takeWhile {
+                collected < mustBeCollected
+            }.collect {
+                collected++
+            }
+            assertEquals(mustBeCollected, collected)
+        }
+    }
+    @Test
+    fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithGarbageInTemplate() {
+        val kronScheduler = buildSchedule(" sdf */1  *  * *  oo * ")
+
+        val flow = kronScheduler.asFlowWithoutDelays()
+
+        runTest {
+            val mustBeCollected = 10
+            var collected = 0
+            flow.takeWhile {
+                collected < mustBeCollected
+            }.collect {
+                collected++
+            }
+            assertEquals(mustBeCollected, collected)
+        }
+    }
+    @Test
+    fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithInsufficientArgsInTemplate() {
+        val kronScheduler = buildSchedule(" sdf */1  ")
+
+        val flow = kronScheduler.asFlowWithoutDelays()
+
+        runTest {
+            val mustBeCollected = 10
+            var collected = 0
+            flow.takeWhile {
+                collected < mustBeCollected
+            }.collect {
+                collected++
+            }
+            assertEquals(mustBeCollected, collected)
+        }
+    }
+    @Test
     fun testThatFlowIsCorrectlyWorkEverySecondWhenMillisIsHalfOfSecondBuiltOnString() {
         val kronScheduler = buildSchedule("*/1 * * * * 500ms")
 

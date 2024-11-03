@@ -1,5 +1,6 @@
 package dev.inmo.krontab
 
+import dev.inmo.krontab.internal.*
 import dev.inmo.krontab.internal.CronDateTimeScheduler
 import dev.inmo.krontab.internal.CronDateTimeSchedulerTz
 import dev.inmo.krontab.internal.createKronScheduler
@@ -94,27 +95,37 @@ value class KrontabConfig(
         var dayOfWeekParsed: Array<Byte>? = null
         var yearParsed: Array<Int>? = null
         var millisecondsParsed: Array<Short>? = null
-        val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = template.split(" ").also {
-            listOfNotNull(
-                it.getOrNull(5),
-                it.getOrNull(6),
-                it.getOrNull(7),
-                it.getOrNull(8)
-            ).forEach {
-                val offsetFromString = parseOffset(it)
-                val dayOfWeekFromString = parseWeekDay(it)
-                val millisecondsFromString = parseMilliseconds(it)
-                offsetParsed = offsetParsed ?: offsetFromString
-                dayOfWeekParsed = dayOfWeekParsed ?: dayOfWeekFromString
-                millisecondsParsed = millisecondsParsed ?: millisecondsFromString
-                when {
-                    dayOfWeekFromString != null || offsetFromString != null || millisecondsFromString != null -> return@forEach
-                    yearParsed == null -> {
-                        yearParsed = parseYears(it)
+        val (secondsSource, minutesSource, hoursSource, dayOfMonthSource, monthSource) = template
+            .split(Regex("\\s"))
+            .filter { it.matches(KrontabConfigPartRegex) } // filter garbage from string
+            .let {
+                if (it.size < 5) { // reconstruction in case of insufficient arguments; 5 is amount of required arguments out of latest also code
+                    it + (it.size until 5).map { "*" }
+                } else {
+                    it
+                }
+            }
+            .also {
+                listOfNotNull(
+                    it.getOrNull(5),
+                    it.getOrNull(6),
+                    it.getOrNull(7),
+                    it.getOrNull(8)
+                ).forEach {
+                    val offsetFromString = parseOffset(it)
+                    val dayOfWeekFromString = parseWeekDay(it)
+                    val millisecondsFromString = parseMilliseconds(it)
+                    offsetParsed = offsetParsed ?: offsetFromString
+                    dayOfWeekParsed = dayOfWeekParsed ?: dayOfWeekFromString
+                    millisecondsParsed = millisecondsParsed ?: millisecondsFromString
+                    when {
+                        dayOfWeekFromString != null || offsetFromString != null || millisecondsFromString != null -> return@forEach
+                        yearParsed == null -> {
+                            yearParsed = parseYears(it)
+                        }
                     }
                 }
             }
-        }
 
         val secondsParsed = parseSeconds(secondsSource)
         val minutesParsed = parseMinutes(minutesSource)
@@ -161,5 +172,10 @@ value class KrontabConfig(
                 TimezoneOffset(defaultOffset.minutes)
             )
         }
+    }
+
+    companion object {
+        val spacesRegex = Regex("\\s")
+        val numberRegex = Regex("\\d+")
     }
 }
