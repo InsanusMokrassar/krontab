@@ -2,12 +2,16 @@
 
 ## 2.5.1
 
+* `Version`:
+  * `Kotlin`: `2.0.21`
+  * `Coroutines`: `1.9.0`
+  * `Serialization`: `1.7.3`
+
 ## 2.5.0
 
 * `Version`:
   * `Kotlin`: `2.0.20`
-  * `Coroutines`: `1.9.0`
-  * `Serialization`: `1.7.3`
+  * `AndroidXWork`: `2.10.0`
 
 ## 2.4.0
 
