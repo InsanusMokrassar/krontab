@@ -35,6 +35,8 @@ suspend inline fun <T> KronScheduler.doOnceLocal(block: (DateTime) -> T): T = do
 /**
  * Execute [block] once at the [KronScheduler.next] time and return result of [block] calculation.
  *
+ * WARNING!!! This method will use local time instead of utc
+ *
  * WARNING!!! If you want to launch it in parallel, you must do this explicitly.
  *
  * WARNING!!! In case if [KronScheduler.next] of [this] instance will return null, [block] will be called immediatelly
@@ -42,7 +44,7 @@ suspend inline fun <T> KronScheduler.doOnceLocal(block: (DateTime) -> T): T = do
 suspend inline fun <T> KronScheduler.doOnceTz(noinline block: suspend (DateTimeTz) -> T): T {
     val time = when (this) {
         is KronSchedulerTz -> nextOrNowWithOffset()
-        else -> nextOrNow().local
+        else -> nextTimeZoned() ?: DateTimeTz.nowLocal()
     }
     delay((time - DateTimeTz.nowLocal()).millisecondsLong)
     return block(time)
