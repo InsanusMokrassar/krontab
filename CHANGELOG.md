@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.6.1
+
 ## 2.6.0
 
 * Fix of `doOnceTz` behaviour: now it will use local time as utc time to get next waking up time
