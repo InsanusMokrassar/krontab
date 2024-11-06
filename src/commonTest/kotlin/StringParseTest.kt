@@ -2,6 +2,7 @@ package dev.inmo.krontab.utils
 
 import korlibs.time.*
 import dev.inmo.krontab.KronSchedulerTz
+import dev.inmo.krontab.KrontabTemplate
 import dev.inmo.krontab.buildSchedule
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.takeWhile
@@ -11,73 +12,51 @@ import kotlin.test.*
 @ExperimentalCoroutinesApi
 @FlowPreview
 class StringParseTest {
-    @Test
-    fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnString() {
-        val kronScheduler = buildSchedule("*/1 * * * *")
+    private fun makeSimpleEverySecondTest(template: KrontabTemplate) {
+        val kronScheduler = buildSchedule(template)
 
         val flow = kronScheduler.asFlowWithoutDelays()
 
         runTest {
             val mustBeCollected = 10
             var collected = 0
+            var previousTime: DateTime? = null
             flow.takeWhile {
                 collected < mustBeCollected
             }.collect {
+                previousTime ?.let { previousTime ->
+                    assertEquals(previousTime + 1.seconds, it)
+                }
+                previousTime = it
                 collected++
             }
             assertEquals(mustBeCollected, collected)
         }
     }
+
+    @Test
+    fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnString() {
+        makeSimpleEverySecondTest("*/1 * * * *")
+    }
     @Test
     fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithWrongAmountOfSpaces() {
-        val kronScheduler = buildSchedule("*/1  *  * *  * ")
-
-        val flow = kronScheduler.asFlowWithoutDelays()
-
-        runTest {
-            val mustBeCollected = 10
-            var collected = 0
-            flow.takeWhile {
-                collected < mustBeCollected
-            }.collect {
-                collected++
-            }
-            assertEquals(mustBeCollected, collected)
+        val templatesFirstReplacers = listOf(
+            "*/1",
+            "*",
+            "/1",
+            "f,/1",
+        )
+        templatesFirstReplacers.forEach { replacer ->
+            makeSimpleEverySecondTest("$replacer  *  * *  * ")
         }
     }
     @Test
     fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithGarbageInTemplate() {
-        val kronScheduler = buildSchedule(" sdf */1  *  * *  oo * ")
-
-        val flow = kronScheduler.asFlowWithoutDelays()
-
-        runTest {
-            val mustBeCollected = 10
-            var collected = 0
-            flow.takeWhile {
-                collected < mustBeCollected
-            }.collect {
-                collected++
-            }
-            assertEquals(mustBeCollected, collected)
-        }
+        makeSimpleEverySecondTest(" sdf */1  *  * *  oo * ")
     }
     @Test
     fun testThatFlowIsCorrectlyWorkEverySecondBuiltOnStringWithInsufficientArgsInTemplate() {
-        val kronScheduler = buildSchedule(" sdf */1  ")
-
-        val flow = kronScheduler.asFlowWithoutDelays()
-
-        runTest {
-            val mustBeCollected = 10
-            var collected = 0
-            flow.takeWhile {
-                collected < mustBeCollected
-            }.collect {
-                collected++
-            }
-            assertEquals(mustBeCollected, collected)
-        }
+        makeSimpleEverySecondTest(" sdf */1  ")
     }
     @Test
     fun testThatFlowIsCorrectlyWorkEverySecondWhenMillisIsHalfOfSecondBuiltOnString() {
@@ -88,9 +67,14 @@ class StringParseTest {
         runTest {
             val mustBeCollected = 10
             var collected = 0
+            var previousTime: DateTime? = null
             flow.takeWhile {
                 collected < mustBeCollected
             }.collect {
+                previousTime ?.let { previousTime ->
+                    assertEquals(previousTime.copy(milliseconds = 500) + 1.seconds, it)
+                }
+                previousTime = it
                 collected++
             }
             assertEquals(mustBeCollected, collected)
