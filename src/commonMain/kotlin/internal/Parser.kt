@@ -41,53 +41,80 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
  * FSM for parsing of incoming data. If at the end of parsing it have non-null state and string is not empty, data passed check
  *
  * 1.
- *      * \\d -> 1
- *      * \\* -> 2
- *      * \\- -> 5
- *      * , -> 1
- *      * m -> 6
- *      * o -> 7
- *      * w -> 7
+ *     * "\\d" -> 2
+ *     * "\\*" -> 4
+ *     * "f" -> 7
+ *     * "l" -> 7
+ *     * "/" -> 6
  * 2.
- *      * / -> 3
+ *     * "\\d" -> 2
+ *     * "/" -> 6
+ *     * "," -> 1
+ *     * "-" -> 3
+ *     * "m" -> 9
+ *     * "o" -> 10
+ *     * "w" -> 10
  * 3.
- *      * \\d -> 3
- *      * \\* -> 4
+ *     * "l" -> 7
+ *     * "\\d" -> 8
  * 4.
- *      * , -> 1
+ *     * "/" -> 6
+ *     * "," -> 1
  * 5.
- *      * \\d -> 5
- *      * , -> 1
+ *     * "/" -> 6
  * 6.
- *      * s -> 7
- * 7. Empty, end of parse
+ *     * "\\d" -> 8
+ *     * "\\*" -> 7
+ * 7.
+ *     * "," -> 1
+ * 8.
+ *     * "\\d" -> 8
+ *     * "," -> 1
+ * 9.
+ *     * "s" -> 10 // end of ms
+ * 10. Empty, end of parse
  */
 private val checkIncomingPartTransitionsMap = listOf(
-    listOf(
-        Regex("\\d") to 0,
-        Regex("\\*") to 1,
-        Regex("-") to 4,
-        Regex(",") to 0,
-        Regex("m") to 5,
-        Regex("o") to 6,
-        Regex("w") to 6,
-    ),
-    listOf(
-        Regex("/") to 2,
-    ),
-    listOf(
-        Regex("\\d") to 2,
+    listOf( // 0
+        Regex("\\d") to 1,
         Regex("\\*") to 3,
+        Regex("f") to 6,
+        Regex("l") to 6,
+        Regex("/") to 5,
     ),
-    listOf(
+    listOf( // 1
+        Regex("\\d") to 1,
+        Regex("/") to 5,
+        Regex(",") to 0,
+        Regex("-") to 2,
+        Regex("m") to 8,
+        Regex("o") to 9,
+        Regex("w") to 9,
+    ),
+    listOf( // 2
+        Regex("l") to 6,
+        Regex("\\d") to 7,
+    ),
+    listOf( // 3
+        Regex("/") to 5,
         Regex(",") to 0,
     ),
-    listOf(
-        Regex("\\d") to 4,
+    listOf( // 4
+        Regex("/") to 5,
+    ),
+    listOf( // 5
+        Regex("\\d") to 7,
+        Regex("\\*") to 6,
+    ),
+    listOf( // 6
         Regex(",") to 0,
     ),
-    listOf(
-        Regex("s") to 6, // end of ms
+    listOf( // 7
+        Regex("\\d") to 7,
+        Regex(",") to 0,
+    ),
+    listOf( // 8
+        Regex("s") to 9, // end of ms
     ),
     listOf(), // empty state, end of parsing
 )
