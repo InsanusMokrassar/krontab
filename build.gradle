@@ -62,6 +62,11 @@ kotlin {
     linuxX64()
     mingwX64()
     linuxArm64()
+    wasm {
+        browser()
+        nodejs()
+        d8()
+    }
 
 
     sourceSets {
@@ -85,6 +90,7 @@ kotlin {
             dependencies {
                 implementation kotlin('test-common')
                 implementation kotlin('test-annotations-common')
+                implementation kotlin('test')
                 implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
             }
         }
