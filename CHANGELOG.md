@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.7.0
+
 ## 2.6.1
 
 * Fixes in parsing of string parts
