@@ -2,6 +2,10 @@
 
 ## 2.7.0
 
+* `Version`:
+  * `Kotlin`: `2.1.0`
+  * `Coroutines`: `1.10.1`
+
 ## 2.6.1
 
 * Fixes in parsing of string parts
