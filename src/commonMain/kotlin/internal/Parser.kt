@@ -43,7 +43,9 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
  * 1.
  *     * "\\d" -> 2
  *     * "\\*" -> 4
+ *     * "F" -> 7
  *     * "f" -> 7
+ *     * "L" -> 7
  *     * "l" -> 7
  *     * "/" -> 6
  * 2.
@@ -55,6 +57,7 @@ private fun <T> createSimpleScheduler(from: String, dataRange: IntRange, dataCon
  *     * "o" -> 10
  *     * "w" -> 10
  * 3.
+ *     * "L" -> 7
  *     * "l" -> 7
  *     * "\\d" -> 8
  * 4.
@@ -78,8 +81,8 @@ private val checkIncomingPartTransitionsMap = listOf(
     listOf( // 0
         Regex("\\d") to 1,
         Regex("\\*") to 3,
-        Regex("f") to 6,
-        Regex("l") to 6,
+        Regex("[Ff]") to 6,
+        Regex("[Ll]") to 6,
         Regex("/") to 5,
     ),
     listOf( // 1
@@ -92,7 +95,7 @@ private val checkIncomingPartTransitionsMap = listOf(
         Regex("w") to 9,
     ),
     listOf( // 2
-        Regex("l") to 6,
+        Regex("[Ll]") to 6,
         Regex("\\d") to 7,
     ),
     listOf( // 3

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.7.1
+
+* Fixes in parser and checker
+
 ## 2.7.0
 
 * `Version`:
