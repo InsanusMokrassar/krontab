@@ -81,10 +81,8 @@ private val checkIncomingPartTransitionsMap = listOf(
     listOf( // 0
         Regex("\\d") to 1,
         Regex("\\*") to 3,
-        Regex("F") to 6,
-        Regex("f") to 6,
-        Regex("L") to 6,
-        Regex("l") to 6,
+        Regex("[Ff]") to 6,
+        Regex("[Ll]") to 6,
         Regex("/") to 5,
     ),
     listOf( // 1
@@ -97,8 +95,7 @@ private val checkIncomingPartTransitionsMap = listOf(
         Regex("w") to 9,
     ),
     listOf( // 2
-        Regex("L") to 6,
-        Regex("l") to 6,
+        Regex("[Ll]") to 6,
         Regex("\\d") to 7,
     ),
     listOf( // 3
