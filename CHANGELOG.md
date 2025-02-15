@@ -6,6 +6,10 @@
   * `Kotlin`: `2.1.10`
   * `Serialization`: `1.8.0`
 
+## 2.7.1
+
+* Fixes in parser and checker
+
 ## 2.7.0
 
 * `Version`:
