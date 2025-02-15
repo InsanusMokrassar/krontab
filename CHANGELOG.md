@@ -2,9 +2,9 @@
 
 ## 2.7.2
 
-## 2.7.1
-
-* Fixes in parser and checker
+* `Version`:
+  * `Kotlin`: `2.1.10`
+  * `Serialization`: `1.8.0`
 
 ## 2.7.0
 
