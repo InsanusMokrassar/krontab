@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.2
+
+* `Version`:
+  * `Kotlin`: `2.1.10`
+  * `Serialization`: `1.8.0`
+
 ## 2.7.1
 
 * Fixes in parser and checker
