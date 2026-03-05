@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.8.0
+
+* `Version`:
+  * `Kotlin`: `2.3.10`
+  * `Coroutines`: `1.10.2`
+  * `Serialization`: `1.10.0`
+  * `AndroidXWork`: `2.11.1`
+  * `Android` (compileSdk): `36`
+
 ## 2.7.2
 
 * `Version`:
