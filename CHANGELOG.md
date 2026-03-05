@@ -3,11 +3,11 @@
 ## 2.8.0
 
 * `Version`:
+  * `Kotlin`: `2.3.10`
   * `Coroutines`: `1.10.2`
-  * `Serialization`: `1.8.1`
-  * `Dokka`: `2.1.0`
+  * `Serialization`: `1.10.0`
   * `AndroidXWork`: `2.11.1`
-  * `AGP`: `8.10.1`
+  * `Android` (compileSdk): `36`
 
 ## 2.7.2
 
