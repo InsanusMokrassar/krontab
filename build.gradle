@@ -56,8 +56,11 @@ kotlin {
         browser()
         nodejs()
     }
-    android {
-        publishAllLibraryVariants()
+    androidTarget {
+        publishLibraryVariants(
+                "release",
+                "debug",
+        )
     }
     linuxX64()
     mingwX64()
