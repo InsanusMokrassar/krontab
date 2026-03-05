@@ -19,6 +19,7 @@ plugins {
     id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
     id "org.jetbrains.kotlin.plugin.serialization" version "$kotlin_version"
     id "org.jetbrains.dokka" version "$dokka_version"
+    id "com.gradleup.nmcp.aggregation" version "$nmcp_version"
 }
 
 // temporal crutch until legacy tests will be stabled or legacy target will be removed
@@ -39,6 +40,20 @@ project.group = "dev.inmo"
 
 apply from: "publish.gradle"
 apply from: "github_release.gradle"
+
+
+if ((project.hasProperty('SONATYPE_USER') || System.getenv('SONATYPE_USER') != null) && (project.hasProperty('SONATYPE_PASSWORD') || System.getenv('SONATYPE_PASSWORD') != null)) {
+    nmcpAggregation {
+        centralPortal {
+            username = project.hasProperty('SONATYPE_USER') ? project.property('SONATYPE_USER') : System.getenv('SONATYPE_USER')
+            password = project.hasProperty('SONATYPE_PASSWORD') ? project.property('SONATYPE_PASSWORD') : System.getenv('SONATYPE_PASSWORD')
+            validationTimeout = Duration.ofHours(4)
+            publishingType = System.getenv('PUBLISHING_TYPE') != "" ? System.getenv('PUBLISHING_TYPE') : "USER_MANAGED"
+        }
+
+        publishAllProjectsProbablyBreakingProjectIsolation()
+    }
+}
 
 repositories {
     mavenLocal()
