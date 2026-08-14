@@ -9,7 +9,8 @@
 ## 2.9.0
 
 * `Version`:
-  * `Kotlin`: `2.3.20`
+  * `Kotlin`: `2.3.21`
+  * `Coroutines`: `1.11.0`
   * `Serialization`: `1.11.0`
   * `Dokka`: `2.2.0`
   * `AndroidXWork`: `2.11.2`
