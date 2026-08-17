@@ -1,4 +1,4 @@
-dokkaHtml {
+dokka {
     String dokkaOutputDirectoryPath = null
     switch (true) {
         case project.hasProperty("DOKKA_PATH"):
@@ -32,7 +32,7 @@ dokkaHtml {
 
                 sourceLink {
                     localDirectory.set(file("./"))
-                    remoteUrl.set(new URL("https://github.com/InsanusMokrassar/krontab/blob/master/"))
+                    remoteUrl.set(new URI("https://github.com/InsanusMokrassar/krontab/blob/master/"))
                     remoteLineSuffix.set("#L")
                 }
             }
