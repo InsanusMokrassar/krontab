@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.10.0
+
+* `Version`:
+  * `Kotlin`: `2.3.21`
+  * `Coroutines`: `1.11.0`
+
 ## 2.9.0
 
 * `Version`:
