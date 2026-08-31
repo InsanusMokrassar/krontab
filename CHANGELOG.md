@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0
+
+* `Version`:
+  * `Kotlin`: `2.3.21` -> `2.4.10`
+  * `Gradle`: `9.3.0` -> `9.7.1`
+  * `Android Gradle Plugin`: `8.13.+` -> `9.3.2`
+  * `Android` (compileSdk): `36` -> `37`
+  * `Android Build Tools`: `36.0.0` -> `37.0.0`
+  * `NMCP`: `1.5.0` -> `1.6.1`
+
 ## 2.10.0
 
 * `Version`:
