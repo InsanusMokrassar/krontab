@@ -33,7 +33,7 @@ allprojects {
     }
 }
 
-apply plugin: "com.android.library"
+apply plugin: "com.android.kotlin.multiplatform.library"
 
 project.version = "$version"
 project.group = "dev.inmo"
@@ -71,11 +71,15 @@ kotlin {
         browser()
         nodejs()
     }
-    androidTarget {
-        publishLibraryVariants(
-                "release",
-                "debug",
+    android {
+        compileSdk = "$android_compileSdkVersion".toInteger()
+        buildToolsVersion = "$android_buildToolsVersion"
+        minSdk = "$android_minSdkVersion".toInteger()
+        namespace = "${project.group}.${project.name}"
+        compilerOptions.jvmTarget.set(
+                compilerOptions.jvmTarget.get().class.fromTarget("17")
         )
+        withHostTest {}
     }
     linuxX64()
     mingwX64()
@@ -122,7 +126,7 @@ kotlin {
                 implementation kotlin('test-js')
             }
         }
-        androidUnitTest {
+        androidHostTest {
             dependencies {
                 implementation kotlin('test-junit')
             }
@@ -131,39 +135,6 @@ kotlin {
 }
 
 apply plugin: 'com.getkeepsafe.dexcount'
-
-android {
-    compileSdk "$android_compileSdkVersion".toInteger()
-    buildToolsVersion = "$android_buildToolsVersion"
-    namespace "${group}.${project.name}"
-
-    defaultConfig {
-        minSdkVersion "$android_minSdkVersion".toInteger()
-        targetSdkVersion "$android_compileSdkVersion".toInteger()
-        versionCode "${android_code_version}".toInteger()
-        versionName "$version"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-        debug {
-            debuggable true
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test {
-            java.srcDir file("src/jvmTest")
-        }
-    }
-}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
