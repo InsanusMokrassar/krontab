@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.0
+
+* `Version`:
+  * `Kotlin`: `2.4.10` -> `2.4.20`
+
 ## 3.0.0
 
 * `Version`:
